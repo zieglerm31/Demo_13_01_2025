@@ -2,7 +2,7 @@
 function normalization_1(session : any, event : any, localParams: any ){
 
    let x : string;
-   x = event.initial.SIP.From.address.uri.user;  //972507000118
+   x = event.SIP.From.address.uri.user;  //972507000118 removed initial
    x.substring(3, 11);
    session.normalizedNumber=x;
 return true;
