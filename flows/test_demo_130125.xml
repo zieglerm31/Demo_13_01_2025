@@ -26,7 +26,7 @@
             isfinal="yes"
             id="3">
          <mxCell style="image;html=1;image=clipart/plain-stop.png" parent="1" vertex="1">
-            <mxGeometry x="-950" y="-480" width="80" height="80" as="geometry"/>
+            <mxGeometry x="-710" y="-410" width="80" height="80" as="geometry"/>
          </mxCell>
       </stop>
       <mxCell id="4" value="sip.callStart.*"
