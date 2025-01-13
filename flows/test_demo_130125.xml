@@ -118,7 +118,7 @@
             <mxGeometry x="-1030" y="-620" width="120" height="60" as="geometry"/>
          </mxCell>
       </http-client-request>
-      <mxCell id="17" value="*"
+      <mxCell id="17" value="http.*"
               style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.75;exitY=1;"
               parent="1"
               source="16"
