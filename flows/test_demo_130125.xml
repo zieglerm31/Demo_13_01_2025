@@ -91,10 +91,37 @@
          </mxCell>
       </typescript-library>
       <mxCell id="15"
-              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.75;exitY=1;entryX=0.5;entryY=0;"
+              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.75;exitY=1;"
               edge="1"
               parent="1"
               source="12"
+              target="16">
+         <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+               <mxPoint x="-1000" y="-690"/>
+               <mxPoint x="-1110" y="-690"/>
+            </Array>
+         </mxGeometry>
+      </mxCell>
+      <http-client-request action="io.qsrlabs.nexus.redis.http.gui.RequestHandler" label="Http client"
+                           queue="poc_HttpCl_ingress"
+                           queue-db="queue-db"
+                           url="https://new.019sms.co.il/api"
+                           timeout-ms="60"
+                           request-method="post"
+                           auth-label=""
+                           mtls-label=""
+                           body="spel:#session.xml"
+                           id="16">
+         <mxCell style="image;html=1;image=clipart/http-request.png" vertex="1" parent="1">
+            <mxGeometry x="-1030" y="-640" width="120" height="60" as="geometry"/>
+         </mxCell>
+      </http-client-request>
+      <mxCell id="17"
+              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.75;exitY=1;"
+              edge="1"
+              parent="1"
+              source="16"
               target="3">
          <mxGeometry relative="1" as="geometry"/>
       </mxCell>
