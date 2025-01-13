@@ -8,6 +8,7 @@ try {
    let fromURI : string;
    session.s_initialSIP_lib = event;
    fromURI = event.SIP.From.address.uri.user;  //972507000118
+   log.debug("Log From-1: {}", fromURI);
    session.normalizedNumber = fromURI.substring(3, 11);
    //session.normalizedNumber = fromURI;
 
@@ -16,6 +17,7 @@ try {
 } catch (e) {
 
    log.debug("Log: {}", e);
+   log.debug("Log From-2: {}", session.normalizedNumber);
    return "error";
 }
 
