@@ -46,7 +46,7 @@
       </mxCell>
       <event-generator-handler action="io.qsrlabs.nexus.middleware.scxml.handlers.EvaluateParamsAndGenerateEvent"
                                label="check if called begins with 3000"
-                               evt.3000uri="spel:#initial[&#34;SIP&#34;][&#34;R-URI&#34;][&#34;address&#34;][&#34;uri&#34;][&#34;user&#34;].StartsWith(&#34;3000&#34;)"
+                               evt.3000uri="spel:#initial[&#34;SIP&#34;][&#34;R-URI&#34;][&#34;address&#34;][&#34;uri&#34;][&#34;user&#34;].startsWith(&#34;3000&#34;)"
                                id="5">
          <mxCell style="image;html=1;image=clipart/check-list.png" parent="1" vertex="1">
             <mxGeometry x="-1410" y="-1020" width="120" height="60" as="geometry"/>
