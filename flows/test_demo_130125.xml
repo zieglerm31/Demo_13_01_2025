@@ -144,7 +144,7 @@
          <mxGeometry relative="1" as="geometry"/>
       </mxCell>
       <stop action="com.eitg.quasar.nexus.middleware.scxml.handlers.StopHandler"
-            label="Stop"
+            label="Stop Other Events"
             isfinal="yes"
             id="20">
          <mxCell style="image;html=1;image=clipart/plain-stop.png" vertex="1" parent="1">
@@ -158,6 +158,12 @@
               source="2"
               target="20">
          <mxGeometry relative="1" as="geometry"/>
+      </mxCell>
+      <mxCell id="23" value="Added transition for SIP Invite"
+              style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;fillColor=#FFFFCC;"
+              vertex="1"
+              parent="1">
+         <mxGeometry x="-1240" y="-1160" width="420" height="70" as="geometry"/>
       </mxCell>
    </root>
 </mxGraphModel>
