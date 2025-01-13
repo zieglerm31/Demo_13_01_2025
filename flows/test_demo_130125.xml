@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<mxGraphModel dx="2620" dy="1974" grid="1" gridSize="10" guides="1" tooltips="1" connect="1"
+<mxGraphModel dx="3184" dy="1972" grid="1" gridSize="10" guides="1" tooltips="1" connect="1"
               fold="1"
               page="1"
               pageScale="1"
@@ -30,10 +30,10 @@
          </mxCell>
       </stop>
       <mxCell id="4" value="sip.callStart.*"
-              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=1;exitY=0.5;entryX=1;entryY=0.5;"
+              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=1;exitY=0.5;entryX=0.5;entryY=0;"
               parent="1"
               source="2"
-              target="5"
+              target="24"
               edge="1">
          <mxGeometry relative="1" as="geometry">
             <mxPoint x="-1440" y="-1060" as="sourcePoint"/>
@@ -41,6 +41,7 @@
             <Array as="points">
                <mxPoint x="-910" y="-1060"/>
                <mxPoint x="-910" y="-990"/>
+               <mxPoint x="-1000" y="-990"/>
             </Array>
          </mxGeometry>
       </mxCell>
@@ -164,6 +165,23 @@
               vertex="1"
               parent="1">
          <mxGeometry x="-1240" y="-1160" width="420" height="70" as="geometry"/>
+      </mxCell>
+      <session-store action="io.qsrlabs.nexus.middleware.scxml.handlers.SessionVar"
+                     label="Store variable"
+                     name=""
+                     s_initialSIP="spel:#event"
+                     id="24">
+         <mxCell style="image;html=1;image=clipart/variable.png" vertex="1" parent="1">
+            <mxGeometry x="-1060" y="-941" width="120" height="60" as="geometry"/>
+         </mxCell>
+      </session-store>
+      <mxCell id="26"
+              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0;exitY=0.5;entryX=1;entryY=0.5;"
+              edge="1"
+              parent="1"
+              source="24"
+              target="5">
+         <mxGeometry relative="1" as="geometry"/>
       </mxCell>
    </root>
 </mxGraphModel>
