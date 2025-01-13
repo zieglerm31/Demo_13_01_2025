@@ -53,12 +53,17 @@
          </mxCell>
       </event-generator-handler>
       <mxCell id="6" value="3000uri"
-              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;"
+              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;"
               edge="1"
               parent="1"
               source="5"
-              target="3">
-         <mxGeometry relative="1" as="geometry"/>
+              target="12">
+         <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+               <mxPoint x="-1350" y="-805"/>
+               <mxPoint x="-1370" y="-805"/>
+            </Array>
+         </mxGeometry>
       </mxCell>
       <stop action="com.eitg.quasar.nexus.middleware.scxml.handlers.StopHandler"
             label="stop else&#xA;"
@@ -74,6 +79,23 @@
               parent="1"
               source="5"
               target="10">
+         <mxGeometry relative="1" as="geometry"/>
+      </mxCell>
+      <typescript-library action="io.qsrlabs.nexus.middleware.scxml.handlers.TypeScriptLibrary#fixed"
+                          label="Code library - static"
+                          library="Demo_13_01_2025:normalization"
+                          function="normalization_1"
+                          id="12">
+         <mxCell style="image;html=1;image=clipart/script.png" vertex="1" parent="1">
+            <mxGeometry x="-1090" y="-800" width="120" height="60" as="geometry"/>
+         </mxCell>
+      </typescript-library>
+      <mxCell id="15"
+              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.75;exitY=1;entryX=0.5;entryY=0;"
+              edge="1"
+              parent="1"
+              source="12"
+              target="3">
          <mxGeometry relative="1" as="geometry"/>
       </mxCell>
    </root>
