@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<mxGraphModel dx="3086" dy="1953" grid="1" gridSize="10" guides="1" tooltips="1" connect="1"
+<mxGraphModel dx="2620" dy="1974" grid="1" gridSize="10" guides="1" tooltips="1" connect="1"
               fold="1"
               page="1"
               pageScale="1"
@@ -29,7 +29,7 @@
             <mxGeometry x="-950" y="-480" width="80" height="80" as="geometry"/>
          </mxCell>
       </stop>
-      <mxCell id="4"
+      <mxCell id="4" value="sip.callStart.*"
               style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=1;exitY=0.5;entryX=1;entryY=0.5;"
               parent="1"
               source="2"
@@ -131,16 +131,32 @@
                           library="Demo_13_01_2025:normalization"
                           function="createXML"
                           id="18">
-         <mxCell style="image;html=1;image=clipart/script.png" vertex="1" parent="1">
+         <mxCell style="image;html=1;image=clipart/script.png" parent="1" vertex="1">
             <mxGeometry x="-1260" y="-640" width="120" height="60" as="geometry"/>
          </mxCell>
       </typescript-library>
       <mxCell id="19"
               style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;"
-              edge="1"
               parent="1"
               source="18"
-              target="16">
+              target="16"
+              edge="1">
+         <mxGeometry relative="1" as="geometry"/>
+      </mxCell>
+      <stop action="com.eitg.quasar.nexus.middleware.scxml.handlers.StopHandler"
+            label="Stop"
+            isfinal="yes"
+            id="20">
+         <mxCell style="image;html=1;image=clipart/plain-stop.png" vertex="1" parent="1">
+            <mxGeometry x="-1610" y="-941.111083984375" width="80" height="80" as="geometry"/>
+         </mxCell>
+      </stop>
+      <mxCell id="21" value="*"
+              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0;exitY=0.5;entryX=0.5;entryY=0;"
+              edge="1"
+              parent="1"
+              source="2"
+              target="20">
          <mxGeometry relative="1" as="geometry"/>
       </mxCell>
    </root>
