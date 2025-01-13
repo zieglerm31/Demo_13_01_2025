@@ -83,7 +83,7 @@
          <mxGeometry relative="1" as="geometry"/>
       </mxCell>
       <typescript-library action="io.qsrlabs.nexus.middleware.scxml.handlers.TypeScriptLibrary#fixed"
-                          label="Code library - static"
+                          label="function normalization_1"
                           library="Demo_13_01_2025:normalization"
                           function="normalization_1"
                           id="12">
@@ -91,7 +91,7 @@
             <mxGeometry x="-1090" y="-800" width="120" height="60" as="geometry"/>
          </mxCell>
       </typescript-library>
-      <mxCell id="15"
+      <mxCell id="15" value="success"
               style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.75;exitY=1;entryX=0.5;entryY=0;"
               parent="1"
               source="12"
@@ -100,8 +100,7 @@
          <mxGeometry relative="1" as="geometry">
             <Array as="points">
                <mxPoint x="-1000" y="-690"/>
-               <mxPoint x="-1110" y="-690"/>
-               <mxPoint x="-1110" y="-640"/>
+               <mxPoint x="-1200" y="-690"/>
             </Array>
          </mxGeometry>
       </mxCell>
@@ -109,11 +108,11 @@
                            queue="poc_HttpCl_ingress"
                            queue-db="queue-db"
                            url="https://new.019sms.co.il/api"
-                           timeout-ms="60"
+                           timeout-ms="500"
                            request-method="post"
                            auth-label=""
                            mtls-label=""
-                           body="spel:#session.xml"
+                           body="spel:#session[&#34;s_xml&#34;]"
                            id="16">
          <mxCell style="image;html=1;image=clipart/http-request.png" parent="1" vertex="1">
             <mxGeometry x="-1030" y="-620" width="120" height="60" as="geometry"/>
@@ -128,7 +127,7 @@
          <mxGeometry relative="1" as="geometry"/>
       </mxCell>
       <typescript-library action="io.qsrlabs.nexus.middleware.scxml.handlers.TypeScriptLibrary#fixed"
-                          label="Code library - static"
+                          label="create XML"
                           library="Demo_13_01_2025:normalization"
                           function="createXML"
                           id="18">
@@ -188,6 +187,22 @@
               vertex="1"
               parent="1">
          <mxGeometry x="-950" y="-951" width="420" height="70" as="geometry"/>
+      </mxCell>
+      <stop action="com.eitg.quasar.nexus.middleware.scxml.handlers.StopHandler"
+            label="Stop failure"
+            isfinal="yes"
+            id="29">
+         <mxCell style="image;html=1;image=clipart/plain-stop.png" vertex="1" parent="1">
+            <mxGeometry x="-720" y="-810.111083984375" width="80" height="80" as="geometry"/>
+         </mxCell>
+      </stop>
+      <mxCell id="30" value="*"
+              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;"
+              edge="1"
+              parent="1"
+              source="12"
+              target="29">
+         <mxGeometry relative="1" as="geometry"/>
       </mxCell>
    </root>
 </mxGraphModel>
