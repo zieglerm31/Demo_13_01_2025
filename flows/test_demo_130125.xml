@@ -111,6 +111,7 @@
                            timeout-ms="500"
                            request-method="post"
                            body="spel:#session[&#34;s_xml&#34;]"
+                           header.Content-Type="application/xml"
                            id="16">
          <mxCell style="image;html=1;image=clipart/http-request.png" parent="1" vertex="1">
             <mxGeometry x="-1030" y="-620" width="120" height="60" as="geometry"/>
