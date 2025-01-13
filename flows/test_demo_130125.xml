@@ -118,7 +118,7 @@
             <mxGeometry x="-1030" y="-620" width="120" height="60" as="geometry"/>
          </mxCell>
       </http-client-request>
-      <mxCell id="17"
+      <mxCell id="17" value="*"
               style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.75;exitY=1;"
               parent="1"
               source="16"
@@ -135,7 +135,7 @@
             <mxGeometry x="-1260" y="-640" width="120" height="60" as="geometry"/>
          </mxCell>
       </typescript-library>
-      <mxCell id="19"
+      <mxCell id="19" value="success"
               style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;"
               parent="1"
               source="18"
