@@ -91,15 +91,16 @@
          </mxCell>
       </typescript-library>
       <mxCell id="15"
-              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.75;exitY=1;"
+              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.75;exitY=1;entryX=0.5;entryY=0;"
               parent="1"
               source="12"
-              target="16"
+              target="18"
               edge="1">
          <mxGeometry relative="1" as="geometry">
             <Array as="points">
                <mxPoint x="-1000" y="-690"/>
                <mxPoint x="-1110" y="-690"/>
+               <mxPoint x="-1110" y="-640"/>
             </Array>
          </mxGeometry>
       </mxCell>
@@ -114,7 +115,7 @@
                            body="spel:#session.xml"
                            id="16">
          <mxCell style="image;html=1;image=clipart/http-request.png" parent="1" vertex="1">
-            <mxGeometry x="-1030" y="-640" width="120" height="60" as="geometry"/>
+            <mxGeometry x="-1030" y="-620" width="120" height="60" as="geometry"/>
          </mxCell>
       </http-client-request>
       <mxCell id="17"
@@ -123,6 +124,23 @@
               source="16"
               target="3"
               edge="1">
+         <mxGeometry relative="1" as="geometry"/>
+      </mxCell>
+      <typescript-library action="io.qsrlabs.nexus.middleware.scxml.handlers.TypeScriptLibrary#fixed"
+                          label="Code library - static"
+                          library="Demo_13_01_2025:normalization"
+                          function="createXML"
+                          id="18">
+         <mxCell style="image;html=1;image=clipart/script.png" vertex="1" parent="1">
+            <mxGeometry x="-1260" y="-640" width="120" height="60" as="geometry"/>
+         </mxCell>
+      </typescript-library>
+      <mxCell id="19"
+              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;"
+              edge="1"
+              parent="1"
+              source="18"
+              target="16">
          <mxGeometry relative="1" as="geometry"/>
       </mxCell>
    </root>
