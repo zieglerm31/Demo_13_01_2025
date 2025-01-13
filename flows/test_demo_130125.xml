@@ -26,7 +26,7 @@
             isfinal="yes"
             id="3">
          <mxCell style="image;html=1;image=clipart/plain-stop.png" parent="1" vertex="1">
-            <mxGeometry x="-710" y="-410" width="80" height="80" as="geometry"/>
+            <mxGeometry x="-871" y="-250" width="80" height="80" as="geometry"/>
          </mxCell>
       </stop>
       <mxCell id="4" value="sip.callStart.*"
@@ -118,12 +118,17 @@
          </mxCell>
       </http-client-request>
       <mxCell id="17" value="http.*"
-              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.75;exitY=1;"
+              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.75;exitY=1;entryX=0.5;entryY=0;"
               parent="1"
               source="16"
-              target="3"
+              target="31"
               edge="1">
-         <mxGeometry relative="1" as="geometry"/>
+         <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+               <mxPoint x="-940" y="-495"/>
+               <mxPoint x="-830" y="-495"/>
+            </Array>
+         </mxGeometry>
       </mxCell>
       <typescript-library action="io.qsrlabs.nexus.middleware.scxml.handlers.TypeScriptLibrary#fixed"
                           label="create XML"
@@ -200,6 +205,46 @@
               edge="1"
               parent="1"
               source="12"
+              target="29">
+         <mxGeometry relative="1" as="geometry"/>
+      </mxCell>
+      <undefined action="com.eitg.quasar.nexus.siphandlers.ScxmlLeaveCall" label="Leave call"
+                 name=""
+                 destination="spel:#session[&#34;s_initialSIP_lib&#34;][&#34;SIP&#34;][&#34;R-URI&#34;]"
+                 leaveType="proxy"
+                 message="spel:#session[&#34;s_initialSIP_lib&#34;]"
+                 id="31">
+         <mxCell style="rectangle;shape=ext;rounded=1;html=1;whiteSpace=wrap;double=1;"
+                 vertex="1"
+                 parent="1">
+            <mxGeometry x="-890" y="-430" width="120" height="60" as="geometry"/>
+         </mxCell>
+      </undefined>
+      <mxCell id="32" value="sip.callEnd"
+              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;"
+              edge="1"
+              parent="1"
+              source="31"
+              target="3">
+         <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+               <mxPoint x="-832" y="-310"/>
+            </Array>
+         </mxGeometry>
+      </mxCell>
+      <mxCell id="33" value="*"
+              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=1;exitY=0.5;"
+              edge="1"
+              parent="1"
+              source="31"
+              target="29">
+         <mxGeometry relative="1" as="geometry"/>
+      </mxCell>
+      <mxCell id="34" value="*"
+              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.75;"
+              edge="1"
+              parent="1"
+              source="16"
               target="29">
          <mxGeometry relative="1" as="geometry"/>
       </mxCell>
