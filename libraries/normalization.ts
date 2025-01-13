@@ -1,6 +1,8 @@
 
 function normalization_1(session : any, event : any, localParams: any ){
 
+let log = session.log;
+
 try {
 
    let fromURI : string;
@@ -9,12 +11,12 @@ try {
    session.normalizedNumber = fromURI.substring(3, 11);
    //session.normalizedNumber = fromURI;
 
-   return true;
+   return "success";
 
-}
-catch (e) {
+} catch (e) {
 
-   return false;
+   log.debug("Log: {}", e);
+   return "error";
 }
 
 
