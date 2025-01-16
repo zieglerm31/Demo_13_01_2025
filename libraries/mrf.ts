@@ -1,6 +1,33 @@
 
 //DEPS:mrfinterfaces:LATEST
 
+/*
+//config is "mrf_announcements"
+{
+  "annoTest": {
+    "maxtime": 1500,
+    "path": "file:///tmp/annos/",
+    "variable": "",
+    "barge": 1,
+    "prompt": "testAnno.wav",
+    "dtmf": {
+      "cleardb": 1,
+      "idt": 1,
+      "fdt": 1,
+      "min": 1,
+      "max": 1,
+      "rtf": "*",
+      "cancel": "#"
+    },
+    "annid": "annoPromptCollect",
+    "interval": 100,
+    "iterate": 1,
+    "cleardb": 1
+  },
+}
+
+*/
+
 function inputvalidation(session : any, event : any, localParams: any ){
     let log = session.log;
 
@@ -18,6 +45,14 @@ function inputvalidation(session : any, event : any, localParams: any ){
             }
         } else {
             return "error.input.sipinvitemissing";
+        }
+
+        //announcement string
+        if ( event["announcement"] != null ) {
+            log.debug("announcement: {}", event["announcement"]);
+                session["mrf"]["announcement"] = event["announcement"];           
+        } else {
+            return "error.input.actionmissing";
         }
 
         //promptandcollect, playannouncement
@@ -90,18 +125,33 @@ function handle200OKINVITE(session:any,event:OCCPSIP.OCCPEvent,localParams:any) 
     }
 }
 
-function handle200OKINFO(session : any, event : any, localParams: any ){
+function handle200OKINFO(session:any,event:OCCPSIP.Event,localParams:LocalParameters): any{
     let log = session.log;
 
-    try {
-        let ret: any = {"dummy":1,"event-name":"dummy","event-type":"dummy","session":session["fsm-id"]};
+    try {        
+        session["mrf"]["time200OKINFO"]  = Math.floor(new Date()/1000);
         session["mrf"]["callstate"]  = "MRFCONNECTED";
-        return ret;
+        if (event.SIP.content.json.msml.event.name[2]!=null) {
+            if (event.SIP.content.json.msml.event.name[2]=="dtmf.digits") {
+                log.debug("Got DTMF digits;");
+                if (event.SIP.content.json.msml.event.value[1]!=null) {
+                    session["mrf"]["dtmfdigit"]=event.SIP.content.json.msml.event.value[1];                
+                } else {
+                    session["mrf"]["dtmfdigit"]="0";
+                }
+            } else {
+                log.debug("No DTMF digits;");
+            }
+        }
     } catch (e) {
         log.debug("Log: {}", e);
         return "error.exception";
     }
+    return session["mrf"]["dtmfdigit"];
 }
+
+
+
 
 function callAnswered(session : any, event : any, localParams: any ){
     let log = session.log;
