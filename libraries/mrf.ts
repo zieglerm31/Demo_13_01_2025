@@ -150,9 +150,6 @@ function handle200OKINFO(session:any,event:OCCPSIP.Event,localParams:LocalParame
     return session["mrf"]["dtmfdigit"];
 }
 
-
-
-
 function callAnswered(session : any, event : any, localParams: any ){
     let log = session.log;
 
@@ -166,6 +163,26 @@ function callAnswered(session : any, event : any, localParams: any ){
     }
 }
 
+function checkDisconnectReason(session : any, event : any, localParams: any ){
+    let log = session.log;
 
+    try {  
+        session["mrf"]["callstate"]  = "ConnectError";
+        session["mrf"]["connecterrortime"]  = Math.floor(new Date()/1000);        
+        let eventsStack=event['events-stack'];
+        if( eventsStack!=null && eventsStack.size()>0 ){
+            for(var i=eventsStack.size()-1;i>=0;i--){
+                if( eventsStack.get(i).equals("leg.timeout") && i>=(eventsStack.size()-2)){
+                    session.loginfo = session.loginfo+"TIMEOUT;"; 
+                    return "error.mrf.connect.timeout";               
+                }
+            }
+        }
+    } catch (e) {
+        log.debug("Log: {}", e);
+        return "error.mrf.connect.exception";
+    }        
+    return "error.mrf.connect.others";
+}
 
 
