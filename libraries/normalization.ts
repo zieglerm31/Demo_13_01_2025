@@ -43,15 +43,16 @@ function extractAndcompare(session : any, event : any, localParams: any ){
 
    if (x.substring(0,5) =="42501")
    {
-      return "1";
+      session.w="1";
    }
    else if (x.substring(0,5) =="42503")
    {
-      return "2";
+      session.w="2";
    }
    else{
-      return "3";
+      session.w="3";
    }
+    return session.w;
 }
 
 
