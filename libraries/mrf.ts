@@ -4,6 +4,21 @@ function inputvalidation(session : any, event : any, localParams: any ){
     let log = session.log;
 
     try {
+
+        //sip invite is in #session["s_SIPInvite"]
+        if ( session["s_SIPInvite"] != null ) {
+            if( session["s_SIPInvite"]["event-type"]!==null && (session["s_SIPInvite"]["event-type"]==="sip" || session["s_SIPInvite"]["event-type"]==="occp")) {
+                if( session["s_SIPInvite"]["event-name"]!==null && session["s_SIPInvite"]["event-name"] === "sip.callStart.NONE")
+                    log.debug("got sip invite");
+                else
+                    return "error.input.sipinviteincorrecteventname";
+            } else {
+                return "error.input.sipinviteincorrecteventtype";
+            }
+        } else {
+            return "error.input.sipinvitemissing";
+        }
+        
         //promptandcollect, playannouncement
         if ( (event["action"] != null) && ((event["action"]==="promptandcollect") || (event["action"]==="playannouncement")) ) {
             log.debug("action: {}", event["action"]);
