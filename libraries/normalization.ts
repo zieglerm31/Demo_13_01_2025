@@ -44,10 +44,12 @@ function extractAndcompare(session : any, event : any, localParams: any ){
    if (x.substring(0,5) =="42501")
    {
       session.w="1";
+      session.ann_name="P3001";
    }
    else if (x.substring(0,5) =="42503")
    {
       session.w="2";
+      session.ann_name="P3002";
    }
    else{
       session.w="3";
