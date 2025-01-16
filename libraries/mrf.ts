@@ -1,4 +1,5 @@
 
+//DEPS:mrfinterfaces:LATEST
 
 function inputvalidation(session : any, event : any, localParams: any ){
     let log = session.log;
@@ -53,6 +54,42 @@ function inputvalidation(session : any, event : any, localParams: any ){
     }
 }
 
+function handle200OKINVITE(session:any,event:OCCPSIP.OCCPEvent,localParams:any) {
+    let log = session.log;
+
+    try {
+        //the received event is now in localParams
+        let eventData = localParams.message;
+        //session.events = null;
+        session["mrf"]["headerrulevar=null"];
+        session["mrf"]["headerrulesselect"] = null;
+        session["mrf"]["ringingtones"] = null;
+
+        let pollAction : CallPollAction;
+        pollAction = pollAction || {};
+        pollAction.type = CallPollActionType.Accept;
+        session["mrf"]["sendAction"] = JSON.stringify(pollAction);
+
+        session["mrf"]["time200OKINVITE"]  = Math.floor(new Date()/1000);
+
+        //save to tag
+        let to : To = eventData.SIP.To;
+        if( to!=null) {
+            log.debug("received from MRF to tag:{}",to);
+            session["mrf"]["callstate"]  = "MRFCONNECTED200OK";
+            session["mrf"]["downStreamToTag"]=to.tag;
+            return "success";
+        } else {
+            log.debug("received from MRF no to tag:{}",to);
+            return "error.nototag";
+        }
+        
+    } catch (e) {
+        log.debug("Log: {}", e);
+        return "error.exception";
+    }
+}
+
 function handle200OKINFO(session : any, event : any, localParams: any ){
     let log = session.log;
 
@@ -78,3 +115,7 @@ function callAnswered(session : any, event : any, localParams: any ){
         return "error.exception";
     }
 }
+
+
+
+
