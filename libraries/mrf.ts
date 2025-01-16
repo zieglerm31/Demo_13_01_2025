@@ -65,3 +65,16 @@ function handle200OKINFO(session : any, event : any, localParams: any ){
         return "error.exception";
     }
 }
+
+function callAnswered(session : any, event : any, localParams: any ){
+    let log = session.log;
+
+    try {        
+        session["mrf"]["callstate"]  = "ANSWERED";
+        session["mrf"]["answertime"]  = Math.floor(new Date()/1000);
+        return "success";
+    } catch (e) {
+        log.debug("Log: {}", e);
+        return "error.exception";
+    }
+}
