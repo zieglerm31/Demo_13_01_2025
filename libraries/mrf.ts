@@ -185,4 +185,17 @@ function checkDisconnectReason(session : any, event : any, localParams: any ){
     return "error.mrf.connect.others";
 }
 
+function setrelease(session : any, event : any, localParams: any ){
+    let log = session.log;
+
+    try {  
+        session["mrf"]["callstate"]  = "Released";
+        session["mrf"]["releasetime"]  = Math.floor(new Date()/1000);        
+        return "success";
+    } catch (e) {
+        log.debug("Log: {}", e);
+        return "error.release";
+    }        
+}
+
 
