@@ -18,7 +18,7 @@ function inputvalidation(session : any, event : any, localParams: any ){
         } else {
             return "error.input.sipinvitemissing";
         }
-        
+
         //promptandcollect, playannouncement
         if ( (event["action"] != null) && ((event["action"]==="promptandcollect") || (event["action"]==="playannouncement")) ) {
             log.debug("action: {}", event["action"]);
@@ -53,4 +53,15 @@ function inputvalidation(session : any, event : any, localParams: any ){
     }
 }
 
+function handle200OKINFO(session : any, event : any, localParams: any ){
+    let log = session.log;
 
+    try {
+        let ret: any = {"dummy":1,"event-name":"dummy","event-type":"dummy","session":session["fsm-id"]};
+        session["mrf"]["callstate"]  = "MRFCONNECTED";
+        return ret;
+    } catch (e) {
+        log.debug("Log: {}", e);
+        return "error.exception";
+    }
+}
