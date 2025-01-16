@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<mxGraphModel dx="3086" dy="1961" grid="1" gridSize="10" guides="1" tooltips="1" connect="1"
+<mxGraphModel dx="2702" dy="1745" grid="1" gridSize="10" guides="1" tooltips="1" connect="1"
               fold="1"
               page="1"
               pageScale="1"
@@ -78,9 +78,14 @@
               style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.25;exitY=1;"
               parent="1"
               source="5"
-              target="10"
+              target="37"
               edge="1">
-         <mxGeometry relative="1" as="geometry"/>
+         <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+               <mxPoint x="-1380" y="-880"/>
+               <mxPoint x="-1520" y="-880"/>
+            </Array>
+         </mxGeometry>
       </mxCell>
       <typescript-library action="io.qsrlabs.nexus.middleware.scxml.handlers.TypeScriptLibrary#fixed"
                           label="function normalization_1"
@@ -261,6 +266,44 @@
               edge="1"
               parent="1"
               source="16"
+              target="10">
+         <mxGeometry relative="1" as="geometry"/>
+      </mxCell>
+      <typescript-library action="io.qsrlabs.nexus.middleware.scxml.handlers.TypeScriptLibrary#fixed"
+                          label="function extractAndCompare"
+                          library="Demo_13_01_2025:normalization"
+                          function="extractAndCompare"
+                          id="37">
+         <mxCell style="image;html=1;image=clipart/script.png" vertex="1" parent="1">
+            <mxGeometry x="-1580" y="-800" width="120" height="60" as="geometry"/>
+         </mxCell>
+      </typescript-library>
+      <mxCell id="38" value="*"
+              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.25;entryY=0;"
+              edge="1"
+              parent="1"
+              source="37"
+              target="31">
+         <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+               <mxPoint x="-1520" y="-370"/>
+               <mxPoint x="-860" y="-370"/>
+            </Array>
+         </mxGeometry>
+      </mxCell>
+      <mxCell id="39" value="1"
+              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.75;exitY=1;"
+              edge="1"
+              parent="1"
+              source="37"
+              target="10">
+         <mxGeometry relative="1" as="geometry"/>
+      </mxCell>
+      <mxCell id="40" value="2"
+              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.375;entryY=-0.125;entryPerimeter=0;"
+              edge="1"
+              parent="1"
+              source="37"
               target="10">
          <mxGeometry relative="1" as="geometry"/>
       </mxCell>
