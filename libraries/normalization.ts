@@ -36,7 +36,7 @@ function createXML(session : any, event : any, localParams: any ){
 
 }
 
-function extractAndcompare(session : any, event : any, localParams: any ){
+function extractAndCompare(session : any, event : any, localParams: any ){
 
    let x : string;
    x= session.s_initialSIP_lib.SIP["P-Access-Network-Info"].cellId
@@ -56,5 +56,3 @@ function extractAndcompare(session : any, event : any, localParams: any ){
    }
     return session.w;
 }
-
-
