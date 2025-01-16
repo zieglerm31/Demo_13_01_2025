@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<mxGraphModel dx="1749" dy="859" grid="1" gridSize="10" guides="1" tooltips="1" connect="1"
+<mxGraphModel dx="1945" dy="1056" grid="1" gridSize="10" guides="1" tooltips="1" connect="1"
               fold="1"
               page="1"
               pageScale="1"
@@ -43,11 +43,11 @@
          </mxCell>
       </undefined>
       <mxCell id="6"
-              value="Input Parameters&#xA;earlydialog, type boolean&#xA;action, type string, values promptandcollect, playannouncement&#xA;announcement, type string&#xA;&#xA;session[&#34;s_SIPInvite&#34;]&#xA;&#xA;using libs: mrf, mrf....&#xA;using config: mrf_announcements"
+              value="Input Parameters&#xA;earlydialog, type boolean&#xA;action, type string, values promptandcollect, playannouncement&#xA;announcement, type string&#xA;&#xA;session[&#34;s_SIPInvite&#34;]&#xA;&#xA;using libs: mrf, mrf....&#xA;using config: mrf_announcements&#xA;&#xA;output&#xA;session[&#34;mrf&#34;] object&#xA;return values&#xA;- error.*"
               style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;fillColor=#FFFFCC;"
               vertex="1"
               parent="1">
-         <mxGeometry x="40" y="45" width="250" height="185" as="geometry"/>
+         <mxGeometry y="45" width="290" height="215" as="geometry"/>
       </mxCell>
       <typescript-library action="io.qsrlabs.nexus.middleware.scxml.handlers.TypeScriptLibrary#fixed"
                           label="lib.validate.input"
@@ -172,7 +172,7 @@
             isfinal="yes"
             id="22">
          <mxCell style="image;html=1;image=clipart/plain-stop.png" vertex="1" parent="1">
-            <mxGeometry x="680" y="490" width="80" height="80" as="geometry"/>
+            <mxGeometry x="770" y="490" width="80" height="80" as="geometry"/>
          </mxCell>
       </stop>
       <mxCell id="23" value="*"
@@ -180,11 +180,11 @@
               edge="1"
               parent="1"
               source="17"
-              target="22">
+              target="70">
          <mxGeometry relative="1" as="geometry">
             <Array as="points">
-               <mxPoint x="570" y="530"/>
-               <mxPoint x="570" y="530"/>
+               <mxPoint x="510" y="530"/>
+               <mxPoint x="510" y="530"/>
             </Array>
          </mxGeometry>
       </mxCell>
@@ -192,7 +192,7 @@
               style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;fillColor=#FFFFCC;"
               vertex="1"
               parent="1">
-         <mxGeometry x="780" y="490" width="90" height="70" as="geometry"/>
+         <mxGeometry x="780" y="415" width="90" height="70" as="geometry"/>
       </mxCell>
       <mxCell id="25" value="input is not correct"
               style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;fillColor=#FFFFCC;"
@@ -224,16 +224,20 @@
             isfinal="yes"
             id="28">
          <mxCell style="image;html=1;image=clipart/plain-stop.png" vertex="1" parent="1">
-            <mxGeometry x="690" y="690" width="80" height="80" as="geometry"/>
+            <mxGeometry x="770" y="1000" width="80" height="80" as="geometry"/>
          </mxCell>
       </stop>
       <mxCell id="29" value="error*"
-              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;"
+              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=1;exitY=0.5;entryX=0.5;entryY=0;"
               edge="1"
               parent="1"
               source="20"
               target="28">
-         <mxGeometry relative="1" as="geometry"/>
+         <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+               <mxPoint x="810" y="640"/>
+            </Array>
+         </mxGeometry>
       </mxCell>
       <mxCell id="30" value="send ACK to 200ok"
               style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;fillColor=#FFFFCC;"
@@ -295,12 +299,16 @@
          <mxGeometry relative="1" as="geometry"/>
       </mxCell>
       <mxCell id="38" value="error*"
-              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;"
+              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=1;exitY=0.5;entryX=0.25;entryY=0;"
               edge="1"
               parent="1"
               source="34"
               target="28">
-         <mxGeometry relative="1" as="geometry"/>
+         <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+               <mxPoint x="790" y="920"/>
+            </Array>
+         </mxGeometry>
       </mxCell>
       <mxCell id="39" value="sip.callEnd"
               style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0;exitY=0.75;entryX=0.5;entryY=0;"
@@ -425,8 +433,8 @@
               target="28">
          <mxGeometry relative="1" as="geometry">
             <Array as="points">
-               <mxPoint x="650" y="1040"/>
-               <mxPoint x="650" y="730"/>
+               <mxPoint x="710" y="1040"/>
+               <mxPoint x="710" y="1040"/>
             </Array>
          </mxGeometry>
       </mxCell>
@@ -466,7 +474,7 @@
                  reason.down.q850.text=""
                  reason.down.sip.cause=""
                  reason.down.sip.text=""
-                 message=""
+                 message="spel:#initial"
                  id="63">
          <mxCell style="rectangle;shape=ext;rounded=1;html=1;whiteSpace=wrap;double=1;"
                  vertex="1"
@@ -503,7 +511,7 @@
             isfinal="yes"
             id="67">
          <mxCell style="image;html=1;image=clipart/plain-stop.png" vertex="1" parent="1">
-            <mxGeometry x="360" y="1460" width="80" height="80" as="geometry"/>
+            <mxGeometry x="360" y="1710" width="80" height="80" as="geometry"/>
          </mxCell>
       </stop>
       <mxCell id="68"
@@ -519,6 +527,81 @@
               edge="1"
               parent="1"
               source="63"
+              target="74">
+         <mxGeometry relative="1" as="geometry">
+            <Array as="points"/>
+         </mxGeometry>
+      </mxCell>
+      <typescript-library action="io.qsrlabs.nexus.middleware.scxml.handlers.TypeScriptLibrary#fixed"
+                          label="lib.checkSIPresponse"
+                          library="Demo_13_01_2025:mrf"
+                          function="checkDisconnectReason"
+                          message="spel:#initial"
+                          id="70">
+         <mxCell style="image;html=1;image=clipart/script.png" vertex="1" parent="1">
+            <mxGeometry x="550" y="500" width="120" height="60" as="geometry"/>
+         </mxCell>
+      </typescript-library>
+      <mxCell id="71" value="error.mrf.timeou"
+              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=1;exitY=0.25;entryX=0;entryY=0.5;"
+              edge="1"
+              parent="1"
+              source="70"
+              target="22">
+         <mxGeometry x="-0.3043" relative="1" as="geometry">
+            <mxPoint as="offset"/>
+         </mxGeometry>
+      </mxCell>
+      <mxCell id="72" value="error.mrf.*"
+              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=1;exitY=0.75;entryX=0;entryY=0.5;"
+              edge="1"
+              parent="1"
+              source="70"
+              target="22">
+         <mxGeometry x="-0.4783" relative="1" as="geometry">
+            <mxPoint as="offset"/>
+         </mxGeometry>
+      </mxCell>
+      <counter action="com.eitg.quasar.nexus.middleware.scxml.handlers.CustomCounterHandler"
+               label="Statistic Success"
+               category="mrf"
+               type="release"
+               name="success"
+               id="73">
+         <mxCell style="image;html=1;image=clipart/statistics.png" vertex="1" parent="1">
+            <mxGeometry x="220" y="1600" width="120" height="60" as="geometry"/>
+         </mxCell>
+      </counter>
+      <typescript-library action="io.qsrlabs.nexus.middleware.scxml.handlers.TypeScriptLibrary#fixed"
+                          label="lib.setrelease"
+                          library="Demo_13_01_2025:mrf"
+                          function="handle200OKINFO"
+                          id="74">
+         <mxCell style="image;html=1;image=clipart/script.png" vertex="1" parent="1">
+            <mxGeometry x="340" y="1480" width="120" height="60" as="geometry"/>
+         </mxCell>
+      </typescript-library>
+      <mxCell id="75" value="success"
+              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;"
+              edge="1"
+              parent="1"
+              source="74"
+              target="73">
+         <mxGeometry relative="1" as="geometry"/>
+      </mxCell>
+      <mxCell id="76" value="*"
+              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;"
+              edge="1"
+              parent="1"
+              source="74"
+              target="67">
+         <mxGeometry relative="1" as="geometry"/>
+      </mxCell>
+      <mxCell id="77" value=""
+              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;"
+              edge="1"
+              parent="1"
+              source="73"
               target="67">
          <mxGeometry relative="1" as="geometry"/>
       </mxCell>
