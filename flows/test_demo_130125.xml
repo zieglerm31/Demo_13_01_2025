@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<mxGraphModel dx="2702" dy="1745" grid="1" gridSize="10" guides="1" tooltips="1" connect="1"
+<mxGraphModel dx="3920" dy="2063" grid="1" gridSize="10" guides="1" tooltips="1" connect="1"
               fold="1"
               page="1"
               pageScale="1"
@@ -255,18 +255,18 @@
       </mxCell>
       <mxCell id="35" value="http.200"
               style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0;entryY=0.5;"
-              edge="1"
               parent="1"
               source="16"
-              target="3">
+              target="3"
+              edge="1">
          <mxGeometry relative="1" as="geometry"/>
       </mxCell>
       <mxCell id="36" value="http.timeout"
               style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0;exitY=0.75;"
-              edge="1"
               parent="1"
               source="16"
-              target="10">
+              target="10"
+              edge="1">
          <mxGeometry relative="1" as="geometry"/>
       </mxCell>
       <typescript-library action="io.qsrlabs.nexus.middleware.scxml.handlers.TypeScriptLibrary#fixed"
@@ -274,16 +274,16 @@
                           library="Demo_13_01_2025:normalization"
                           function="extractAndCompare"
                           id="37">
-         <mxCell style="image;html=1;image=clipart/script.png" vertex="1" parent="1">
+         <mxCell style="image;html=1;image=clipart/script.png" parent="1" vertex="1">
             <mxGeometry x="-1580" y="-800" width="120" height="60" as="geometry"/>
          </mxCell>
       </typescript-library>
       <mxCell id="38" value="*"
               style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.25;entryY=0;"
-              edge="1"
               parent="1"
               source="37"
-              target="31">
+              target="31"
+              edge="1">
          <mxGeometry relative="1" as="geometry">
             <Array as="points">
                <mxPoint x="-1520" y="-370"/>
@@ -292,19 +292,105 @@
          </mxGeometry>
       </mxCell>
       <mxCell id="39" value="1"
-              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.75;exitY=1;"
-              edge="1"
+              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.75;exitY=1;entryX=0.5;entryY=0;"
               parent="1"
               source="37"
-              target="10">
-         <mxGeometry relative="1" as="geometry"/>
+              target="41"
+              edge="1">
+         <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+               <mxPoint x="-1490" y="-680"/>
+               <mxPoint x="-1810" y="-680"/>
+            </Array>
+         </mxGeometry>
       </mxCell>
       <mxCell id="40" value="2"
-              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.375;entryY=-0.125;entryPerimeter=0;"
-              edge="1"
+              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.25;exitY=1;entryX=0.5;entryY=0;"
               parent="1"
               source="37"
-              target="10">
+              target="42"
+              edge="1">
+         <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+               <mxPoint x="-1550" y="-640"/>
+               <mxPoint x="-1660" y="-640"/>
+            </Array>
+         </mxGeometry>
+      </mxCell>
+      <local-event action="io.qsrlabs.nexus.middleware.scxml.handlers.GenerateSessionEvent"
+                   label="set Ann with200"
+                   event-name=""
+                   payload=""
+                   id="41">
+         <mxCell style="image;html=1;image=clipart/local-event.png" vertex="1" parent="1">
+            <mxGeometry x="-1870" y="-620" width="120" height="60" as="geometry"/>
+         </mxCell>
+      </local-event>
+      <local-event action="io.qsrlabs.nexus.middleware.scxml.handlers.GenerateSessionEvent"
+                   label="set Ann without200"
+                   event-name=""
+                   payload=""
+                   id="42">
+         <mxCell style="image;html=1;image=clipart/local-event.png" vertex="1" parent="1">
+            <mxGeometry x="-1720" y="-620" width="120" height="60" as="geometry"/>
+         </mxCell>
+      </local-event>
+      <invoke-subflow action="io.qsrlabs.nexus.middleware.scxml.handlers.Subflow#combobox"
+                      label="Subflow Ann with200"
+                      subflow=""
+                      category=""
+                      id="43">
+         <mxCell style="image;html=1;image=clipart/subflow-static.png" vertex="1" parent="1">
+            <mxGeometry x="-1870" y="-450" width="120" height="60" as="geometry"/>
+         </mxCell>
+      </invoke-subflow>
+      <invoke-subflow action="io.qsrlabs.nexus.middleware.scxml.handlers.Subflow#combobox"
+                      label="Subflow Ann without200"
+                      subflow=""
+                      category=""
+                      id="44">
+         <mxCell style="image;html=1;image=clipart/subflow-static.png" vertex="1" parent="1">
+            <mxGeometry x="-1720" y="-450" width="120" height="60" as="geometry"/>
+         </mxCell>
+      </invoke-subflow>
+      <mxCell id="45" value="*"
+              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;"
+              edge="1"
+              parent="1"
+              source="41"
+              target="43">
+         <mxGeometry relative="1" as="geometry"/>
+      </mxCell>
+      <mxCell id="46" value="*"
+              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;"
+              edge="1"
+              parent="1"
+              source="42"
+              target="44">
+         <mxGeometry relative="1" as="geometry"/>
+      </mxCell>
+      <stop action="com.eitg.quasar.nexus.middleware.scxml.handlers.StopHandler"
+            label="Stop"
+            isfinal="yes"
+            id="47">
+         <mxCell style="image;html=1;image=clipart/plain-stop.png" vertex="1" parent="1">
+            <mxGeometry x="-1760" y="-190" width="80" height="80" as="geometry"/>
+         </mxCell>
+      </stop>
+      <mxCell id="48" value="*"
+              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0;entryY=0.5;"
+              edge="1"
+              parent="1"
+              source="43"
+              target="47">
+         <mxGeometry relative="1" as="geometry"/>
+      </mxCell>
+      <mxCell id="49" value="*"
+              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=1;entryY=0.5;"
+              edge="1"
+              parent="1"
+              source="44"
+              target="47">
          <mxGeometry relative="1" as="geometry"/>
       </mxCell>
    </root>
