@@ -35,3 +35,23 @@ function createXML(session : any, event : any, localParams: any ){
    return "success";
 
 }
+
+function extractAndcompare(session : any, event : any, localParams: any ){
+
+   let x : string;
+   x= session.s_initialSIP_lib.SIP["P-Access-Network-Info"].cellId
+
+   if (x.substring(0,5) =="42501")
+   {
+      return "1";
+   }
+   else if (x.substring(0,5) =="42503")
+   {
+      return "2";
+   }
+   else{
+      return "3";
+   }
+}
+
+
