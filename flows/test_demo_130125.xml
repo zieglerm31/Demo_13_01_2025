@@ -320,8 +320,8 @@
       </mxCell>
       <local-event action="io.qsrlabs.nexus.middleware.scxml.handlers.GenerateSessionEvent"
                    label="set Ann with200"
-                   event-name=""
-                   payload=""
+                   event-name="inevent"
+                   payload="{\&#34;playannouncement\&#34;: \&#34;annoTest\&#34;,\&#34;action\&#34;: \&#34;promptandcollect\&#34;,\&#34;earlydialog\&#34;: true}"
                    id="41">
          <mxCell style="image;html=1;image=clipart/local-event.png" parent="1" vertex="1">
             <mxGeometry x="-1870" y="-620" width="120" height="60" as="geometry"/>
@@ -329,8 +329,8 @@
       </local-event>
       <local-event action="io.qsrlabs.nexus.middleware.scxml.handlers.GenerateSessionEvent"
                    label="set Ann without200"
-                   event-name=""
-                   payload=""
+                   event-name="inevent"
+                   payload="{\&#34;playannouncement\&#34;: \&#34;annoTest\&#34;,\&#34;action\&#34;: \&#34;playannouncement\&#34;,\&#34;earlydialog\&#34;: true}"
                    id="42">
          <mxCell style="image;html=1;image=clipart/local-event.png" parent="1" vertex="1">
             <mxGeometry x="-1720" y="-620" width="120" height="60" as="geometry"/>
