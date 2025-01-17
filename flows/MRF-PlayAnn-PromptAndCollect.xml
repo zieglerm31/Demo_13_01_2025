@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<mxGraphModel dx="2034" dy="830" grid="1" gridSize="10" guides="1" tooltips="1" connect="1"
+<mxGraphModel dx="2246" dy="2118" grid="1" gridSize="10" guides="1" tooltips="1" connect="1"
               fold="1"
               page="1"
               pageScale="1"
@@ -18,7 +18,7 @@
              traceCondition=""
              id="2">
          <mxCell style="image;html=1;image=clipart/start-button.png" parent="1" vertex="1">
-            <mxGeometry x="360" y="80" width="80" height="80" as="geometry"/>
+            <mxGeometry x="360" y="-26" width="80" height="80" as="geometry"/>
          </mxCell>
       </start>
       <stop action="com.eitg.quasar.nexus.middleware.scxml.handlers.StopHandler"
@@ -30,7 +30,7 @@
          </mxCell>
       </stop>
       <undefined action="com.eitg.quasar.nexus.siphandlers.ScxmlConnectToMrf"
-                 label="Connect to MRF"
+                 label="Connect to MRF earlymedia"
                  name=""
                  earlymedia="true"
                  message="spel:#session[&#34;s_SIPInvite&#34;]"
@@ -55,7 +55,7 @@
                           function="inputvalidation"
                           id="8">
          <mxCell style="image;html=1;image=clipart/script.png" parent="1" vertex="1">
-            <mxGeometry x="340" y="230" width="120" height="60" as="geometry"/>
+            <mxGeometry x="340" y="124" width="120" height="60" as="geometry"/>
          </mxCell>
       </typescript-library>
       <mxCell id="9" value="*"
@@ -84,7 +84,7 @@
             isfinal="yes"
             id="11">
          <mxCell style="image;html=1;image=clipart/plain-stop.png" parent="1" vertex="1">
-            <mxGeometry x="680" y="220" width="80" height="80" as="geometry"/>
+            <mxGeometry x="680" y="114" width="80" height="80" as="geometry"/>
          </mxCell>
       </stop>
       <mxCell id="12" value="*"
@@ -96,20 +96,26 @@
          <mxGeometry relative="1" as="geometry"/>
       </mxCell>
       <mxCell id="13" value="true"
-              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;"
+              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;"
               parent="1"
               source="8"
-              target="5"
               edge="1">
-         <mxGeometry relative="1" as="geometry"/>
+         <mxGeometry relative="1" as="geometry">
+            <mxPoint x="250" y="287" as="targetPoint"/>
+         </mxGeometry>
       </mxCell>
       <mxCell id="14" value="false"
               style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;"
               parent="1"
               source="8"
-              target="10"
+              target="87"
               edge="1">
-         <mxGeometry relative="1" as="geometry"/>
+         <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+               <mxPoint x="400" y="237"/>
+               <mxPoint x="540" y="237"/>
+            </Array>
+         </mxGeometry>
       </mxCell>
       <mxCell id="15" value="scenario4"
               style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;fillColor=#FFFFCC;"
@@ -126,28 +132,35 @@
       <undefined action="com.eitg.quasar.nexus.siphandlers.ScxmlSIPStartHandler"
                  label="Wait SIP Event"
                  name=""
-                 message=""
+                 message="spel:#session[&#34;s_initialSIP&#34;]"
                  id="17">
          <mxCell style="rectangle;shape=ext;rounded=1;html=1;whiteSpace=wrap;" parent="1"
                  vertex="1">
-            <mxGeometry x="340" y="500" width="120" height="60" as="geometry"/>
+            <mxGeometry x="-280" y="510" width="120" height="60" as="geometry"/>
          </mxCell>
       </undefined>
       <mxCell id="18" value="*"
               style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;"
               parent="1"
               source="5"
-              target="17"
+              target="78"
               edge="1">
-         <mxGeometry relative="1" as="geometry"/>
+         <mxGeometry relative="1" as="geometry">
+            <Array as="points"/>
+         </mxGeometry>
       </mxCell>
       <mxCell id="19" value="*"
               style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;"
               parent="1"
               source="10"
-              target="17"
+              target="82"
               edge="1">
-         <mxGeometry relative="1" as="geometry"/>
+         <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+               <mxPoint x="540" y="475"/>
+               <mxPoint x="430" y="475"/>
+            </Array>
+         </mxGeometry>
       </mxCell>
       <typescript-library action="io.qsrlabs.nexus.middleware.scxml.handlers.TypeScriptLibrary#fixed"
                           label="lib.checkSIPresponse"
@@ -160,12 +173,19 @@
          </mxCell>
       </typescript-library>
       <mxCell id="21" value="sip.callPoll.*"
-              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;"
+              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;entryX=0.5;entryY=0;exitX=1;exitY=0.5;"
               parent="1"
-              source="17"
+              source="84"
               target="20"
               edge="1">
-         <mxGeometry relative="1" as="geometry"/>
+         <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-20" y="620" as="sourcePoint"/>
+            <Array as="points">
+               <mxPoint x="250" y="680"/>
+               <mxPoint x="250" y="585"/>
+               <mxPoint x="400" y="585"/>
+            </Array>
+         </mxGeometry>
       </mxCell>
       <stop action="com.eitg.quasar.nexus.middleware.scxml.handlers.StopHandler"
             label="Stop.nonsipresponseevent"
@@ -178,14 +198,11 @@
       <mxCell id="23" value="*"
               style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;"
               parent="1"
-              source="17"
+              source="78"
               target="70"
               edge="1">
          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-               <mxPoint x="510" y="530"/>
-               <mxPoint x="510" y="530"/>
-            </Array>
+            <Array as="points"/>
          </mxGeometry>
       </mxCell>
       <mxCell id="24" value="could be timeout or any other"
@@ -198,7 +215,7 @@
               style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;fillColor=#FFFFCC;"
               parent="1"
               vertex="1">
-         <mxGeometry x="780" y="230" width="90" height="70" as="geometry"/>
+         <mxGeometry x="780" y="124" width="90" height="70" as="geometry"/>
       </mxCell>
       <undefined action="com.eitg.quasar.nexus.siphandlers.ScxmlSendAction" label="SendAction"
                  name=""
@@ -227,7 +244,7 @@
             <mxGeometry x="770" y="1000" width="80" height="80" as="geometry"/>
          </mxCell>
       </stop>
-      <mxCell id="29" value="error*"
+      <mxCell id="29" value="error.*"
               style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=1;exitY=0.5;entryX=0.5;entryY=0;"
               parent="1"
               source="20"
@@ -245,11 +262,12 @@
               vertex="1">
          <mxGeometry x="230" y="730" width="80" height="40" as="geometry"/>
       </mxCell>
-      <mxCell id="31" value="need to define the sip invite but where ???"
+      <mxCell id="31"
+              value="TMP URI is defined in service_config.json&#xA;NgIn.Net.Sip.Resosip:msml@10.20.110.16;transport=udp;lrurce.RawMrf.RawMrfServer = &#xA;earlymedia must be string type"
               style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;fillColor=#FFFFCC;"
               parent="1"
               vertex="1">
-         <mxGeometry x="30" y="430" width="140" height="80" as="geometry"/>
+         <mxGeometry x="-300" y="395" width="470" height="65" as="geometry"/>
       </mxCell>
       <undefined action="com.eitg.quasar.nexus.siphandlers.ScxmlSIPStartHandler"
                  label="Wait SIP Event"
@@ -298,7 +316,7 @@
               edge="1">
          <mxGeometry relative="1" as="geometry"/>
       </mxCell>
-      <mxCell id="38" value="error*"
+      <mxCell id="38" value="error.*"
               style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=1;exitY=0.5;entryX=0.25;entryY=0;"
               parent="1"
               source="34"
@@ -442,7 +460,7 @@
               style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;fillColor=#FFFFCC;"
               parent="1"
               vertex="1">
-         <mxGeometry x="230" y="600" width="100" height="40" as="geometry"/>
+         <mxGeometry x="-160" y="650" width="100" height="40" as="geometry"/>
       </mxCell>
       <typescript-library action="io.qsrlabs.nexus.middleware.scxml.handlers.TypeScriptLibrary#fixed"
                           label="lib.checkSIPresponse"
@@ -603,6 +621,80 @@
               source="73"
               target="67"
               edge="1">
+         <mxGeometry relative="1" as="geometry"/>
+      </mxCell>
+      <park-and-wait action="io.qsrlabs.nexus.middleware.scxml.handlers.WaitForNextEvent"
+                     label="Wait for next ingres event"
+                     id="78">
+         <mxCell style="image;html=1;image=clipart/next.png" vertex="1" parent="1">
+            <mxGeometry x="190" y="500" width="120" height="60" as="geometry"/>
+         </mxCell>
+      </park-and-wait>
+      <mxCell id="79" value="sip.callEarlyMediaAnswered.RawMediaMrfSipUac"
+              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0;exitY=0.5;entryX=0.5;entryY=0;"
+              edge="1"
+              parent="1"
+              source="78"
+              target="84">
+         <mxGeometry relative="1" as="geometry">
+            <mxPoint x="40" y="660" as="targetPoint"/>
+            <Array as="points">
+               <mxPoint x="120" y="530"/>
+            </Array>
+         </mxGeometry>
+      </mxCell>
+      <park-and-wait action="io.qsrlabs.nexus.middleware.scxml.handlers.WaitForNextEvent"
+                     label="Wait for next ingres event"
+                     id="82">
+         <mxCell style="image;html=1;image=clipart/next.png" vertex="1" parent="1">
+            <mxGeometry x="370" y="500" width="120" height="60" as="geometry"/>
+         </mxCell>
+      </park-and-wait>
+      <mxCell id="83" value="use error.* and not error*"
+              style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;fillColor=#FFFFCC;"
+              vertex="1"
+              parent="1">
+         <mxGeometry x="850" y="650" width="90" height="70" as="geometry"/>
+      </mxCell>
+      <park-and-wait action="io.qsrlabs.nexus.middleware.scxml.handlers.WaitForNextEvent"
+                     label="Wait for next ingres event"
+                     id="84">
+         <mxCell style="image;html=1;image=clipart/next.png" vertex="1" parent="1">
+            <mxGeometry x="60" y="650" width="120" height="60" as="geometry"/>
+         </mxCell>
+      </park-and-wait>
+      <typescript-library action="io.qsrlabs.nexus.middleware.scxml.handlers.TypeScriptLibrary#fixed"
+                          label="lib.armMRFevents"
+                          library="Demo_13_01_2025:mrf"
+                          function="armMRFevents"
+                          id="86">
+         <mxCell style="image;html=1;image=clipart/script.png" vertex="1" parent="1">
+            <mxGeometry x="190" y="260" width="120" height="60" as="geometry"/>
+         </mxCell>
+      </typescript-library>
+      <typescript-library action="io.qsrlabs.nexus.middleware.scxml.handlers.TypeScriptLibrary#fixed"
+                          label="lib.armMRFevents"
+                          library="Demo_13_01_2025:mrf"
+                          function="armMRFevents"
+                          id="87">
+         <mxCell style="image;html=1;image=clipart/script.png" vertex="1" parent="1">
+            <mxGeometry x="480" y="260" width="120" height="60" as="geometry"/>
+         </mxCell>
+      </typescript-library>
+      <mxCell id="88" value="*"
+              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;"
+              edge="1"
+              parent="1"
+              source="86"
+              target="5">
+         <mxGeometry relative="1" as="geometry"/>
+      </mxCell>
+      <mxCell id="89" value="*"
+              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;"
+              edge="1"
+              parent="1"
+              source="87"
+              target="10">
          <mxGeometry relative="1" as="geometry"/>
       </mxCell>
    </root>
