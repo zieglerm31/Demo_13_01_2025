@@ -47,6 +47,14 @@ function inputvalidation(session : any, event : any, localParams: any ){
             return "error.input.sipinvitemissing";
         }
 
+//interim
+if ( session["mrf"]["earlydialog"] === true) 
+    return "true";
+else
+    return "false";
+
+
+
         //announcement string
         if ( event["announcement"] != null ) {
             log.debug("announcement: {}", event["announcement"]);
@@ -197,5 +205,3 @@ function setrelease(session : any, event : any, localParams: any ){
         return "error.release";
     }        
 }
-
-
