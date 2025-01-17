@@ -99,9 +99,14 @@
               style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;"
               parent="1"
               source="8"
+              target="86"
               edge="1">
          <mxGeometry relative="1" as="geometry">
             <mxPoint x="250" y="287" as="targetPoint"/>
+            <Array as="points">
+               <mxPoint x="400" y="222"/>
+               <mxPoint x="250" y="222"/>
+            </Array>
          </mxGeometry>
       </mxCell>
       <mxCell id="14" value="false"
@@ -173,15 +178,14 @@
          </mxCell>
       </typescript-library>
       <mxCell id="21" value="sip.callPoll.*"
-              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;entryX=0.5;entryY=0;exitX=1;exitY=0.5;"
+              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;entryX=0.5;entryY=0;exitX=0.5;exitY=1;"
               parent="1"
-              source="84"
+              source="78"
               target="20"
               edge="1">
          <mxGeometry relative="1" as="geometry">
             <mxPoint x="-20" y="620" as="sourcePoint"/>
             <Array as="points">
-               <mxPoint x="250" y="680"/>
                <mxPoint x="250" y="585"/>
                <mxPoint x="400" y="585"/>
             </Array>
@@ -256,11 +260,11 @@
             </Array>
          </mxGeometry>
       </mxCell>
-      <mxCell id="30" value="send ACK to 200ok"
+      <mxCell id="30" value="wait for event sip.callPoll.SIPSuccessResponsePollEvent"
               style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;fillColor=#FFFFCC;"
               parent="1"
               vertex="1">
-         <mxGeometry x="230" y="730" width="80" height="40" as="geometry"/>
+         <mxGeometry x="-110" y="530" width="240" height="40" as="geometry"/>
       </mxCell>
       <mxCell id="31"
               value="TMP URI is defined in service_config.json&#xA;NgIn.Net.Sip.Resosip:msml@10.20.110.16;transport=udp;lrurce.RawMrf.RawMrfServer = &#xA;earlymedia must be string type"
@@ -402,7 +406,7 @@
               edge="1">
          <mxGeometry relative="1" as="geometry"/>
       </mxCell>
-      <mxCell id="47" value="sip.callEarlyMediaAnswered.RawMediaMrfSipUac"
+      <mxCell id="47" value="sip.callEarlyAnswered.RawMediaMrfSipUac"
               style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.25;exitY=1;entryX=0.25;entryY=0;"
               parent="1"
               source="32"
@@ -456,11 +460,11 @@
             </Array>
          </mxGeometry>
       </mxCell>
-      <mxCell id="57" value="get to header tab used in INFO"
+      <mxCell id="57" value="let the call continue "
               style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;fillColor=#FFFFCC;"
               parent="1"
               vertex="1">
-         <mxGeometry x="-160" y="650" width="100" height="40" as="geometry"/>
+         <mxGeometry x="170" y="730" width="100" height="40" as="geometry"/>
       </mxCell>
       <typescript-library action="io.qsrlabs.nexus.middleware.scxml.handlers.TypeScriptLibrary#fixed"
                           label="lib.checkSIPresponse"
@@ -532,7 +536,7 @@
             <mxGeometry x="360" y="1710" width="80" height="80" as="geometry"/>
          </mxCell>
       </stop>
-      <mxCell id="68"
+      <mxCell id="68" value="*"
               style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;"
               parent="1"
               source="44"
@@ -630,19 +634,6 @@
             <mxGeometry x="190" y="500" width="120" height="60" as="geometry"/>
          </mxCell>
       </park-and-wait>
-      <mxCell id="79" value="sip.callEarlyMediaAnswered.RawMediaMrfSipUac"
-              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0;exitY=0.5;entryX=0.5;entryY=0;"
-              edge="1"
-              parent="1"
-              source="78"
-              target="84">
-         <mxGeometry relative="1" as="geometry">
-            <mxPoint x="40" y="660" as="targetPoint"/>
-            <Array as="points">
-               <mxPoint x="120" y="530"/>
-            </Array>
-         </mxGeometry>
-      </mxCell>
       <park-and-wait action="io.qsrlabs.nexus.middleware.scxml.handlers.WaitForNextEvent"
                      label="Wait for next ingres event"
                      id="82">
@@ -656,13 +647,6 @@
               parent="1">
          <mxGeometry x="850" y="650" width="90" height="70" as="geometry"/>
       </mxCell>
-      <park-and-wait action="io.qsrlabs.nexus.middleware.scxml.handlers.WaitForNextEvent"
-                     label="Wait for next ingres event"
-                     id="84">
-         <mxCell style="image;html=1;image=clipart/next.png" vertex="1" parent="1">
-            <mxGeometry x="60" y="650" width="120" height="60" as="geometry"/>
-         </mxCell>
-      </park-and-wait>
       <typescript-library action="io.qsrlabs.nexus.middleware.scxml.handlers.TypeScriptLibrary#fixed"
                           label="lib.armMRFevents"
                           library="Demo_13_01_2025:mrf"
@@ -696,6 +680,13 @@
               source="87"
               target="10">
          <mxGeometry relative="1" as="geometry"/>
+      </mxCell>
+      <mxCell id="90"
+              value="if SIP/2.0 415 Unsupported media type is received a mediaNotification  event shall be received. &#xA;this is not in the TAS sip ear implemented now. &#xA;means no event received on the flow for now!"
+              style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;fillColor=#FFFFCC;"
+              vertex="1"
+              parent="1">
+         <mxGeometry x="770" y="1150" width="220" height="110" as="geometry"/>
       </mxCell>
    </root>
 </mxGraphModel>
