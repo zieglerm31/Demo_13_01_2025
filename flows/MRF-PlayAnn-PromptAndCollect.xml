@@ -34,7 +34,7 @@
                  name=""
                  earlymedia="spel:true"
                  message="spel:#session[&#34;s_SIPInvite&#34;]"
-                 continue="spel:true"
+                 continue="true"
                  id="5">
          <mxCell style="rectangle;shape=ext;rounded=1;html=1;whiteSpace=wrap;double=1;"
                  parent="1"
@@ -71,7 +71,7 @@
                  name=""
                  earlymedia="spel:false"
                  message="spel:#session[&#34;s_SIPInvite&#34;]"
-                 continue="spel:true"
+                 continue="true"
                  id="10">
          <mxCell style="rectangle;shape=ext;rounded=1;html=1;whiteSpace=wrap;double=1;"
                  parent="1"
