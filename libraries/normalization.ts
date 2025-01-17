@@ -36,6 +36,12 @@ function extractAndCompare(session : any, event : any, localParams: any ){
    let log = session.log;
 
    try {
+      //set input parameters
+      session["mrf"]["playannouncement"] = "annoTest";
+      session["mrf"]["action"] = "playannouncement";
+      session["mrf"]["earlydialog"] = true;
+
+
       let x : string;
       try {
          if ( session.s_initialSIP.SIP["P-Access-Network-Info"].cellId != null)
