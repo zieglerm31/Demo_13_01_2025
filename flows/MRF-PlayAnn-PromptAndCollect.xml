@@ -32,7 +32,7 @@
       <undefined action="com.eitg.quasar.nexus.siphandlers.ScxmlConnectToMrf"
                  label="Connect to MRF"
                  name=""
-                 earlymedia="spel:true"
+                 earlymedia="true"
                  message="spel:#session[&#34;s_SIPInvite&#34;]"
                  continue="true"
                  id="5">
@@ -69,7 +69,7 @@
       <undefined action="com.eitg.quasar.nexus.siphandlers.ScxmlConnectToMrf"
                  label="Connect to MRF"
                  name=""
-                 earlymedia="spel:false"
+                 earlymedia="false"
                  message="spel:#session[&#34;s_SIPInvite&#34;]"
                  continue="true"
                  id="10">
