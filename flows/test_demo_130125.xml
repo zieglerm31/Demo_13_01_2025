@@ -216,7 +216,7 @@
       </mxCell>
       <undefined action="com.eitg.quasar.nexus.siphandlers.ScxmlLeaveCall" label="Leave call"
                  name=""
-                 destination="spel:#session[&#34;s_initialSIP_lib&#34;][&#34;SIP&#34;][&#34;R-URI&#34;][&#34;value&#34;]"
+                 destination="spel:#session[&#34;s_initialSIP&#34;][&#34;SIP&#34;][&#34;R-URI&#34;][&#34;value&#34;]"
                  leaveType="proxy"
                  message="spel:#session[&#34;s_initialSIP&#34;]"
                  id="31">
