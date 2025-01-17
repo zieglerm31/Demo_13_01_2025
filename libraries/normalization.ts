@@ -37,6 +37,7 @@ function extractAndCompare(session : any, event : any, localParams: any ){
 
    try {
       //set input parameters
+      session["mrf"]="";
       session["mrf"]["playannouncement"] = "annoTest";
       session["mrf"]["action"] = "playannouncement";
       session["mrf"]["earlydialog"] = true;
@@ -68,7 +69,7 @@ function extractAndCompare(session : any, event : any, localParams: any ){
       return session.w;
    } catch (e) {
 
-      log.debug("Log: {}", e);
+      log.debug("extractAndCompare.Log: {}", e);
       return "error";
    }
 }
