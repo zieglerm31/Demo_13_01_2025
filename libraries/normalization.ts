@@ -38,7 +38,8 @@ function extractAndCompare(session : any, event : any, localParams: any ){
    try {
       //set input parameters
       //interim
-      //session["mrf"]="{"playannouncement":"annoTest","action":"playannouncement","earlydialog": true}";
+      session["mrf"]={};
+      session["mrf"]= {"playannouncement":"annoTest","action":"playannouncement","earlydialog": true};
 
       let x : string;
       try {
