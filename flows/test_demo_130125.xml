@@ -218,7 +218,7 @@
                  name=""
                  destination="spel:#session[&#34;s_initialSIP_lib&#34;][&#34;SIP&#34;][&#34;R-URI&#34;][&#34;value&#34;]"
                  leaveType="proxy"
-                 message="spel:#session[&#34;s_initialSIP_lib&#34;]"
+                 message="spel:#session[&#34;s_initialSIP&#34;]"
                  id="31">
          <mxCell style="rectangle;shape=ext;rounded=1;html=1;whiteSpace=wrap;double=1;"
                  parent="1"
