@@ -338,8 +338,8 @@
       </local-event>
       <invoke-subflow action="io.qsrlabs.nexus.middleware.scxml.handlers.Subflow#combobox"
                       label="Subflow Ann with200"
-                      subflow=""
-                      category=""
+                      subflow="Demo_13_01_2025:MRF-PlayAnn-PromptAndCollect"
+                      category="procedure"
                       id="43">
          <mxCell style="image;html=1;image=clipart/subflow-static.png" parent="1" vertex="1">
             <mxGeometry x="-1870" y="-450" width="120" height="60" as="geometry"/>
@@ -347,8 +347,8 @@
       </invoke-subflow>
       <invoke-subflow action="io.qsrlabs.nexus.middleware.scxml.handlers.Subflow#combobox"
                       label="Subflow Ann without200"
-                      subflow=""
-                      category=""
+                      subflow="Demo_13_01_2025:MRF-PlayAnn-PromptAndCollect"
+                      category="procedure"
                       id="44">
          <mxCell style="image;html=1;image=clipart/subflow-static.png" parent="1" vertex="1">
             <mxGeometry x="-1720" y="-450" width="120" height="60" as="geometry"/>
