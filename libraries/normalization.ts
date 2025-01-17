@@ -1,10 +1,8 @@
 
 function normalization_1(session : any, event : any, localParams: any ){
-
    let log = session.log;
 
    try {
-
       let fromURI : string;
       session.s_initialSIP_lib = event;
       fromURI = event.SIP.From.address.uri.user;  //972507000118
@@ -18,8 +16,6 @@ function normalization_1(session : any, event : any, localParams: any ){
       log.debug("Log: {}", e);
       return "error";
    }
-
-
 }
 
 
@@ -37,22 +33,36 @@ function createXML(session : any, event : any, localParams: any ){
 }
 
 function extractAndCompare(session : any, event : any, localParams: any ){
+   let log = session.log;
 
-   let x : string;
-   x= session.s_initialSIP.SIP["P-Access-Network-Info"].cellId
+   try {
+      let x : string;
+      try {
+         if ( session.s_initialSIP.SIP["P-Access-Network-Info"].cellId != null)
+            x= session.s_initialSIP.SIP["P-Access-Network-Info"].cellId
+         else 
+            return "error.PANIcellid.null";
+      } catch (e) {
+         return "error.noPANIcellid.exception";
+      }
 
-   if (x.substring(0,5) =="42501")
-   {
-      session.w="1";
-      session.ann_name="P3001";
+      if (x.substring(0,5) =="42501")
+      {
+         session.w="1";
+         session.ann_name="P3001";
+      }
+      else if (x.substring(0,5) =="42503")
+      {
+         session.w="2";
+         session.ann_name="P3002";
+      }
+      else{
+         session.w="3";
+      }
+      return session.w;
+   } catch (e) {
+
+      log.debug("Log: {}", e);
+      return "error";
    }
-   else if (x.substring(0,5) =="42503")
-   {
-      session.w="2";
-      session.ann_name="P3002";
-   }
-   else{
-      session.w="3";
-   }
-   return session.w;
 }
