@@ -153,7 +153,7 @@ function handle200OKINVITE(session:any,event:OCCPSIP.OCCPEvent,localParams:any) 
         let pollAction : CallPollAction;
         pollAction = pollAction || {};
         pollAction.type = CallPollActionType.Accept;
-        session["mrf"]["sendAction"] = JSON.stringify(pollAction);
+        session.sendAction = JSON.stringify(pollAction);
 
         session["mrf"]["time200OKINVITE"]  = Math.floor(new Date()/1000);
 
