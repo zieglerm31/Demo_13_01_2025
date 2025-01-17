@@ -48,10 +48,8 @@ function inputvalidation(session : any, event : any, localParams: any ){
         }
 
 //interim
-if ( session["mrf"]["earlydialog"] === true) 
     return "true";
-else
-    return "false";
+
 
 
 
