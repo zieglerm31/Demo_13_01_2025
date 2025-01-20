@@ -62,6 +62,33 @@ function prepareCallPollAccept(session:any,event:OCCPSIP.OCCPEvent,localParams:a
     }
 }
 
+function getdisconnectreason(session:any,event any,localParams:any) {
+    /*
+    events-stack		[5]
+    0	:	sip.callStart.NONE
+    1:	sip.callPoll.SIPSuccessResponsePollEvent
+    2	:	sip.callAnswered.SipCallLegUaClient
+    3	:	leg.max_call_duration
+    4	:	sip.callStart.DISCONNECTED    
+    */
+    let log = session.log;
+
+    try {
+        let events=event["events-stack"].length;
+        let index=events-1;
+        if (event["events-stack"][index] === "leg.timeout") {
+            return "reason.timeout";
+        } else if (event["events-stack"][index] === "leg.max_call_duration") {
+            return "reason.max_call_duration";
+        } else {
+            return "reason." + event["events-stack"][index];        
+        }
+    } catch (e) {
+        log.debug("getdisconnectreason Log: {}", e);
+        return "reason.exception";
+    }
+}
+
 
 function callended(session : any, eventData : any, localParams: any ){
     let ret: string = "success";
