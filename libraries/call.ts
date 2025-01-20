@@ -49,10 +49,6 @@ function prepareCallPollAccept(session:any,event:OCCPSIP.OCCPEvent,localParams:a
     let log = session.log;
 
     try {
-        //the received event is now in localParams
-        let eventData = localParams.message;
-        //session.events = null;
-
         let pollAction : CallPollAction;
         pollAction = pollAction || {};
         pollAction.type = CallPollActionType.Accept;
