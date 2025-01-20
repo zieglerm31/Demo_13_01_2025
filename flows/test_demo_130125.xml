@@ -146,7 +146,7 @@
             isfinal="yes"
             id="20">
          <mxCell style="image;html=1;image=clipart/plain-stop.png" parent="1" vertex="1">
-            <mxGeometry x="-1520" y="-1310.111083984375" width="80" height="80" as="geometry"/>
+            <mxGeometry x="-1550" y="-1170.111083984375" width="80" height="80" as="geometry"/>
          </mxCell>
       </stop>
       <mxCell id="21" value="*"
@@ -825,12 +825,20 @@
             <mxGeometry x="-1460" y="100" width="120" height="60" as="geometry"/>
          </mxCell>
       </undefined>
-      <mxCell id="100" value="*"
-              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;"
+      <mxCell id="101" value="*"
+              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=0;entryX=0.5;entryY=1;"
               edge="1"
               parent="1"
-              source="99"
-              target="91">
+              source="91"
+              target="99">
+         <mxGeometry relative="1" as="geometry"/>
+      </mxCell>
+      <mxCell id="102" value="global.*"
+              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0;exitY=0.5;entryX=0.5;entryY=0;"
+              edge="1"
+              parent="1"
+              source="2"
+              target="20">
          <mxGeometry relative="1" as="geometry"/>
       </mxCell>
    </root>
