@@ -44,6 +44,28 @@ function armevents(sessionData:any,eventData:any,localParams:any): any {
     return "success";
 }
 
+
+function prepareCallPollAccept(session:any,event:OCCPSIP.OCCPEvent,localParams:any) {
+    let log = session.log;
+
+    try {
+        //the received event is now in localParams
+        let eventData = localParams.message;
+        //session.events = null;
+
+        let pollAction : CallPollAction;
+        pollAction = pollAction || {};
+        pollAction.type = CallPollActionType.Accept;
+        session.sendAction = JSON.stringify(pollAction);
+
+        return "success";        
+    } catch (e) {
+        log.debug("prepareCallPollAccept Log: {}", e);
+        return "error.exception";
+    }
+}
+
+
 function callended(session : any, eventData : any, localParams: any ){
     let ret: string = "success";
     /* enter here your code */
