@@ -719,5 +719,119 @@
               parent="1">
          <mxGeometry x="-1305" y="-660" width="210" height="60" as="geometry"/>
       </mxCell>
+      <mxCell id="86" value="*"
+              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=1;exitY=0.75;entryX=0.75;entryY=0;"
+              edge="1"
+              parent="1"
+              source="75"
+              target="75">
+         <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+               <mxPoint x="-1020" y="30"/>
+            </Array>
+         </mxGeometry>
+      </mxCell>
+      <mxCell id="87" value="sip.callStart.DISCONNECTED"
+              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.75;exitY=1;entryX=0.5;entryY=0;"
+              edge="1"
+              parent="1"
+              source="75"
+              target="90">
+         <mxGeometry x="-0.2414" y="-40" relative="1" as="geometry">
+            <Array as="points">
+               <mxPoint x="-990" y="70"/>
+            </Array>
+            <mxPoint x="40" y="40" as="offset"/>
+         </mxGeometry>
+      </mxCell>
+      <mxCell id="88" value="Terminate the call in case of no-answer timeout of the 2s"
+              style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;fillColor=#FFFFCC;"
+              vertex="1"
+              parent="1">
+         <mxGeometry x="-1040" y="150" width="120" height="60" as="geometry"/>
+      </mxCell>
+      <mxCell id="89"
+              value="handle any other event (Wildcard) and &#xA;wait for either answer or end of call&#xA;&#xA;on 180 event -&gt;&#xA;sip.callPoll.SIPSuccessResponsePollEvent"
+              style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;fillColor=#FFFFCC;"
+              vertex="1"
+              parent="1">
+         <mxGeometry x="-1080" y="-70" width="200" height="90" as="geometry"/>
+      </mxCell>
+      <undefined action="com.eitg.quasar.nexus.siphandlers.ScxmlAbortCall"
+                 label="Terminate call"
+                 name=""
+                 errorCode="486"
+                 cause="REJECTED"
+                 reason.up.q850.cause=""
+                 reason.up.q850.text=""
+                 reason.up.sip.cause=""
+                 reason.up.sip.text=""
+                 reason.down.q850.cause=""
+                 reason.down.q850.text=""
+                 reason.down.sip.cause=""
+                 reason.down.sip.text=""
+                 message="spel:#session[&#34;s_SIPInvite&#34;]"
+                 id="90">
+         <mxCell style="rectangle;shape=ext;rounded=1;html=1;whiteSpace=wrap;double=1;"
+                 vertex="1"
+                 parent="1">
+            <mxGeometry x="-1050" y="250" width="120" height="60" as="geometry"/>
+         </mxCell>
+      </undefined>
+      <typescript-library action="io.qsrlabs.nexus.middleware.scxml.handlers.TypeScriptLibrary#fixed"
+                          label="prepareCallPollAccept"
+                          library="Demo_13_01_2025:call"
+                          function="armevents"
+                          id="91">
+         <mxCell style="image;html=1;image=clipart/script.png" vertex="1" parent="1">
+            <mxGeometry x="-1460" y="190" width="120" height="60" as="geometry"/>
+         </mxCell>
+      </typescript-library>
+      <mxCell id="92"
+              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.25;exitY=1;entryX=0.5;entryY=1;"
+              edge="1"
+              parent="1"
+              source="75"
+              target="91">
+         <mxGeometry relative="1" as="geometry"/>
+      </mxCell>
+      <mxCell id="94" value="*"
+              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=0;entryX=0.25;entryY=0;"
+              edge="1"
+              parent="1"
+              source="99"
+              target="75">
+         <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+               <mxPoint x="-1400"/>
+               <mxPoint x="-1160"/>
+            </Array>
+         </mxGeometry>
+      </mxCell>
+      <mxCell id="95" value="on 180 event -&gt;&#xA;sip.callPoll.SIPSuccessResponsePollEvent"
+              style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;fillColor=#FFFFCC;"
+              vertex="1"
+              parent="1">
+         <mxGeometry x="-1505" y="285" width="200" height="90" as="geometry"/>
+      </mxCell>
+      <undefined action="com.eitg.quasar.nexus.siphandlers.ScxmlSendAction" label="SendAction"
+                 name=""
+                 message="spel:#initial"
+                 continue="true"
+                 id="99">
+         <mxCell style="rectangle;shape=ext;rounded=1;html=1;whiteSpace=wrap;double=1;"
+                 vertex="1"
+                 parent="1">
+            <mxGeometry x="-1460" y="100" width="120" height="60" as="geometry"/>
+         </mxCell>
+      </undefined>
+      <mxCell id="100" value="*"
+              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;"
+              edge="1"
+              parent="1"
+              source="99"
+              target="91">
+         <mxGeometry relative="1" as="geometry"/>
+      </mxCell>
    </root>
 </mxGraphModel>
