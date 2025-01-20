@@ -24,6 +24,22 @@ function checkHttpResponse(session : any, event : any, localParams: any ){
     session.CalledPartyOverwritten="sip:+4390123123@test.com"
     try {
         //let body = JSON.parse(bodyStr);
+
+        //for the poc only
+        //if RURI ends with 4 -> scenario4
+        //if RURI ends with 5 -> scenario5
+        //if RURI ends with 0 -> scenario0
+        if ( session.s_SIPInvite.SIP.From.address.uri.user.endsWith("0") ) {
+            return "scenario.0";
+        } else if ( session.s_SIPInvite.SIP.From.address.uri.user.endsWith("4") ) {
+            return "scenario.4";
+        } else if ( session.s_SIPInvite.SIP.From.address.uri.user.endsWith("5") ) {
+            return "scenario.5";
+        } else {
+            return "scenario.undefined";
+        }
+        
+
         let body = event.body;
         session.restResponse = body.status;
         if (session.restResponse=="0") {
