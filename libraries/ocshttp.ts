@@ -36,6 +36,7 @@ function checkHttpResponse(session : any, event : any, localParams: any ){
         } else if ( session.s_SIPInvite.SIP.From.address.uri.user.endsWith("5") ) {
             return "scenario.5";
         } else {
+            log.debug("checkHttpResponse.uri:{}",session.s_SIPInvite.SIP.From.address.uri.user);
             return "scenario.undefined";
         }
         
