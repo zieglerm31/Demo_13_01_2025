@@ -21,7 +21,7 @@ function checkHttpResponse(session : any, event : any, localParams: any ){
     let bodyStr=event.body;
     session.restResponse =0;
     session.callstate  ="HTTPRESPONSE_INIT";
-    session.CalledPartyOverwritten="sip:+4090123123@test.com"
+    session.CalledPartyOverwritten="sip:+4390123123@test.com"
     try {
         //let body = JSON.parse(bodyStr);
         let body = event.body;
@@ -29,10 +29,10 @@ function checkHttpResponse(session : any, event : any, localParams: any ){
         if (session.restResponse=="0") {
             session.callstate  ="HTTPRESPONSE_CONNECT";   
             if (body.paramX.match(session.Callingipv4)) {
-                session.CalledPartyOverwritten="sip:+4090123123@test.com"
+                session.CalledPartyOverwritten="sip:+4390123123@test.com"
                 session.loginfo = session.loginfo+"ParamX.match.OverwriteDestination. connect to "+session.CalledPartyOverwritten+";"; 
             }  else if (body.paramY.match(session.Callingipv4)) {
-                session.CalledPartyOverwritten="sip:+4090123123@test.com"
+                session.CalledPartyOverwritten="sip:+4390123123@test.com"
                 session.loginfo = session.loginfo+"ParamY.match.OverwriteDestination. connect to "+session.CalledPartyOverwritten+";"; 
             }  else {                
                 session.CalledPartyOverwritten=session.CalledParty;
@@ -48,6 +48,7 @@ function checkHttpResponse(session : any, event : any, localParams: any ){
     } catch (e) {
         log.error("checkHttpResponse Exception {}",e);
         session.callstate  ="HTTPRESPONSE_EXCEPTION";
+        session.restResponse = "exception." +e;
     };
 
     
