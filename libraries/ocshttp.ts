@@ -29,14 +29,14 @@ function checkHttpResponse(session : any, event : any, localParams: any ){
         //if RURI ends with 4 -> scenario4
         //if RURI ends with 5 -> scenario5
         //if RURI ends with 0 -> scenario0
-        if ( session.s_SIPInvite.SIP.From.address.uri.user.endsWith("0") ) {
+        if ( session.s_SIPInvite.SIP["R-URI"].address.uri.user.endsWith("0") ) {
             return "scenario.0";
-        } else if ( session.s_SIPInvite.SIP.From.address.uri.user.endsWith("4") ) {
+        } else if ( session.s_SIPInvite.SIP["R-URI"].address.uri.user.endsWith("4") ) {
             return "scenario.4";
-        } else if ( session.s_SIPInvite.SIP.From.address.uri.user.endsWith("5") ) {
+        } else if ( session.s_SIPInvite.SIP["R-URI"].address.uri.user.endsWith("5") ) {
             return "scenario.5";
         } else {
-            log.debug("checkHttpResponse.uri:{}",session.s_SIPInvite.SIP.From.address.uri.user);
+            log.debug("checkHttpResponse.uri:{}",session.s_SIPInvite.SIP["R-URI"].address.uri.user);
             return "scenario.undefined";
         }
         
