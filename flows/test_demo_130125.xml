@@ -781,7 +781,7 @@
       <typescript-library action="io.qsrlabs.nexus.middleware.scxml.handlers.TypeScriptLibrary#fixed"
                           label="prepareCallPollAccept"
                           library="Demo_13_01_2025:call"
-                          function="armevents"
+                          function="prepareCallPollAccept"
                           id="91">
          <mxCell style="image;html=1;image=clipart/script.png" vertex="1" parent="1">
             <mxGeometry x="-1460" y="190" width="120" height="60" as="geometry"/>
