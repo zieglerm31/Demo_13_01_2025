@@ -1,4 +1,5 @@
 
+//DEPS:mrfinterfaces:LATEST
 
 function armevents(sessionData:any,eventData:any,localParams:any): any {
  let ret: ResultCode ;
