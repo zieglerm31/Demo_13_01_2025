@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxGraphModel dx="1876" dy="576" grid="1" gridSize="10" guides="1" tooltips="1" connect="1"
+              fold="1"
+              page="1"
+              pageScale="1"
+              pageWidth="826"
+              pageHeight="1169">
+   <root>
+      <mxCell id="0"/>
+      <mxCell id="1" parent="0"/>
+      <start action="com.eitg.quasar.nexus.middleware.scxml.handlers.StartHandler"
+             label="Start (generic)"
+             initial="1"
+             name=""
+             traceField=""
+             traceList=""
+             traceTimeout=""
+             traceCondition=""
+             id="2">
+         <mxCell style="image;html=1;image=clipart/start-button.png" vertex="1" parent="1">
+            <mxGeometry x="-110" y="10" width="80" height="80" as="geometry"/>
+         </mxCell>
+      </start>
+      <stop action="com.eitg.quasar.nexus.middleware.scxml.handlers.StopHandler"
+            label="Stop"
+            isfinal="yes"
+            id="3">
+         <mxCell style="image;html=1;image=clipart/plain-stop.png" vertex="1" parent="1">
+            <mxGeometry x="-130" y="230" width="80" height="80" as="geometry"/>
+         </mxCell>
+      </stop>
+      <mxCell id="4" value=""
+              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;"
+              edge="1"
+              parent="1"
+              source="2"
+              target="3">
+         <mxGeometry relative="1" as="geometry"/>
+      </mxCell>
+   </root>
+</mxGraphModel>
