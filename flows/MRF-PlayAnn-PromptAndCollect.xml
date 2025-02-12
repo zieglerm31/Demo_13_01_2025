@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<mxGraphModel dx="2246" dy="2118" grid="1" gridSize="10" guides="1" tooltips="1" connect="1"
+<mxGraphModel dx="2293" dy="1999" grid="1" gridSize="10" guides="1" tooltips="1" connect="1"
               fold="1"
               page="1"
               pageScale="1"
@@ -380,8 +380,8 @@
                  variableType="digits"
                  variableMeta=""
                  prompt=""
-                 interval=""
-                 iterate=""
+                 interval="100"
+                 iterate="1"
                  message="spel:#initial"
                  id="44">
          <mxCell style="rectangle;shape=ext;rounded=1;html=1;whiteSpace=wrap;double=1;"
@@ -630,21 +630,21 @@
       <park-and-wait action="io.qsrlabs.nexus.middleware.scxml.handlers.WaitForNextEvent"
                      label="Wait for next ingres event"
                      id="78">
-         <mxCell style="image;html=1;image=clipart/next.png" vertex="1" parent="1">
+         <mxCell style="image;html=1;image=clipart/next.png" parent="1" vertex="1">
             <mxGeometry x="190" y="500" width="120" height="60" as="geometry"/>
          </mxCell>
       </park-and-wait>
       <park-and-wait action="io.qsrlabs.nexus.middleware.scxml.handlers.WaitForNextEvent"
                      label="Wait for next ingres event"
                      id="82">
-         <mxCell style="image;html=1;image=clipart/next.png" vertex="1" parent="1">
+         <mxCell style="image;html=1;image=clipart/next.png" parent="1" vertex="1">
             <mxGeometry x="370" y="500" width="120" height="60" as="geometry"/>
          </mxCell>
       </park-and-wait>
       <mxCell id="83" value="use error.* and not error*"
               style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;fillColor=#FFFFCC;"
-              vertex="1"
-              parent="1">
+              parent="1"
+              vertex="1">
          <mxGeometry x="850" y="650" width="90" height="70" as="geometry"/>
       </mxCell>
       <typescript-library action="io.qsrlabs.nexus.middleware.scxml.handlers.TypeScriptLibrary#fixed"
@@ -652,7 +652,7 @@
                           library="Demo_13_01_2025:mrf"
                           function="armMRFevents"
                           id="86">
-         <mxCell style="image;html=1;image=clipart/script.png" vertex="1" parent="1">
+         <mxCell style="image;html=1;image=clipart/script.png" parent="1" vertex="1">
             <mxGeometry x="190" y="260" width="120" height="60" as="geometry"/>
          </mxCell>
       </typescript-library>
@@ -661,31 +661,31 @@
                           library="Demo_13_01_2025:mrf"
                           function="armMRFevents"
                           id="87">
-         <mxCell style="image;html=1;image=clipart/script.png" vertex="1" parent="1">
+         <mxCell style="image;html=1;image=clipart/script.png" parent="1" vertex="1">
             <mxGeometry x="480" y="260" width="120" height="60" as="geometry"/>
          </mxCell>
       </typescript-library>
       <mxCell id="88" value="*"
               style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;"
-              edge="1"
               parent="1"
               source="86"
-              target="5">
+              target="5"
+              edge="1">
          <mxGeometry relative="1" as="geometry"/>
       </mxCell>
       <mxCell id="89" value="*"
               style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;"
-              edge="1"
               parent="1"
               source="87"
-              target="10">
+              target="10"
+              edge="1">
          <mxGeometry relative="1" as="geometry"/>
       </mxCell>
       <mxCell id="90"
               value="if SIP/2.0 415 Unsupported media type is received a mediaNotification  event shall be received. &#xA;this is not in the TAS sip ear implemented now. &#xA;means no event received on the flow for now!"
               style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;fillColor=#FFFFCC;"
-              vertex="1"
-              parent="1">
+              parent="1"
+              vertex="1">
          <mxGeometry x="770" y="1150" width="220" height="110" as="geometry"/>
       </mxCell>
    </root>
