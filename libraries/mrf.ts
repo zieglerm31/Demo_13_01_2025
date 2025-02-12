@@ -126,6 +126,8 @@ function armMRFevents(sessionData:any,eventData:any,localParams:any): any {
     if( capabilities!=null){
         capabilities.push(Capabilities.PEM);
         capabilities.push(Capabilities.FORKING);
+        capabilities.push(Capabilities.UPDATE);
+        capabilities.push(Capabilities.INFO);
         sessionData.outCapabilities = JSON.stringify(capabilities);
     }
 
