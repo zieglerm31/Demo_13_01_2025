@@ -340,7 +340,7 @@ function handle200OKINFO(session:any,event:OCCPSIP.Event,localParams:LocalParame
                     // name[1] -> value[0]    and name[2] -> value[1]
                     for(var i=1;i<=event.SIP.content.json.msml.event.name.size();i++){
                         if( event.SIP.content.json.msml.event.name.get(i).equals("dtmf.digits")) {
-                            log.debug("received dtmf.digits");
+                            log.debug("received dtmf.digits as {}", event.SIP.content.json.msml.event.value[i-1]);
                             session["mrf"]["dtmfdigits"]  = event.SIP.content.json.msml.event.value[i-1];
                             return 
                         } else {
