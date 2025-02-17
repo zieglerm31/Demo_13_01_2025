@@ -324,7 +324,7 @@ function handle200OKINFO(session:any,event:OCCPSIP.Event,localParams:LocalParame
         session["mrf"]["time200OKINFO"]  = Math.floor(new Date()/1000);
         session["mrf"]["callstate"]  = "MRFCONNECTED";        
         if (event["event-name"]=="sip.mediaOperationNotification.*")  {
-            if (event.event.type=="200")  {
+            if (event.event["type"]=="200")  {
                 //This is the 200ok for SIP INFO - no DTMF etc is present
                 if (event.SIP.content.json.msml.result.description=="OK")  {
                     log.debug("Recevied 200OKINFO and its ok");
@@ -333,7 +333,7 @@ function handle200OKINFO(session:any,event:OCCPSIP.Event,localParams:LocalParame
                     log.debug("Recevied 200OKINFO and its NOT ok {}",event.SIP.content.json.msml.result.description);
                     return "received.NOK";
                 }
-            } else if (event.event.type=="INFO")  {
+            } else if (event.event["type"]=="INFO")  {
                 //This is the incoming SIP INFO with either a timeout or nomatch or a match with the digit
                 session["mrf"]["dtmfdigits"] = "initialized";
                 if( event.SIP.content.json.msml.event.name!=null && event.SIP.content.json.msml.event.name.size()>1 ){
@@ -350,6 +350,8 @@ function handle200OKINFO(session:any,event:OCCPSIP.Event,localParams:LocalParame
                     }
                 }
                 return session["mrf"]["dtmfdigits"];
+            } else {
+                return "unexpectedeventtype." + event.event["type"];
             }
         }
     } catch (e) {
