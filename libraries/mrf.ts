@@ -324,32 +324,38 @@ function handle200OKINFO(session:any,event:OCCPSIP.Event,localParams:LocalParame
         session["mrf"]["time200OKINFO"]  = Math.floor(new Date()/1000);
         session["mrf"]["callstate"]  = "MRFCONNECTED";        
         if (event["event-name"]=="sip.mediaOperationNotification.*")  {
-            //This is hte 200ok - no DTMF etc is present
-            if (event.SIP.content.json.msml.result.description=="OK")  {
-                log.debug("Recevied 200OKINFO and its ok");
-                return "received.OK";
-            } else {
-                log.debug("Recevied 200OKINFO and its NOT ok {}",event.SIP.content.json.msml.result.description);
-                return "received.NOK";
-            }
-        }
-        if (event.SIP.content.json.msml.event.name[2]!=null) {
-            if (event.SIP.content.json.msml.event.name[2]=="dtmf.digits") {
-                log.debug("Got DTMF digits;");
-                if (event.SIP.content.json.msml.event.value[1]!=null) {
-                    session["mrf"]["dtmfdigit"]=event.SIP.content.json.msml.event.value[1];                
+            if (event.event.type=="200")  {
+                //This is the 200ok for SIP INFO - no DTMF etc is present
+                if (event.SIP.content.json.msml.result.description=="OK")  {
+                    log.debug("Recevied 200OKINFO and its ok");
+                    return "received.OK";
                 } else {
-                    session["mrf"]["dtmfdigit"]="0";
+                    log.debug("Recevied 200OKINFO and its NOT ok {}",event.SIP.content.json.msml.result.description);
+                    return "received.NOK";
                 }
-            } else {
-                log.debug("No DTMF digits;");
+            } else if (event.event.type=="INFO")  {
+                //This is the incoming SIP INFO with either a timeout or nomatch or a match with the digit
+                session["mrf"]["dtmfdigits"] = "initialized";
+                if( event.SIP.content.json.msml.event.name!=null && event.SIP.content.json.msml.event.name.size()>1 ){
+                    // name[1] -> value[0]    and name[2] -> value[1]
+                    for(var i=1;i<=event.SIP.content.json.msml.event.name.size();i++){
+                        if( event.SIP.content.json.msml.event.name.get(i).equals("dtmf.digits")) {
+                            log.debug("received dtmf.digits");
+                            session["mrf"]["dtmfdigits"]  = event.SIP.content.json.msml.event.value[i-1];
+                            return 
+                        } else {
+                            log.debug("received dtmf.end");
+                            session["mrf"]["dtmfdigits"]  = event.SIP.content.json.msml.event.value[i-1];                            
+                        }
+                    }
+                }
+                return session["mrf"]["dtmfdigits"];
             }
         }
     } catch (e) {
         log.debug("Log: {}", e);
         return "error.exception";
     }
-    return session["mrf"]["dtmfdigit"];
 }
 
 function callAnswered(session : any, event : any, localParams: any ){
