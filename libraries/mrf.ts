@@ -26,7 +26,99 @@
   },
 }
 
+// XML in nexus-sip.3.0.1-1.jar
+<?xml version="1.0" encoding="UTF-8"?> 
+<msml version="1.1"> 
+	<dialogstart name="annoPromptCollect" target="conn:ca458551" type="application/moml+xml"> 
+		<play interval="100ms" iterate="1" cleardb="true" maxtime="50000ms" barge="true"> 
+			<audio uri="file:///appl/wav/simpleplay.wav"/> 
+			<playexit> 
+				<exit namelist="play.end play.amt"/> 
+			</playexit> 
+		</play> 
+	</dialogstart> 
+</msml>
+	  
+// XML in nexus-sip.3.0.??? future - support prompt and collect
+// pattern digits x is wildcard, xx are two wildcard digits, 1 is the digit one exactly, 
+// <pattern digits="1" iterate="forever">  
+using collect
+<?xml version="1.0"?>
+<msml version="1.1">
+	<dialogstart target="conn:${TARGET}" type="application/moml+xml" name="dialognamedefault">
+		<group topology="parallel">
+			<play id="beforebargeplay">
+				<audio uri="file:///appl/wav/simpleplay.wav" format="audio/wav"  />
+				<playexit>
+					<send target="collect" event="starttimer"/>
+				</playexit>
+			</play>
+			<collect cleardb="true" fdt="5s" idt="3s">
+				<pattern digits="x">
+					<send target="source" event="dialognamedefault" namelist="dtmf.digits dtmf.end"/>
+				</pattern>
+				<detect>
+					<send target="play.beforebargeplay" event="terminate"/>
+				</detect>
+				<noinput>
+					<send target="source" event="dialognamedefault" namelist="dtmf.digits dtmf.end"/>
+				</noinput>
+				<nomatch>
+					<send target="source" event="dialognamedefault" namelist="dtmf.digits dtmf.end"/>
+				</nomatch>
+			</collect>
+		</group>
+	</dialogstart>
+</msml>
+
+
+
 */
+
+function SendINFOPromptandCollect(session : any, event : any, localParams: any ){
+    //set the xml conn id --> session["mrf"]["downStreamToTag"]
+
+/*
+    let outevent = {
+    "callid": session["fsm-id"],
+    "event-type": "sip",
+    "queue": "TASV4_1",
+    "id": 2,
+    "timestamp": 1739784834563,
+    "action": {
+      "legaction": "performMediaOperation",
+      "performMediaOperation": {
+        "ContentType": "application/msml+xml",
+        "Content": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<msml  version=\"1.1\">\n<dialogstart name=\"annoPromptCollect\" target=\"conn:5b007c40\" type=\"application/moml+xml\">\n<play interval=\"100ms\" iterate=\"1\" cleardb=\"true\" maxtime=\"50000ms\" barge=\"true\">\n <audio uri=\"file:///appl/wav/simpleplay.wav\"/>\n <playexit>\n   <exit namelist=\"play.end play.amt\"/>\n </playexit>\n</play>\n</dialogstart>\n</msml>"
+      },
+      "type": 3
+    },
+    "event-name": "sip.media.playAnnouncement",
+    "eventname": "callEarlyAnswered",
+    "session": session["fsm-id"],
+    "eventtime": 1739784834579
+  };
+*/
+    let outevent = {
+    "callid": session["fsm-id"],
+    "event-type": "sip",
+    "queue": "TASV4_1",
+    "id": 2,
+    "action": {
+      "legaction": "performMediaOperation",
+      "performMediaOperation": {
+        "ContentType": "application/msml+xml",
+        "Content": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<msml  version=\"1.1\">\n<dialogstart name=\"annoPromptCollect\" target=\"conn:\"session["mrf"]["downStreamToTag"] type=\"application/moml+xml\">\n<play interval=\"100ms\" iterate=\"1\" cleardb=\"true\" maxtime=\"50000ms\" barge=\"true\">\n <audio uri=\"file:///appl/wav/simpleplay.wav\"/>\n <playexit>\n   <exit namelist=\"play.end play.amt\"/>\n </playexit>\n</play>\n</dialogstart>\n</msml>"
+      },
+      "type": 3
+    },
+    "event-name": "sip.media.playAnnouncement",
+    "eventname": "callEarlyAnswered",
+    "session": session["fsm-id"]
+  };
+  return outevent;
+}
+
 
 function inputvalidation(session : any, event : any, localParams: any ){
     let log = session.log;
