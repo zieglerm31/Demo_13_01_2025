@@ -71,7 +71,29 @@ using collect
 	</dialogstart>
 </msml>
 
+      <?xml version="1.0" encoding="UTF-8"?>
+      <msml version="1.1">
+       <dialogstart target="conn:12345" name="12345">
 
+         <collect fdt="10s" idt="16s">
+            <play barge="true">
+               <audio uri="file://prompt.wav"/>
+            </play>
+            <pattern digits="xxxx#">
+               <send target="source" event="done"
+                     namelist="dtmf.digits dtmf.end"/>
+            </pattern>
+            <noinput>
+               <send target="source" event="done"
+                     namelist="dtmf.end"/>
+            </noinput>
+            <nomatch>
+               <send target="source" event="done"
+                     namelist="dtmf.end"/>
+            </nomatch>
+         </collect>
+       </dialogstart>
+      </msml>
 
 
 
@@ -106,16 +128,22 @@ function SendINFOPromptandCollect(session : any, event : any, localParams: any )
     let content = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<msml  version=\"1.1\">\n<dialogstart name=\"dialognamedefault\" target=\"conn:";
     content = content + session["mrf"]["downStreamToTag"];
     content = content + "\" type=\"application/moml+xml\">\n";
-    //content = content + "<play interval=\"100ms\" iterate=\"1\" cleardb=\"true\" maxtime=\"50000ms\" barge=\"true\">\n <audio uri=\"file:///appl/wav/simpleplay.wav\"/>\n <playexit>\n   <exit namelist=\"play.end play.amt\"/>\n </playexit>\n</play>\n</dialogstart>\n</msml>";
-
-    //OCMP response - groups not supported     <?xml version="1.0" encoding="UTF-8" standalone="yes"?><msml version="1.1">    <result response="402">        <description>Groups not supported</description>    </result></msml>
-    //content = content + "<group topology=\"parallel\">\n";
-    content = content + "<play id=\"beforebargeplay\"><audio uri=\"file:///appl/wav/simpleplay.wav\" format=\"audio/wav\"  /><playexit><send target=\"collect\" event=\"starttimer\"/></playexit></play>\n";
-    content = content + "<collect cleardb=\"true\" fdt=\"5s\" idt=\"3s\"><pattern digits=\"x\"><send target=\"source\" event=\"dialognamedefault\" namelist=\"dtmf.digits dtmf.end\"/></pattern>\n";
-    //OCMP response - only source supported     <?xml version="1.0" encoding="UTF-8" standalone="yes"?><msml version="1.1">    <result response="410">        <description>Only 'source' supported</description>    </result></msml>
-    //content = content + "<detect><send target=\"play.beforebargeplay\" event=\"terminate\"/></detect>\n<noinput><send target=\"source\" event=\"dialognamedefault\" namelist=\"dtmf.digits dtmf.end\"/></noinput>\n<nomatch><send target=\"source\" event=\"dialognamedefault\" namelist=\"dtmf.digits dtmf.end\"/></nomatch>\n</collect>\n";
-    content = content + "<detect><send target=\"source\" event=\"terminate\"/></detect>\n<noinput><send target=\"source\" event=\"dialognamedefault\" namelist=\"dtmf.digits dtmf.end\"/></noinput>\n<nomatch><send target=\"source\" event=\"dialognamedefault\" namelist=\"dtmf.digits dtmf.end\"/></nomatch>\n</collect>\n";
-    //content = content + "</group>\n";
+        //content = content + "<play interval=\"100ms\" iterate=\"1\" cleardb=\"true\" maxtime=\"50000ms\" barge=\"true\">\n <audio uri=\"file:///appl/wav/simpleplay.wav\"/>\n <playexit>\n   <exit namelist=\"play.end play.amt\"/>\n </playexit>\n</play>\n</dialogstart>\n</msml>";
+        //OCMP response - groups not supported     <?xml version="1.0" encoding="UTF-8" standalone="yes"?><msml version="1.1">    <result response="402">        <description>Groups not supported</description>    </result></msml>
+        //content = content + "<group topology=\"parallel\">\n";
+        //content = content + "<play id=\"beforebargeplay\"><audio uri=\"file:///appl/wav/simpleplay.wav\" format=\"audio/wav\"  /><playexit><send target=\"collect\" event=\"starttimer\"/></playexit></play>\n";
+        //content = content + "<collect cleardb=\"true\" fdt=\"5s\" idt=\"3s\"><pattern digits=\"x\"><send target=\"source\" event=\"dialognamedefault\" namelist=\"dtmf.digits dtmf.end\"/></pattern>\n";
+        //OCMP response - only source supported     <?xml version="1.0" encoding="UTF-8" standalone="yes"?><msml version="1.1">    <result response="410">        <description>Only 'source' supported</description>    </result></msml>
+        //content = content + "<detect><send target=\"play.beforebargeplay\" event=\"terminate\"/></detect>\n<noinput><send target=\"source\" event=\"dialognamedefault\" namelist=\"dtmf.digits dtmf.end\"/></noinput>\n<nomatch><send target=\"source\" event=\"dialognamedefault\" namelist=\"dtmf.digits dtmf.end\"/></nomatch>\n</collect>\n";
+        //content = content + "<detect><send target=\"source\" event=\"terminate\"/></detect>\n<noinput><send target=\"source\" event=\"dialognamedefault\" namelist=\"dtmf.digits dtmf.end\"/></noinput>\n<nomatch><send target=\"source\" event=\"dialognamedefault\" namelist=\"dtmf.digits dtmf.end\"/></nomatch>\n</collect>\n";
+        //content = content + "</group>\n";
+    
+    content = content + "<collect fdt=\"10s\" idt=\"16s\">\n";
+    content = content + "<play barge=\"true\">\n         <audio uri=\"file:///appl/wav/simpleplay.wav\"/>\n      </play>\n";
+    content = content + "<pattern digits=\"x\">\n         <send target=\"source\" event=\"done\"\n               namelist=\"dtmf.digits dtmf.end\"/>\n      </pattern>\n";
+    content = content + "<noinput>\n         <send target=\"source\" event=\"done\"\n               namelist=\"dtmf.end\"/>\n      </noinput>\n";
+    content = content + "<nomatch>\n         <send target=\"source\" event=\"done\"\n               namelist=\"dtmf.end\"/>\n      </nomatch>\n";
+    content = content + "</collect>\n";
     content = content + "</dialogstart>\n</msml>\n";
 
     let outevent = {
