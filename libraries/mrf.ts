@@ -365,6 +365,10 @@ function handle200OKINFO(session:any,event:OCCPSIP.Event,localParams:LocalParame
     }
 }
 
+function mrfreturn(session : any, event : any, localParams: any ){
+    return "dtmf.digit." + session["mrf"]["dtmfdigits"];
+}
+
 function callAnswered(session : any, event : any, localParams: any ){
     let log = session.log;
 
