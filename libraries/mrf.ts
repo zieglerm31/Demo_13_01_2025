@@ -112,7 +112,9 @@ function SendINFOPromptandCollect(session : any, event : any, localParams: any )
     //content = content + "<group topology=\"parallel\">\n";
     content = content + "<play id=\"beforebargeplay\"><audio uri=\"file:///appl/wav/simpleplay.wav\" format=\"audio/wav\"  /><playexit><send target=\"collect\" event=\"starttimer\"/></playexit></play>\n";
     content = content + "<collect cleardb=\"true\" fdt=\"5s\" idt=\"3s\"><pattern digits=\"x\"><send target=\"source\" event=\"dialognamedefault\" namelist=\"dtmf.digits dtmf.end\"/></pattern>\n";
-    content = content + "<detect><send target=\"play.beforebargeplay\" event=\"terminate\"/></detect>\n<noinput><send target=\"source\" event=\"dialognamedefault\" namelist=\"dtmf.digits dtmf.end\"/></noinput>\n<nomatch><send target=\"source\" event=\"dialognamedefault\" namelist=\"dtmf.digits dtmf.end\"/></nomatch>\n</collect>\n";
+    //OCMP response - only source supported     <?xml version="1.0" encoding="UTF-8" standalone="yes"?><msml version="1.1">    <result response="410">        <description>Only 'source' supported</description>    </result></msml>
+    //content = content + "<detect><send target=\"play.beforebargeplay\" event=\"terminate\"/></detect>\n<noinput><send target=\"source\" event=\"dialognamedefault\" namelist=\"dtmf.digits dtmf.end\"/></noinput>\n<nomatch><send target=\"source\" event=\"dialognamedefault\" namelist=\"dtmf.digits dtmf.end\"/></nomatch>\n</collect>\n";
+    content = content + "<detect><send target=\"source\" event=\"terminate\"/></detect>\n<noinput><send target=\"source\" event=\"dialognamedefault\" namelist=\"dtmf.digits dtmf.end\"/></noinput>\n<nomatch><send target=\"source\" event=\"dialognamedefault\" namelist=\"dtmf.digits dtmf.end\"/></nomatch>\n</collect>\n";
     //content = content + "</group>\n";
     content = content + "</dialogstart>\n</msml>\n";
 
