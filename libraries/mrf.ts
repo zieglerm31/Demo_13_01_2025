@@ -347,7 +347,7 @@ function handle200OKINFO(session:any,event:OCCPSIP.Event,localParams:LocalParame
                         }
                     }
                 }
-                log.debug("Return the decoded dtmf.digits: {}",session["mrf"]["dtmfdigits"];
+                log.debug("Return the decoded dtmf.digits: {}",session["mrf"]["dtmfdigits"]);
                 return session["mrf"]["dtmfdigits"];
             } else {
                 return "unexpectedeventtype." + event.event["type"];
