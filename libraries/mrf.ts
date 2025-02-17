@@ -328,6 +328,7 @@ function handle200OKINFO(session:any,event:OCCPSIP.Event,localParams:LocalParame
                 //This is the 200ok for SIP INFO - no DTMF etc is present
                 if (event.SIP.content.json.msml.result.description=="OK")  {
                     log.debug("handle200OKINFO:Recevied 200OKINFO and its ok");
+                    session["mrf"]["dtmfdigits"] = "initialized";
                     return "received.OK";
                 } else {
                     log.debug("handle200OKINFO:Recevied 200OKINFO and its NOT ok {}",event.SIP.content.json.msml.result.description);
@@ -335,7 +336,6 @@ function handle200OKINFO(session:any,event:OCCPSIP.Event,localParams:LocalParame
                 }
             } else if (event.event["type"]=="INFO")  {
                 //This is the incoming SIP INFO with either a timeout or nomatch or a match with the digit
-                session["mrf"]["dtmfdigits"] = "initialized";
                 if( event.SIP.content.json.msml.event.name!=null && event.SIP.content.json.msml.event.name.size()>1 ){
                     // name[1] -> value[0]    and name[2] -> value[1]
                     for(var i=0;i<=event.SIP.content.json.msml.event.name.size()-1;i++){
