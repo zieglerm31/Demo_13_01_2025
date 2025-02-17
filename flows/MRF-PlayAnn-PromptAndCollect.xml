@@ -758,5 +758,45 @@
               target="63">
          <mxGeometry relative="1" as="geometry"/>
       </mxCell>
+      <park-and-wait action="io.qsrlabs.nexus.middleware.scxml.handlers.WaitForNextEvent"
+                     label="Wait for next ingres event"
+                     id="99">
+         <mxCell style="image;html=1;image=clipart/next.png" vertex="1" parent="1">
+            <mxGeometry x="50" y="1290" width="120" height="60" as="geometry"/>
+         </mxCell>
+      </park-and-wait>
+      <mxCell id="100" value="received.OK"
+              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0;exitY=0.5;entryX=0.5;entryY=0;"
+              edge="1"
+              parent="1"
+              source="58"
+              target="99">
+         <mxGeometry relative="1" as="geometry"/>
+      </mxCell>
+      <typescript-library action="io.qsrlabs.nexus.middleware.scxml.handlers.TypeScriptLibrary#fixed"
+                          label="lib.checkSIPresponse"
+                          library="Demo_13_01_2025:mrf"
+                          function="handle200OKINFO"
+                          id="101">
+         <mxCell style="image;html=1;image=clipart/script.png" vertex="1" parent="1">
+            <mxGeometry x="50" y="1411" width="120" height="60" as="geometry"/>
+         </mxCell>
+      </typescript-library>
+      <mxCell id="102" value="sip.*"
+              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;"
+              edge="1"
+              parent="1"
+              source="99"
+              target="101">
+         <mxGeometry relative="1" as="geometry"/>
+      </mxCell>
+      <mxCell id="103" value="*"
+              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0;entryY=0.5;"
+              edge="1"
+              parent="1"
+              source="101"
+              target="63">
+         <mxGeometry relative="1" as="geometry"/>
+      </mxCell>
    </root>
 </mxGraphModel>
