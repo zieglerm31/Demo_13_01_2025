@@ -345,6 +345,9 @@ function handle200OKINFO(session:any,event:OCCPSIP.Event,localParams:LocalParame
                             session["mrf"]["dtmfdigits"]  = event.SIP.content.json.msml.event.value[i-1];
                         } else if ( event.SIP.content.json.msml.event.name.get(i).equals("dtmf.end")) {
                             log.debug("handle200OKINFO:received dtmf.end");            
+                        } else if ( event.SIP.content.json.msml.event.name.get(i).equals("msml.dialog.exit")) {
+                            log.debug("handle200OKINFO:received msml.dialog.exit - return with MRF dialog closed.");    
+                            return "mrfdialog.closed";
                         } else {
                             log.debug("handle200OKINFO:received other event name");                            
                         }
