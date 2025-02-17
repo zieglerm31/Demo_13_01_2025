@@ -343,8 +343,10 @@ function handle200OKINFO(session:any,event:OCCPSIP.Event,localParams:LocalParame
                         if( event.SIP.content.json.msml.event.name.get(i).equals("dtmf.digits")) {
                             log.debug("handle200OKINFO:received dtmf.digits as {}", event.SIP.content.json.msml.event.value[i-1]);
                             session["mrf"]["dtmfdigits"]  = event.SIP.content.json.msml.event.value[i-1];
+                        } else if ( event.SIP.content.json.msml.event.name.get(i).equals("dtmf.end")) {
+                            log.debug("handle200OKINFO:received dtmf.end");            
                         } else {
-                            log.debug("handle200OKINFO:received dtmf.end");                            
+                            log.debug("handle200OKINFO:received other event name");                            
                         }
                     }
                 }
