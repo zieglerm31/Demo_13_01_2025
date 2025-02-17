@@ -317,11 +317,22 @@ function handle200OKINVITE(session:any,event:OCCPSIP.OCCPEvent,localParams:any) 
 }
 
 function handle200OKINFO(session:any,event:OCCPSIP.Event,localParams:LocalParameters): any{
+    
     let log = session.log;
 
     try {        
         session["mrf"]["time200OKINFO"]  = Math.floor(new Date()/1000);
-        session["mrf"]["callstate"]  = "MRFCONNECTED";
+        session["mrf"]["callstate"]  = "MRFCONNECTED";        
+        if (event["event-name"]=="sip.mediaOperationNotification.*")  {
+            //This is hte 200ok - no DTMF etc is present
+            if (event.SIP.content.json.msml.result.description=="OK")  {
+                log.debug("Recevied 200OKINFO and its ok");
+                return "received.OK";
+            } else {
+                log.debug("Recevied 200OKINFO and its NOT ok {}",event.SIP.content.json.msml.result.description);
+                return "received.NOK";
+            }
+        }
         if (event.SIP.content.json.msml.event.name[2]!=null) {
             if (event.SIP.content.json.msml.event.name[2]=="dtmf.digits") {
                 log.debug("Got DTMF digits;");
