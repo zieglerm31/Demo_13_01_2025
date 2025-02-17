@@ -339,7 +339,7 @@ function handle200OKINFO(session:any,event:OCCPSIP.Event,localParams:LocalParame
                 if( event.SIP.content.json.msml.event.name!=null && event.SIP.content.json.msml.event.name.size()>1 ){
                     // name[1] -> value[0]    and name[2] -> value[1]
                     for(var i=0;i<=event.SIP.content.json.msml.event.name.size();i++){
-                        log.debug("handle200OKINFO:index {}", i);       
+                        log.debug("handle200OKINFO:index and event-name {} - {}", i, event.SIP.content.json.msml.event.name.get(i));       
                         if( event.SIP.content.json.msml.event.name.get(i).equals("dtmf.digits")) {
                             log.debug("handle200OKINFO:received dtmf.digits as {}", event.SIP.content.json.msml.event.value[i-1]);
                             session["mrf"]["dtmfdigits"]  = event.SIP.content.json.msml.event.value[i-1];
