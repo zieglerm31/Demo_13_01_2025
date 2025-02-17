@@ -98,6 +98,8 @@ function SendINFOPromptandCollect(session : any, event : any, localParams: any )
     "session": session["fsm-id"],
     "eventtime": 1739784834579
   };
+
+  "Content": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<msml  version=\"1.1\">\n<dialogstart name=\"annoPromptCollect\" target=\"conn:\"session["mrf"]["downStreamToTag"] type=\"application/moml+xml\">\n<play interval=\"100ms\" iterate=\"1\" cleardb=\"true\" maxtime=\"50000ms\" barge=\"true\">\n <audio uri=\"file:///appl/wav/simpleplay.wav\"/>\n <playexit>\n   <exit namelist=\"play.end play.amt\"/>\n </playexit>\n</play>\n</dialogstart>\n</msml>"
 */
     let outevent = {
     "callid": session["fsm-id"],
@@ -108,7 +110,7 @@ function SendINFOPromptandCollect(session : any, event : any, localParams: any )
       "legaction": "performMediaOperation",
       "performMediaOperation": {
         "ContentType": "application/msml+xml",
-        "Content": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<msml  version=\"1.1\">\n<dialogstart name=\"annoPromptCollect\" target=\"conn:\"session["mrf"]["downStreamToTag"] type=\"application/moml+xml\">\n<play interval=\"100ms\" iterate=\"1\" cleardb=\"true\" maxtime=\"50000ms\" barge=\"true\">\n <audio uri=\"file:///appl/wav/simpleplay.wav\"/>\n <playexit>\n   <exit namelist=\"play.end play.amt\"/>\n </playexit>\n</play>\n</dialogstart>\n</msml>"
+        "Content": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<msml  version=\"1.1\">\n<dialogstart name=\"annoPromptCollect\" target=\"conn:dsfdsfdsac\" type=\"application/moml+xml\">\n<play interval=\"100ms\" iterate=\"1\" cleardb=\"true\" maxtime=\"50000ms\" barge=\"true\">\n <audio uri=\"file:///appl/wav/simpleplay.wav\"/>\n <playexit>\n   <exit namelist=\"play.end play.amt\"/>\n </playexit>\n</play>\n</dialogstart>\n</msml>"
       },
       "type": 3
     },
