@@ -327,10 +327,10 @@ function handle200OKINFO(session:any,event:OCCPSIP.Event,localParams:LocalParame
             if (event.event["type"]=="200")  {
                 //This is the 200ok for SIP INFO - no DTMF etc is present
                 if (event.SIP.content.json.msml.result.description=="OK")  {
-                    log.debug("Recevied 200OKINFO and its ok");
+                    log.debug("handle200OKINFO:Recevied 200OKINFO and its ok");
                     return "received.OK";
                 } else {
-                    log.debug("Recevied 200OKINFO and its NOT ok {}",event.SIP.content.json.msml.result.description);
+                    log.debug("handle200OKINFO:Recevied 200OKINFO and its NOT ok {}",event.SIP.content.json.msml.result.description);
                     return "received.NOK";
                 }
             } else if (event.event["type"]=="INFO")  {
@@ -339,22 +339,23 @@ function handle200OKINFO(session:any,event:OCCPSIP.Event,localParams:LocalParame
                 if( event.SIP.content.json.msml.event.name!=null && event.SIP.content.json.msml.event.name.size()>1 ){
                     // name[1] -> value[0]    and name[2] -> value[1]
                     for(var i=1;i<=event.SIP.content.json.msml.event.name.size();i++){
+                        log.debug("index {}", i);       
                         if( event.SIP.content.json.msml.event.name.get(i).equals("dtmf.digits")) {
-                            log.debug("received dtmf.digits as {}", event.SIP.content.json.msml.event.value[i-1]);
+                            log.debug("handle200OKINFO:received dtmf.digits as {}", event.SIP.content.json.msml.event.value[i-1]);
                             session["mrf"]["dtmfdigits"]  = event.SIP.content.json.msml.event.value[i-1];
                         } else {
-                            log.debug("received dtmf.end");                            
+                            log.debug("handle200OKINFO:received dtmf.end");                            
                         }
                     }
                 }
-                log.debug("Return the decoded dtmf.digits: {}",session["mrf"]["dtmfdigits"]);
+                log.debug("handle200OKINFO:Return the decoded dtmf.digits: {}",session["mrf"]["dtmfdigits"]);
                 return session["mrf"]["dtmfdigits"];
             } else {
                 return "unexpectedeventtype." + event.event["type"];
             }
         }
     } catch (e) {
-        log.debug("Log: {}", e);
+        log.debug("handle200OKINFO:Log: {}", e);
         return "error.exception";
     }
 }
