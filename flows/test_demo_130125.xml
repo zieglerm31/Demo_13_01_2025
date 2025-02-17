@@ -1014,7 +1014,7 @@
       </mxCell>
       <trace-info action="io.qsrlabs.nexus.middleware.scxml.handlers.TraceInfo"
                   label="Trace info"
-                  scenario="dtmf.any"
+                  scenario="dtmf.no"
                   trace-level="spel:2"
                   trace-ttl="spel:2419200"
                   trace-size="spel:1000"
@@ -1059,7 +1059,7 @@
       </mxCell>
       <trace-info action="io.qsrlabs.nexus.middleware.scxml.handlers.TraceInfo"
                   label="Trace info"
-                  scenario="dtmf.2"
+                  scenario="dtmf.any"
                   trace-level="spel:2"
                   trace-ttl="spel:2419200"
                   trace-size="spel:1000"
@@ -1164,64 +1164,6 @@
               edge="1"
               parent="1"
               source="129"
-              target="47">
-         <mxGeometry relative="1" as="geometry"/>
-      </mxCell>
-      <mxCell id="144" value="*"
-              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.75;exitY=1;entryX=0.5;entryY=0;"
-              edge="1"
-              parent="1"
-              source="109"
-              target="145">
-         <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-               <mxPoint x="-1810" y="20"/>
-               <mxPoint x="-1700" y="20"/>
-            </Array>
-         </mxGeometry>
-      </mxCell>
-      <trace-info action="io.qsrlabs.nexus.middleware.scxml.handlers.TraceInfo"
-                  label="Trace info"
-                  scenario="nosipcallend"
-                  trace-level="spel:2"
-                  trace-ttl="spel:2419200"
-                  trace-size="spel:1000"
-                  id="145">
-         <mxCell style="image;html=1;image=clipart/trace-metadata.png" vertex="1" parent="1">
-            <mxGeometry x="-1760" y="150" width="120" height="60" as="geometry"/>
-         </mxCell>
-      </trace-info>
-      <mxCell id="146"
-              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.75;exitY=1;entryX=0.5;entryY=0;"
-              edge="1"
-              parent="1"
-              source="120"
-              target="145">
-         <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-               <mxPoint x="-1970" y="20"/>
-               <mxPoint x="-1700" y="20"/>
-            </Array>
-         </mxGeometry>
-      </mxCell>
-      <mxCell id="147" value="*"
-              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.75;exitY=1;entryX=0.5;entryY=0;"
-              edge="1"
-              parent="1"
-              source="122"
-              target="145">
-         <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-               <mxPoint x="-2120" y="20"/>
-               <mxPoint x="-1700" y="20"/>
-            </Array>
-         </mxGeometry>
-      </mxCell>
-      <mxCell id="150"
-              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;"
-              edge="1"
-              parent="1"
-              source="145"
               target="47">
          <mxGeometry relative="1" as="geometry"/>
       </mxCell>
