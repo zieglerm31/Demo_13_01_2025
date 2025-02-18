@@ -39,22 +39,17 @@ function extractAndCompare(session : any, event : any, localParams: any ){
          return "error.noPANIcellid.exception";
       }
 
-      if (x.substring(0,5) =="42501")
-      {
+      if (x.substring(0,5) =="42501") {
          session.w="1";
          session.ann_name="P3001";
-      }
-      else if (x.substring(0,5) =="42503")
-      {
+      } else if (x.substring(0,5) =="42503") {
          session.w="2";
          session.ann_name="P3002";
-      }
-      else{
+      } else {
          session.w="3";
       }
       return session.w;
    } catch (e) {
-
       log.debug("extractAndCompare.Log: {}", e);
       return "error";
    }
