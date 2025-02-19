@@ -32,7 +32,7 @@ function extractAndCompare(session : any, event : any, localParams: any ){
          "action":"playannouncement",
          "earlydialog": true,
          "collect": {
-            "cleardb"="true",
+            "cleardb":"true",
             "edt":"1s",
             "fdt":"3s",
             "idt":"2s",
