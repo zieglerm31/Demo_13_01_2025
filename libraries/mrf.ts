@@ -136,16 +136,16 @@ function SendINFOPromptandCollect(session : any, event : any, localParams: any )
 
     let collect=false;
     //if this is only a playannouncement
-    if ( session["mrf"]["collect"] != null) {
+    if ( session["mrf_param"]["collect"] != null) {
         //collect is present. this is a prompt and collect
         //overwrite default values
-        mrf_used["collect"] = session["mrf"]["collect"];
-        mrf_used["pattern"] = session["mrf"]["pattern"];
-        mrf_used["play"] = session["mrf"]["play"];
+        mrf_used["collect"] = session["mrf_param"]["collect"];
+        mrf_used["pattern"] = session["mrf_param"]["pattern"];
+        mrf_used["play"] = session["mrf_param"]["play"];
         collect=true;
     } else {
         //this is only a play announcement
-        mrf_used["play"] = session["mrf"]["play"];
+        mrf_used["play"] = session["mrf_param"]["play"];
         collect=false;
     }
 
@@ -237,7 +237,7 @@ function SendINFOPromptandCollect(session : any, event : any, localParams: any )
         */
 
         // clean it up for the next run
-        delete session["mrf"];
+        delete session["mrf_param"];
     return outevent;
 }
 
@@ -261,18 +261,18 @@ function inputvalidation(session : any, event : any, localParams: any ){
             return "error.input.sipinvitemissing";
         }
 
-        if ( session["mrf"] != null) {
-            if ( session["mrf"]["earlydialog"] != null) {
+        if ( session["mrf_param"] != null) {
+            if ( session["mrf_param"]["earlydialog"] != null) {
                 log.debug("mrf earlydialog present and {}",session["mrf"]["earlydialog"]);
             } else {
-                session["mrf"]["earlydialog"] = true;
+                session["mrf_param"]["earlydialog"] = true;
                 log.debug("mrf earlydialog not present - use default");
             }
         } else {
             log.debug("mrf object not present - use default");
-            session["mrf"]["earlydialog"] = true;
+            session["mrf_param"]["earlydialog"] = true;
         }	
-        return session["mrf"]["earlydialog"];
+        return session["mrf_param"]["earlydialog"];
     } catch (e) {
         log.debug("Log.inputvalidation: {}", e);
         return "error.exception";
