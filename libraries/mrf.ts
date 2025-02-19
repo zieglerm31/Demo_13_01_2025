@@ -128,7 +128,7 @@ function SendINFOPromptandCollect(session : any, event : any, localParams: any )
         "pattern": {
             "digits": "[1-2]",
             "format": "regex"
-        }            
+        }   
     };
     log.debug("SendINFOPromptandCollect: mrf_default {}:",JSON.stringify(mrf_used));
 
@@ -139,10 +139,18 @@ function SendINFOPromptandCollect(session : any, event : any, localParams: any )
     content = content + "\" type=\"application/moml+xml\">\n";
 
     let collect=false;
+
+    let mrfx_used={};
     //if this is only a playannouncement
     if ( session["mrf_param"]["collect"] != null) {
         //collect is present. this is a prompt and collect
-        //overwrite default values
+
+        //overwrite default values        
+        mrfx_used["collect"] = Object.assign({},session["mrf_param"]["collect"]);
+        mrfx_used["pattern"] = Object.assign({},session["mrf_param"]["pattern"]);
+        mrfx_used["play"] = Object.assign({},session["mrf_param"]["play"]);
+        log.debug("SendINFOPromptandCollect: mrfx_used {}:",JSON.stringify(mrfx_used));
+        
         mrf_used["collect"] = session["mrf_param"]["collect"];
         mrf_used["pattern"] = session["mrf_param"]["pattern"];
         mrf_used["play"] = session["mrf_param"]["play"];
@@ -150,7 +158,10 @@ function SendINFOPromptandCollect(session : any, event : any, localParams: any )
         collect=true;
     } else {
         //this is only a play announcement
-        mrf_used["play"] = session["mrf_param"]["play"];
+        mrfx_used["play"] = Object.assign({},session["mrf_param"]["play"]);
+        log.debug("SendINFOPromptandCollect: mrfx_used {}:",JSON.stringify(mrfx_used));
+
+        mrf_used["play"] = session["mrf_param"]["play"];        
         log.debug("SendINFOPromptandCollect: use announcement");
         collect=false;
     }
