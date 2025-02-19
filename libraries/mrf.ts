@@ -263,7 +263,7 @@ function inputvalidation(session : any, event : any, localParams: any ){
 
         if ( session["mrf_param"] != null) {
             if ( session["mrf_param"]["earlydialog"] != null) {
-                log.debug("mrf earlydialog present and {}",session["mrf"]["earlydialog"]);
+                log.debug("mrf earlydialog present and {}",session["mrf_param"]["earlydialog"]);
             } else {
                 session["mrf_param"]["earlydialog"] = true;
                 log.debug("mrf earlydialog not present - use default");
