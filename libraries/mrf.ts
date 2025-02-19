@@ -158,7 +158,7 @@ function SendINFOPromptandCollect(session : any, event : any, localParams: any )
         content = content + "</collect>\n";        
     } else {
         content = content + "<play barge=\"" + mrf_used["play"]["barge"] + "\" maxtime=\"" + mrf_used["play"]["maxtime"] + "\" interval=\"" + mrf_used["play"]["interval"] + "\" cleardb=\"" + mrf_used["play"]["cleardb"] + "\" offset=\"" + mrf_used["play"]["offset"] + "\">\n";
-        content = content + "<audio uri=\"" + mrf_used["play"]["audiouri"] + "\"" + "\" iterate=\"" + mrf_used["play"]["iterate"] + "\"/>\n";
+        content = content + "<audio uri=\"" + mrf_used["play"]["audiouri"] + "\"" + "\" iterate=\"" + mrf_used["play"]["audioiterate"] + "\"/>\n";
         content = content + "<playexit>\n<exit namelist=\"play.end play.amt\"/>\n</playexit>\n";
         content = content + "</play>";
     }	
@@ -236,6 +236,8 @@ function SendINFOPromptandCollect(session : any, event : any, localParams: any )
         offset: defines an offset, measured in units of time, where the <play> is to begin media generation.  Offset is only valid when all child media elements are <audio>.
         */
 
+        // clean it up for the next run
+        delete session["mrf"];
     return outevent;
 }
 
