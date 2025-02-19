@@ -30,10 +30,17 @@ function checkHttpResponse(session : any, event : any, localParams: any ){
         //if RURI ends with 5 -> scenario5
         //if RURI ends with 0 -> scenario0
         if ( session.s_SIPInvite.SIP["R-URI"].address.uri.user.endsWith("0") ) {
+            session.ocs.scenario="0";
             return "scenario.0";
         } else if ( session.s_SIPInvite.SIP["R-URI"].address.uri.user.endsWith("4") ) {
+            //set for MRF communication the early media
+            session.ocs.earlymedia=false;
+            session.ocs.scenario="4";
             return "scenario.4";
         } else if ( session.s_SIPInvite.SIP["R-URI"].address.uri.user.endsWith("5") ) {
+            //set for MRF communication the early media
+            session.ocs.earlymedia=true;
+            session.ocs.scenario="5";
             return "scenario.5";
         } else {
             log.debug("checkHttpResponse.uri:{}",session.s_SIPInvite.SIP["R-URI"].address.uri.user);
