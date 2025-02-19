@@ -145,10 +145,12 @@ function SendINFOPromptandCollect(session : any, event : any, localParams: any )
         mrf_used["collect"] = session["mrf_param"]["collect"];
         mrf_used["pattern"] = session["mrf_param"]["pattern"];
         mrf_used["play"] = session["mrf_param"]["play"];
+        log.debug("SendINFOPromptandCollect: use collect");
         collect=true;
     } else {
         //this is only a play announcement
         mrf_used["play"] = session["mrf_param"]["play"];
+        log.debug("SendINFOPromptandCollect: use announcement");
         collect=false;
     }
     log.debug("SendINFOPromptandCollect: mrf_used {}:",JSON.stringify(mrf_used));
