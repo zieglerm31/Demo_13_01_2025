@@ -1142,7 +1142,7 @@
       </mxCell>
       <structured-object-builder action="io.qsrlabs.nexus.middleware.scxml.handlers.StructuredJsonObjectBuilder"
                                  label="Define MRF Data"
-                                 payload="eyJkZXNjcmlwdGlvbiI6IkFmdGVyIERUTUQgZGlnaXQgMiIsImFubm91bmNlbWVudCI6ImFubm9UZXN0IiwiYWN0aW9uIjoicGxheWFubm91bmNlbWVudCIsImVhcmx5ZGlhbG9nIjp0cnVlLCJwbGF5Ijp7ImJhcmdlIjoiZmFsc2UiLCJtYXh0aW1lIjoiNTUwMG1zIiwiYXVkaW91cmkiOiJmaWxlOi8vL2FwcGwvd2F2L25vc2VydmljZS53YXYifX0="
+                                 payload="ewogICJkZXNjcmlwdGlvbiI6ICJBZnRlciBEVE1EIGRpZ2l0IDIiLAogICJhbm5vdW5jZW1lbnQiOiAiYW5ub1Rlc3QiLAogICJhY3Rpb24iOiAicGxheWFubm91bmNlbWVudCIsCiAgImVhcmx5ZGlhbG9nIjogInNwZWw6I3Nlc3Npb25bXCJvY3NcIl1bXCJlYXJseW1lZGlhXCJdIiwKICAicGxheSI6IHsKICAgICJiYXJnZSI6ICJmYWxzZSIsCiAgICAibWF4dGltZSI6ICI1NTAwbXMiLAogICAgImF1ZGlvdXJpIjogImZpbGU6Ly8vYXBwbC93YXYvbm9zZXJ2aWNlLndhdiIKICB9Cn0="
                                  code="CmZ1bmN0aW9uIHJldHVyblBheWxvYWQoc2Vzc2lvbkRhdGE6YW55LGV2ZW50RGF0YTphbnksbG9jYWxQYXJhbXM6TG9jYWxQYXJhbWV0ZXJzKTphbnl7CiAgICAvLyBwYXlsb2FkIGZpZWxkIG9mIGxvY2FsUGFyYW1zIGFscmVhZHkgaW5jbHVkZXMgdGhlIHJlcXVlc3QgcGF5bG9hZDsgeW91IGNhbiAKICAgIC8vIGNoYW5nZSBpdCBmdXJ0aGVyIGhlcmUgbGlrZSBhZGRpbmcgZHluYW1pY2FsbHkgYXJyYXkgZWxlbWVudHMsIGV0Yy4uLgogICAgcmV0dXJuIGxvY2FsUGFyYW1zLnBheWxvYWQ7Cn0="
                                  jscode="CmZ1bmN0aW9uIHJldHVyblBheWxvYWQoc2Vzc2lvbkRhdGEsZXZlbnREYXRhLGxvY2FsUGFyYW1zKXsKICAgIHJldHVybiBsb2NhbFBhcmFtcy5wYXlsb2FkOwp9"
                                  useScript="false"
