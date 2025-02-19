@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<mxGraphModel dx="4500" dy="3222" grid="1" gridSize="10" guides="1" tooltips="1" connect="1"
+<mxGraphModel dx="3982" dy="3199" grid="1" gridSize="10" guides="1" tooltips="1" connect="1"
               fold="1"
               page="1"
               pageScale="1"
@@ -1201,7 +1201,7 @@
       </structured-object-builder>
       <structured-object-builder action="io.qsrlabs.nexus.middleware.scxml.handlers.StructuredJsonObjectBuilder"
                                  label="Define MRF Data"
-                                 payload="eyJkZXNjcmlwdGlvbiI6IkFmdGVyIERUTUQgZGlnaXQgMiIsImFubm91bmNlbWVudCI6ImFubm9UZXN0IiwiYWN0aW9uIjoicGxheWFubm91bmNlbWVudCIsImVhcmx5ZGlhbG9nIjp0cnVlLCJwbGF5Ijp7ImJhcmdlIjoidHJ1ZSIsIm1heHRpbWUiOiIxMXMiLCJhdWRpb3VyaSI6ImZpbGU6Ly8vYXBwbC93YXYvbm9zZXJ2aWNlLndhdiJ9fQ=="
+                                 payload="eyJkZXNjcmlwdGlvbiI6IkFmdGVyIERUTUQgZGlnaXQgMiIsImFubm91bmNlbWVudCI6ImFubm9UZXN0IiwiYWN0aW9uIjoicGxheWFubm91bmNlbWVudCIsImVhcmx5ZGlhbG9nIjp0cnVlLCJwbGF5Ijp7ImJhcmdlIjoiZmFsc2UiLCJtYXh0aW1lIjoiNTUwMG1zIiwiYXVkaW91cmkiOiJmaWxlOi8vL2FwcGwvd2F2L25vc2VydmljZS53YXYifX0="
                                  code="CmZ1bmN0aW9uIHJldHVyblBheWxvYWQoc2Vzc2lvbkRhdGE6YW55LGV2ZW50RGF0YTphbnksbG9jYWxQYXJhbXM6TG9jYWxQYXJhbWV0ZXJzKTphbnl7CiAgICAvLyBwYXlsb2FkIGZpZWxkIG9mIGxvY2FsUGFyYW1zIGFscmVhZHkgaW5jbHVkZXMgdGhlIHJlcXVlc3QgcGF5bG9hZDsgeW91IGNhbiAKICAgIC8vIGNoYW5nZSBpdCBmdXJ0aGVyIGhlcmUgbGlrZSBhZGRpbmcgZHluYW1pY2FsbHkgYXJyYXkgZWxlbWVudHMsIGV0Yy4uLgogICAgcmV0dXJuIGxvY2FsUGFyYW1zLnBheWxvYWQ7Cn0="
                                  jscode="CmZ1bmN0aW9uIHJldHVyblBheWxvYWQoc2Vzc2lvbkRhdGEsZXZlbnREYXRhLGxvY2FsUGFyYW1zKXsKICAgIHJldHVybiBsb2NhbFBhcmFtcy5wYXlsb2FkOwp9"
                                  useScript="false"
