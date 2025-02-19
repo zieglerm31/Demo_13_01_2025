@@ -26,6 +26,7 @@ function extractAndCompare(session : any, event : any, localParams: any ){
    try {
       //set input parameters
       //interim
+      // tictac.wav .. 5s, simpleplay.wav .. 32s
       session["mrf"]={};
       session["mrf"]= {
          "announcement":"annoTest",
@@ -41,7 +42,7 @@ function extractAndCompare(session : any, event : any, localParams: any ){
          "play": {
             "barge":"true",
             "maxtime":"11s",
-            "audiouri":"file:///appl/wav/simpleplay.wav"            
+            "audiouri":"file:///appl/wav/tictac.wav"            
          }
       };
 
