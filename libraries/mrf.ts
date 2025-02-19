@@ -155,8 +155,8 @@ function SendINFOPromptandCollect(session : any, event : any, localParams: any )
     offset: defines an offset, measured in units of time, where the <play> is to begin media generation.  Offset is only valid when all child media elements are <audio>.
     */
     content = content + "<collect  cleardb=\"true\" edt=\"1s\" fdt=\"3s\" idt=\"2s\"  iterate=\"1\">\n";
-    content = content + "<play barge=\"true\">\n  maxtime=\"7s\"       <audio uri=\"file:///appl/wav/simpleplay.wav\"/>\n      </play>\n";
-    content = content + "<pattern digits=\"x\">\n         <send target=\"source\" event=\"done\"\n               namelist=\"dtmf.digits dtmf.end\"/>\n      </pattern>\n";
+    content = content + "<play barge=\"true\"> maxtime=\"11s\" <audio uri=\"file:///appl/wav/simpleplay.wav\"/> </play>\n";
+    content = content + "<pattern digits=\"x\">  <send target=\"source\" event=\"done\" namelist=\"dtmf.digits dtmf.end\"/> </pattern>\n";
     content = content + "<noinput>\n         <send target=\"source\" event=\"done\"\n               namelist=\"dtmf.end\"/>\n      </noinput>\n";
     content = content + "<nomatch>\n         <send target=\"source\" event=\"done\"\n               namelist=\"dtmf.end\"/>\n      </nomatch>\n";
     content = content + "</collect>\n";
