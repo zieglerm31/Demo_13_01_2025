@@ -101,6 +101,15 @@ using collect
 
 function SendINFOPromptandCollect(session : any, event : any, localParams: any ){
     //set the xml conn id --> session["mrf"]["downStreamToTag"]
+    session["mrf"]["downStreamToTag"]["collect"]["cleardb"]="true";
+    session["mrf"]["downStreamToTag"]["collect"]["edt"]="1s";
+    session["mrf"]["downStreamToTag"]["collect"]["fdt"]="3s";
+    session["mrf"]["downStreamToTag"]["collect"]["idt"]="2s";
+    session["mrf"]["downStreamToTag"]["collect"]["iterate"]="1";
+    
+    session["mrf"]["downStreamToTag"]["play"]["barge"]="true";
+    session["mrf"]["downStreamToTag"]["play"]["maxtime"]="11s";
+    session["mrf"]["downStreamToTag"]["play"]["audiouri"]="file:///appl/wav/simpleplay.wav";
 
 /*
     let outevent = {
@@ -150,12 +159,14 @@ function SendINFOPromptandCollect(session : any, event : any, localParams: any )
     interval: specifies the delay between stopping one iteration and beginning another.  The attribute has no effect if iterate is not also specified.  Default is no interval. 
     iterate: specifies the number of times the media specified by the child media elements should be played.  Each iteration is a  complete play of each of the child media elements in document order.  Defaults to once '1'.
     maxtime: defines the maximum allowed time for the <play> to complete.
+        in garge=true the announcement is not stopped at maxtime
     barge: defines whether or not audio announcements may be  interrupted by DTMF detection during play-out.  The DTMF digit barging the announcement is stored in the digit buffer.  Valid values for barge are "true" or "false", and the attribute is mandatory.  When barge is applied to a conference target, DTMF digit detected from any conference participant MUST terminate the announcement.
     cleardb: defines whether or not the digit buffer is cleared, prior  to starting the announcement.  Valid values for cleardb are "true" or "false", and the attribute is mandatory. 
     offset: defines an offset, measured in units of time, where the <play> is to begin media generation.  Offset is only valid when all child media elements are <audio>.
     */
-    content = content + "<collect  cleardb=\"true\" edt=\"1s\" fdt=\"3s\" idt=\"2s\"  iterate=\"1\">\n";
-    content = content + "<play barge=\"true\"> maxtime=\"11s\" <audio uri=\"file:///appl/wav/simpleplay.wav\"/> </play>\n";
+
+    content = content + "<collect  cleardb=\"" + session["mrf"]["downStreamToTag"]["collect"]["cleardb"] + "\" edt=\"" + session["mrf"]["downStreamToTag"]["collect"]["edt"]  + "\" fdt=\"" + session["mrf"]["downStreamToTag"]["collect"]["fdt"]  + "\" idt=\"" + session["mrf"]["downStreamToTag"]["collect"]["idt"]  + "\"  iterate=\"" + session["mrf"]["downStreamToTag"]["collect"]["iterate"]  + "\">\n";
+    content = content + "<play barge=\"" + session["mrf"]["downStreamToTag"]["play"]["barge"] + "\"> maxtime=\"" + session["mrf"]["downStreamToTag"]["play"]["maxtime"] + "\" <audio uri=\"" + session["mrf"]["downStreamToTag"]["play"]["audiouri"] + "\"/> </play>\n";
     content = content + "<pattern digits=\"x\">  <send target=\"source\" event=\"done\" namelist=\"dtmf.digits dtmf.end\"/> </pattern>\n";
     content = content + "<noinput>\n         <send target=\"source\" event=\"done\"\n               namelist=\"dtmf.end\"/>\n      </noinput>\n";
     content = content + "<nomatch>\n         <send target=\"source\" event=\"done\"\n               namelist=\"dtmf.end\"/>\n      </nomatch>\n";
