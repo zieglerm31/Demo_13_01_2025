@@ -101,15 +101,6 @@ using collect
 
 function SendINFOPromptandCollect(session : any, event : any, localParams: any ){
     //set the xml conn id --> session["mrf"]["downStreamToTag"]
-    session["mrf"]["collect"]["cleardb"]="true";
-    session["mrf"]["collect"]["edt"]="1s";
-    session["mrf"]["collect"]["fdt"]="3s";
-    session["mrf"]["collect"]["idt"]="2s";
-    session["mrf"]["collect"]["iterate"]="1";
-    
-    session["mrf"]["play"]["barge"]="true";
-    session["mrf"]["play"]["maxtime"]="11s";
-    session["mrf"]["play"]["audiouri"]="file:///appl/wav/simpleplay.wav";
 
 /*
     let outevent = {
