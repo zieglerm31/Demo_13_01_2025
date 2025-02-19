@@ -27,6 +27,7 @@ function extractAndCompare(session : any, event : any, localParams: any ){
       //set input parameters
       //interim
       // tictac.wav .. 5s, simpleplay.wav .. 32s
+      //format: moml+digits or regex
       session["mrf"]={};
       session["mrf"]= {
          "announcement":"annoTest",
@@ -43,6 +44,10 @@ function extractAndCompare(session : any, event : any, localParams: any ){
             "barge":"true",
             "maxtime":"11s",
             "audiouri":"file:///appl/wav/tictac.wav"            
+         },
+         "pattern": {
+            "digits": "2",
+            "format": "moml+digits"
          }
       };
 
