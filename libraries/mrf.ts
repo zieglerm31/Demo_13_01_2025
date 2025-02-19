@@ -158,7 +158,7 @@ function SendINFOPromptandCollect(session : any, event : any, localParams: any )
 
     content = content + "<collect  cleardb=\"" + session["mrf"]["collect"]["cleardb"] + "\" edt=\"" + session["mrf"]["collect"]["edt"]  + "\" fdt=\"" + session["mrf"]["collect"]["fdt"]  + "\" idt=\"" + session["mrf"]["collect"]["idt"]  + "\"  iterate=\"" + session["mrf"]["collect"]["iterate"]  + "\">\n";
     content = content + "<play barge=\"" + session["mrf"]["play"]["barge"] + "\"> maxtime=\"" + session["mrf"]["play"]["maxtime"] + "\" <audio uri=\"" + session["mrf"]["play"]["audiouri"] + "\"/> </play>\n";
-    content = content + "<pattern digits=\"x\">  <send target=\"source\" event=\"done\" namelist=\"dtmf.digits dtmf.end\"/> </pattern>\n";
+    content = content + "<pattern digits=\"" + session["mrf"]["pattern"]["digits"] + "\">  <send target=\"source\" event=\"done\" namelist=\"dtmf.digits dtmf.end\"/> </pattern>\n";
     content = content + "<noinput>\n         <send target=\"source\" event=\"done\"\n               namelist=\"dtmf.end\"/>\n      </noinput>\n";
     content = content + "<nomatch>\n         <send target=\"source\" event=\"done\"\n               namelist=\"dtmf.end\"/>\n      </nomatch>\n";
     content = content + "</collect>\n";
