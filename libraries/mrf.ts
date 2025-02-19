@@ -106,7 +106,8 @@ function SendINFOPromptandCollect(session : any, event : any, localParams: any )
 
     log.debug("SendINFOPromptandCollect: mrf_param {}:",session["mrf_param"]);
     //default values
-    let mrf_used = {
+    let mrf_used = {};
+    mrf_used = {
         "announcement":"default",
         "collect": {
             "cleardb":"true",
