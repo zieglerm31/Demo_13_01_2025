@@ -146,8 +146,10 @@ function SendINFOPromptandCollect(session : any, event : any, localParams: any )
         //collect is present. this is a prompt and collect
 
         //overwrite default values
-        for(key in session["mrf_param"]["collect"])
+        for(key in session["mrf_param"]["collect"]) {
+            log.debug("SendINFOPromptandCollect: process collect key {}",key);
             mrfx_used["collect"][key] = session["mrf_param"]["collect"][key];
+        }
         for(key in session["mrf_param"]["collect"])
             mrfx_used["pattern"][key] = session["mrf_param"]["pattern"][key];        
         for(key in session["mrf_param"]["collect"])
