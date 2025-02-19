@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<mxGraphModel dx="3878" dy="3017" grid="1" gridSize="10" guides="1" tooltips="1" connect="1"
+<mxGraphModel dx="4704" dy="3017" grid="1" gridSize="10" guides="1" tooltips="1" connect="1"
               fold="1"
               page="1"
               pageScale="1"
@@ -895,12 +895,12 @@
       <undefined action="com.eitg.quasar.nexus.siphandlers.ScxmlAbortCall"
                  label="Terminate call"
                  name=""
-                 errorCode="486"
+                 errorCode="402"
                  cause="REJECTED"
-                 reason.up.q850.cause=""
-                 reason.up.q850.text=""
-                 reason.up.sip.cause=""
-                 reason.up.sip.text=""
+                 reason.up.q850.cause="17"
+                 reason.up.q850.text="myuserbusy"
+                 reason.up.sip.cause="17"
+                 reason.up.sip.text="myuserbusy"
                  reason.down.q850.cause=""
                  reason.down.q850.text=""
                  reason.down.sip.cause=""
@@ -957,14 +957,14 @@
       <undefined action="com.eitg.quasar.nexus.siphandlers.ScxmlAbortCall"
                  label="Terminate call"
                  name=""
-                 errorCode="486"
+                 errorCode="603"
                  cause="REJECTED"
                  reason.up.q850.cause="17"
                  reason.up.q850.text="anytext"
                  reason.up.sip.cause="486"
                  reason.up.sip.text="siptext"
-                 reason.down.q850.cause="17"
-                 reason.down.q850.text="anytext"
+                 reason.down.q850.cause=""
+                 reason.down.q850.text=""
                  reason.down.sip.cause=""
                  reason.down.sip.text=""
                  message="spel:#initial"
@@ -996,7 +996,7 @@
                  reason.down.q850.text=""
                  reason.down.sip.cause=""
                  reason.down.sip.text=""
-                 message="spel:#session[&#34;s_SIPInvite&#34;]"
+                 message="spel:#initial"
                  id="122">
          <mxCell style="rectangle;shape=ext;rounded=1;html=1;whiteSpace=wrap;double=1;"
                  parent="1"
@@ -1174,6 +1174,13 @@
               target="135"
               edge="1">
          <mxGeometry relative="1" as="geometry"/>
+      </mxCell>
+      <mxCell id="152"
+              value="The call is in establishment phase. In this case a Terminate of the call will send a 4xx response. &#xA;If case any DTMF (but not 1 or 2) is received a 603 (Declined) with q850 and SIP cause+text as in the handler.&#xA;&#xA;If DTMF digit 1 is received a 402 (Payment Required) with q850 and txt is sent back.&#xA;&#xA;for other scenarios a TAS default reject is sent back.&#xA;&#xA;Handler Parameter&#xA;cause:&#x9;if set to REJECTED the errorCode is used to set the SIP status &#xA;errorCode:&#x9;486&#xA;&#xA;to set the cause and text in the upstream leg (in this case only upstream leg exists). Only if the text is added the cause is set together with the text. &#xA;reason.up.q850.cause:&#x9; 17&#xA;reason.up.q850.text:&#x9; anytext&#xA;reason.up.sip.cause:&#x9; 486&#xA;reason.up.sip.text:&#x9; siptext&#xA;&#xA;message: The message object is used to derive the queue, callid, timestamp. This is used by the TAS to find the correct call. It shall be the last received message, regardless of the leg of the call. In this case is must be the MRF msg as the Initial-Invite is too far back in time and the TAS would drop the message. If not other event was receive but the MRF disconnect the spel:#initial can be used&#xA;&#xA; "
+              style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;fillColor=#FFFFCC;"
+              vertex="1"
+              parent="1">
+         <mxGeometry x="-2670" y="-160" width="440" height="410" as="geometry"/>
       </mxCell>
    </root>
 </mxGraphModel>
