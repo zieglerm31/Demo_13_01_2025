@@ -36,14 +36,15 @@ function extractAndCompare(session : any, event : any, localParams: any ){
 
       if (x.substring(0,5) =="42501") {
          session.w="1";
-         session.ann_name="P3001";
+         session.ann_name="maxspeechtimeout.wav";
       } else if (x.substring(0,5) =="42503") {
          session.w="2";
-         session.ann_name="P3002";
+         session.ann_name="help.wav";
       } else {
          session.w="3";
+         session.ann_name="error.wav";
       }
-      return session.w;
+      return session.ann_name;
    } catch (e) {
       log.debug("extractAndCompare.Log: {}", e);
       return "error";
