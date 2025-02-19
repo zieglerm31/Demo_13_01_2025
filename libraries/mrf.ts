@@ -158,7 +158,7 @@ function SendINFOPromptandCollect(session : any, event : any, localParams: any )
         content = content + "</collect>\n";        
     } else {
         content = content + "<play barge=\"" + mrf_used["play"]["barge"] + "\" maxtime=\"" + mrf_used["play"]["maxtime"] + "\" interval=\"" + mrf_used["play"]["interval"] + "\" cleardb=\"" + mrf_used["play"]["cleardb"] + "\" offset=\"" + mrf_used["play"]["offset"] + "\">\n";
-        content = content + "<audio uri=\"" + mrf_used["play"]["audiouri"] + "\"" + "\" iterate=\"" + mrf_used["play"]["audioiterate"] + "\"/>\n";
+        content = content + "<audio uri=\"" + mrf_used["play"]["audiouri"] + "\" iterate=\"" + mrf_used["play"]["audioiterate"] + "\"/>\n";
         content = content + "<playexit>\n<exit namelist=\"play.end play.amt\"/>\n</playexit>\n";
         content = content + "</play>";
     }	
