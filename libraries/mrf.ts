@@ -128,7 +128,7 @@ function SendINFOPromptandCollect(session : any, event : any, localParams: any )
             "format": "regex"
         }            
     };
-    log.debug("SendINFOPromptandCollect: mrf_default {}:",mrf_used);
+    log.debug("SendINFOPromptandCollect: mrf_default {}:",JSON.stringify(mrf_used));
 
     //default XML header
     let content = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<msml  version=\"1.1\">\n<dialogstart name=\"dialognamedefault\" target=\"conn:";
@@ -150,7 +150,7 @@ function SendINFOPromptandCollect(session : any, event : any, localParams: any )
         mrf_used["play"] = session["mrf_param"]["play"];
         collect=false;
     }
-    log.debug("SendINFOPromptandCollect: mrf_used {}:",mrf_used);
+    log.debug("SendINFOPromptandCollect: mrf_used {}:",JSON.stringify(mrf_used));
 
     if (collect==true) {
         content = content + "<collect  cleardb=\"" + mrf_used["collect"]["cleardb"] + "\" edt=\"" + mrf_used["collect"]["edt"]  + "\" fdt=\"" + mrf_used["collect"]["fdt"]  + "\" idt=\"" + mrf_used["collect"]["idt"]  + "\"  iterate=\"" + mrf_used["collect"]["iterate"]  + "\">\n";
