@@ -159,6 +159,8 @@ function SendINFOPromptandCollect(session : any, event : any, localParams: any )
         //this is only a play announcement
         for(key in session["mrf_param"]["collect"])
             mrf_used["play"][key] = session["mrf_param"]["play"][key];
+        delete mrf_used["pattern"];
+        delete mrf_used["pattern"];
         log.debug("SendINFOPromptandCollect: mrf_used {}:",JSON.stringify(mrf_used));     
         log.debug("SendINFOPromptandCollect: use announcement");
         collect=false;
