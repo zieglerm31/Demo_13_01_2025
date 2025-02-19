@@ -27,7 +27,23 @@ function extractAndCompare(session : any, event : any, localParams: any ){
       //set input parameters
       //interim
       session["mrf"]={};
-      session["mrf"]= {"announcement":"annoTest","action":"playannouncement","earlydialog": true};
+      session["mrf"]= {
+         "announcement":"annoTest",
+         "action":"playannouncement",
+         "earlydialog": true,
+         "collect": {
+            "cleardb"="true",
+            "edt":"1s",
+            "fdt":"3s",
+            "idt":"2s",
+            "iterate":"1"
+         },
+         "play": {
+            "barge":"true",
+            "maxtime":"11s",
+            "audiouri":"file:///appl/wav/simpleplay.wav"            
+         }
+      };
 
       let x : string;
       try {
