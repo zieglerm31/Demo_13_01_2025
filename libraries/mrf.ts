@@ -141,6 +141,7 @@ function SendINFOPromptandCollect(session : any, event : any, localParams: any )
     let collect=false;
 
     let mrfx_used={};
+    let key="";
     if ( session["mrf_param"]["collect"] != null) {
         //collect is present. this is a prompt and collect
 
