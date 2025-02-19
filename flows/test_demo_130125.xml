@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<mxGraphModel dx="4704" dy="3017" grid="1" gridSize="10" guides="1" tooltips="1" connect="1"
+<mxGraphModel dx="4735" dy="3359" grid="1" gridSize="10" guides="1" tooltips="1" connect="1"
               fold="1"
               page="1"
               pageScale="1"
@@ -296,7 +296,7 @@
          <mxGeometry relative="1" as="geometry">
             <Array as="points">
                <mxPoint x="-1490" y="-680"/>
-               <mxPoint x="-1810" y="-680"/>
+               <mxPoint x="-2000" y="-680"/>
             </Array>
          </mxGeometry>
       </mxCell>
@@ -304,12 +304,13 @@
               style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.25;exitY=1;entryX=0.5;entryY=0;"
               parent="1"
               source="37"
-              target="42"
+              target="155"
               edge="1">
          <mxGeometry relative="1" as="geometry">
             <Array as="points">
                <mxPoint x="-1550" y="-640"/>
                <mxPoint x="-1660" y="-640"/>
+               <mxPoint x="-1660" y="-530"/>
             </Array>
          </mxGeometry>
       </mxCell>
@@ -328,7 +329,7 @@
                    payload="{&#34;playannouncement&#34;: &#34;annoTest&#34;,&#34;action&#34;: &#34;playannouncement&#34;,&#34;earlydialog&#34;: true}"
                    id="42">
          <mxCell style="image;html=1;image=clipart/local-event.png" parent="1" vertex="1">
-            <mxGeometry x="-1900" y="-435" width="120" height="60" as="geometry"/>
+            <mxGeometry x="-2300" y="-500" width="120" height="60" as="geometry"/>
          </mxCell>
       </local-event>
       <invoke-subflow action="io.qsrlabs.nexus.middleware.scxml.handlers.Subflow#combobox"
@@ -360,10 +361,15 @@
       <mxCell id="46" value="*"
               style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;"
               parent="1"
-              source="42"
+              source="155"
               target="44"
               edge="1">
-         <mxGeometry relative="1" as="geometry"/>
+         <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+               <mxPoint x="-1820" y="-382"/>
+               <mxPoint x="-1840" y="-382"/>
+            </Array>
+         </mxGeometry>
       </mxCell>
       <stop action="com.eitg.quasar.nexus.middleware.scxml.handlers.StopHandler"
             label="Stop"
@@ -893,7 +899,7 @@
          <mxGeometry relative="1" as="geometry"/>
       </mxCell>
       <undefined action="com.eitg.quasar.nexus.siphandlers.ScxmlAbortCall"
-                 label="Terminate call"
+                 label="Terminate call Payment Required"
                  name=""
                  errorCode="402"
                  cause="REJECTED"
@@ -944,18 +950,19 @@
               style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.75;exitY=1;entryX=1;entryY=0.5;"
               parent="1"
               source="44"
-              target="42"
+              target="155"
               edge="1">
          <mxGeometry relative="1" as="geometry">
             <Array as="points">
                <mxPoint x="-1810" y="-230"/>
                <mxPoint x="-1770" y="-230"/>
                <mxPoint x="-1770" y="-405"/>
+               <mxPoint x="-1760" y="-405"/>
             </Array>
          </mxGeometry>
       </mxCell>
       <undefined action="com.eitg.quasar.nexus.siphandlers.ScxmlAbortCall"
-                 label="Terminate call"
+                 label="Terminate call Decline"
                  name=""
                  errorCode="603"
                  cause="REJECTED"
@@ -984,7 +991,7 @@
          <mxGeometry relative="1" as="geometry"/>
       </mxCell>
       <undefined action="com.eitg.quasar.nexus.siphandlers.ScxmlAbortCall"
-                 label="Terminate call"
+                 label="Terminate call Default"
                  name=""
                  errorCode=""
                  cause="NONE"
@@ -1182,5 +1189,17 @@
               parent="1">
          <mxGeometry x="-2670" y="-160" width="440" height="410" as="geometry"/>
       </mxCell>
+      <structured-object-builder action="io.qsrlabs.nexus.middleware.scxml.handlers.StructuredJsonObjectBuilder"
+                                 label="Define MRF Data"
+                                 payload="ewogICJhbm5vdW5jZW1lbnQiOiAiYW5ub1Rlc3QiLAogICJhY3Rpb24iOiJwbGF5YW5ub3VuY2VtZW50IiwKICAgICAgICAgImVhcmx5ZGlhbG9nIjogdHJ1ZSwKICAgICAgICAgImNvbGxlY3QiOiB7CiAgICAgICAgICAgICJjbGVhcmRiIjoidHJ1ZSIsCiAgICAgICAgICAgICJlZHQiOiIxcyIsCiAgICAgICAgICAgICJmZHQiOiIzcyIsCiAgICAgICAgICAgICJpZHQiOiIycyIsCiAgICAgICAgICAgICJpdGVyYXRlIjoiMSIKICAgICAgICAgfSwKICAgICAgICAgInBsYXkiOiB7CiAgICAgICAgICAgICJiYXJnZSI6InRydWUiLAogICAgICAgICAgICAibWF4dGltZSI6IjExcyIsCiAgICAgICAgICAgICJhdWRpb3VyaSI6ImZpbGU6Ly8vYXBwbC93YXYvdGljdGFjLndhdiIgICAgICAgICAgICAKICAgICAgICAgfSwKICAgICAgICAgInBhdHRlcm4iOiB7CiAgICAgICAgICAgICJkaWdpdHMiOiAiWzEtMl0iLAogICAgICAgICAgICAiZm9ybWF0IjogInJlZ2V4IgogICAgICAgICB9Cn0="
+                                 code="CmZ1bmN0aW9uIHJldHVyblBheWxvYWQoc2Vzc2lvbkRhdGE6YW55LGV2ZW50RGF0YTphbnksbG9jYWxQYXJhbXM6TG9jYWxQYXJhbWV0ZXJzKTphbnl7CiAgICAvLyBwYXlsb2FkIGZpZWxkIG9mIGxvY2FsUGFyYW1zIGFscmVhZHkgaW5jbHVkZXMgdGhlIHJlcXVlc3QgcGF5bG9hZDsgeW91IGNhbiAKICAgIC8vIGNoYW5nZSBpdCBmdXJ0aGVyIGhlcmUgbGlrZSBhZGRpbmcgZHluYW1pY2FsbHkgYXJyYXkgZWxlbWVudHMsIGV0Yy4uLgogICAgcmV0dXJuIGxvY2FsUGFyYW1zLnBheWxvYWQ7Cn0="
+                                 jscode="CmZ1bmN0aW9uIHJldHVyblBheWxvYWQoc2Vzc2lvbkRhdGEsZXZlbnREYXRhLGxvY2FsUGFyYW1zKXsKICAgIHJldHVybiBsb2NhbFBhcmFtcy5wYXlsb2FkOwp9"
+                                 useScript="false"
+                                 slotInSession="mrf"
+                                 id="155">
+         <mxCell style="image;html=1;image=clipart/json.png" vertex="1" parent="1">
+            <mxGeometry x="-1880" y="-530" width="120" height="60" as="geometry"/>
+         </mxCell>
+      </structured-object-builder>
    </root>
 </mxGraphModel>
