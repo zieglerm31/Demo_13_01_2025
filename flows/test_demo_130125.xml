@@ -501,13 +501,13 @@
               style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;"
               parent="1"
               source="50"
-              target="37"
+              target="177"
               edge="1">
          <mxGeometry x="0.7872" relative="1" as="geometry">
             <mxPoint as="offset"/>
             <Array as="points">
                <mxPoint x="-1240" y="-260"/>
-               <mxPoint x="-2060" y="-260"/>
+               <mxPoint x="-1920" y="-260"/>
             </Array>
          </mxGeometry>
       </mxCell>
@@ -1291,5 +1291,25 @@
             <mxGeometry x="-2120" y="-85" width="120" height="60" as="geometry"/>
          </mxCell>
       </structured-object-builder>
+      <structured-object-builder action="io.qsrlabs.nexus.middleware.scxml.handlers.StructuredJsonObjectBuilder"
+                                 label="Define MRF Data"
+                                 payload="eyJkZXNjcmlwdGlvbiI6IkluaXRpYWwgUHJvbXB0IGFuZCBDb2xsZWN0IiwiYW5ub3VuY2VtZW50IjoiYW5ub1Rlc3QiLCJhY3Rpb24iOiJwbGF5YW5ub3VuY2VtZW50IiwiZWFybHlkaWFsb2ciOnRydWUsInBsYXkiOnsiYmFyZ2UiOiJ0cnVlIiwibWF4dGltZSI6IjExcyIsImF1ZGlvdXJpIjoiZmlsZTovLy9hcHBsL3dhdi9ub3NldmljZS53YXYifX0="
+                                 code="CmZ1bmN0aW9uIHJldHVyblBheWxvYWQoc2Vzc2lvbkRhdGE6YW55LGV2ZW50RGF0YTphbnksbG9jYWxQYXJhbXM6TG9jYWxQYXJhbWV0ZXJzKTphbnl7CiAgICAvLyBwYXlsb2FkIGZpZWxkIG9mIGxvY2FsUGFyYW1zIGFscmVhZHkgaW5jbHVkZXMgdGhlIHJlcXVlc3QgcGF5bG9hZDsgeW91IGNhbiAKICAgIC8vIGNoYW5nZSBpdCBmdXJ0aGVyIGhlcmUgbGlrZSBhZGRpbmcgZHluYW1pY2FsbHkgYXJyYXkgZWxlbWVudHMsIGV0Yy4uLgogICAgcmV0dXJuIGxvY2FsUGFyYW1zLnBheWxvYWQ7Cn0="
+                                 jscode="CmZ1bmN0aW9uIHJldHVyblBheWxvYWQoc2Vzc2lvbkRhdGEsZXZlbnREYXRhLGxvY2FsUGFyYW1zKXsKICAgIHJldHVybiBsb2NhbFBhcmFtcy5wYXlsb2FkOwp9"
+                                 useScript="false"
+                                 slotInSession="mrf_param"
+                                 id="177">
+         <mxCell style="image;html=1;image=clipart/json.png" vertex="1" parent="1">
+            <mxGeometry x="-1980" y="-85" width="120" height="60" as="geometry"/>
+         </mxCell>
+      </structured-object-builder>
+      <mxCell id="178"
+              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;"
+              edge="1"
+              parent="1"
+              source="177"
+              target="44">
+         <mxGeometry relative="1" as="geometry"/>
+      </mxCell>
    </root>
 </mxGraphModel>
