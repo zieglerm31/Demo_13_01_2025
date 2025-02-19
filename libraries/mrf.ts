@@ -140,7 +140,29 @@ function SendINFOPromptandCollect(session : any, event : any, localParams: any )
 
     let collect=false;
 
-    let mrfx_used={};
+    let mrfx_used = {
+        "announcement":"default",
+        "collect": {
+            "cleardb":"true",
+            "edt":"1s",
+            "fdt":"3s",
+            "idt":"2s",
+            "iterate":"1"
+        },
+        "play": {
+            "barge":"true",
+            "maxtime":"11s",
+            "interval":"1",
+            "cleardb":"true",
+            "offset":"0",
+            "audioiterate":"1",
+            "audiouri":"file:///appl/wav/tictac.wav"            
+        },
+        "pattern": {
+            "digits": "[1-2]",
+            "format": "regex"
+        }   
+    };
     let key="";
     if ( session["mrf_param"]["collect"] != null) {
         //collect is present. this is a prompt and collect
