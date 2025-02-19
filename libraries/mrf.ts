@@ -137,8 +137,15 @@ function SendINFOPromptandCollect(session : any, event : any, localParams: any )
         //content = content + "<detect><send target=\"play.beforebargeplay\" event=\"terminate\"/></detect>\n<noinput><send target=\"source\" event=\"dialognamedefault\" namelist=\"dtmf.digits dtmf.end\"/></noinput>\n<nomatch><send target=\"source\" event=\"dialognamedefault\" namelist=\"dtmf.digits dtmf.end\"/></nomatch>\n</collect>\n";
         //content = content + "<detect><send target=\"source\" event=\"terminate\"/></detect>\n<noinput><send target=\"source\" event=\"dialognamedefault\" namelist=\"dtmf.digits dtmf.end\"/></noinput>\n<nomatch><send target=\"source\" event=\"dialognamedefault\" namelist=\"dtmf.digits dtmf.end\"/></nomatch>\n</collect>\n";
         //content = content + "</group>\n";
-    
-    content = content + "<collect fdt=\"10s\" idt=\"16s\">\n";
+    /*
+    id: an optional identifier that may be referenced elsewhere for sending events to this primitive.
+    cleardb: a boolean indication of whether the buffer for digit collection should be cleared of any collected digits when the element is instantiated.  If set to false, any digits currently in the buffer MUST be immediately compared against the pattern elements.
+    fdt: defines the first-digit timer value.  The first-digit timer is started when DTMF detection is initially invoked.  If no DTMF digits are detected during this initial interval, the <noinput> element MUST be invoked.  Optional, default is 0 s (wait forever for the first digit).
+    idt: defines the inter-digit timer to be used when digits are being collected.  When specified, the timer is started when the first digit is detected and restarted on each subsequent digit. Timer expiration is applied to all patterns.  After that, if any patterns remain active and a nomatch element is specified, the nomatch is executed and DTMF input MUST terminate.  The idt attribute should only be used when digit collection is being performed.  Optional, default is 4 s.
+    edt: defines the extra-digit timer value.  Specifies the length of time the media server MUST wait after a match to detect a termination key, if one is specified by the <pattern> element. Optional, default is 4 s.
+    iterate: specifies the number of times the <pattern>, <noinput>,  and <nomatch> elements may be executed unless those elements specify differently.  The value "forever" MAY be used to indicate that these may be executed any number of times.  Default is once '1'.
+    */
+    content = content + "<collect  cleardb=\"true\" edt=\"1s\" fdt=\"3s\" idt=\"2s\"  iterate=\"1\">\n";
     content = content + "<play barge=\"true\">\n         <audio uri=\"file:///appl/wav/simpleplay.wav\"/>\n      </play>\n";
     content = content + "<pattern digits=\"x\">\n         <send target=\"source\" event=\"done\"\n               namelist=\"dtmf.digits dtmf.end\"/>\n      </pattern>\n";
     content = content + "<noinput>\n         <send target=\"source\" event=\"done\"\n               namelist=\"dtmf.end\"/>\n      </noinput>\n";
