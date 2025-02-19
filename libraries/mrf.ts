@@ -204,50 +204,20 @@ function inputvalidation(session : any, event : any, localParams: any ){
             return "error.input.sipinvitemissing";
         }
 
-//interim
-    return "true";
-
-
-
-
-        //announcement string
-        if ( event["announcement"] != null ) {
-            log.debug("announcement: {}", event["announcement"]);
-                session["mrf"]["announcement"] = event["announcement"];           
-        } else {
-            return "error.input.actionmissing";
-        }
-
-        //promptandcollect, playannouncement
-        if ( (event["action"] != null) && ((event["action"]==="promptandcollect") || (event["action"]==="playannouncement")) ) {
-            log.debug("action: {}", event["action"]);
-            if ( event["action"]==="promptandcollect" ) 
-                session["mrf"]["action"] = "promptandcollect";
-            else if ( event["action"]==="playannouncement" ) 
-                session["mrf"]["action"] = "playannouncement";
-            else
-                return "error.input.actionincorrect";            
-        } else {
-            return "error.input.actionmissing";
-        }
-
-        //early dialog is boolean true/false
-        if ( event["earlydialog"] != null ) {
-            log.debug("earlydialog: {}", event["earlydialog"]);
-            if ( event["earlydialog"] === true) {
-                session["mrf"]["earlydialog"] = true;
-                return "true";
-            } else if ( event["earlydialog"] === false) {
-                session["mrf"]["earlydialog"] = false;
-                return "false";
+        if ( session["mrf"] != null) {
+            if ( session["mrf"]["earlydialog"] != null) {
+                log.debug("mrf earlydialog present and {}",session["mrf"]["earlydialog"]);
             } else {
-                return "error.input.earlydialogincorrect";
+                session["mrf"]["earlydialog"] = true;
+                log.debug("mrf earlydialog not present - use default");
             }
         } else {
-            return "error.input.earlydialog";
-        }
+            log.debug("mrf object not present - use default");
+            session["mrf"]["earlydialog"] = true;
+        }	
+        return session["mrf"]["earlydialog"];
     } catch (e) {
-        log.debug("Log: {}", e);
+        log.debug("Log.inputvalidation: {}", e);
         return "error.exception";
     }
 }
