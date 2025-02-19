@@ -246,6 +246,8 @@ function inputvalidation(session : any, event : any, localParams: any ){
     let log = session.log;
 
     try {
+        //create mrf object
+        session["mrf"]={};
 
         //sip invite is in #session["s_SIPInvite"]
         if ( session["s_SIPInvite"] != null ) {
