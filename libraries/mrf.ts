@@ -101,15 +101,15 @@ using collect
 
 function SendINFOPromptandCollect(session : any, event : any, localParams: any ){
     //set the xml conn id --> session["mrf"]["downStreamToTag"]
-    session["mrf"]["downStreamToTag"]["collect"]["cleardb"]="true";
-    session["mrf"]["downStreamToTag"]["collect"]["edt"]="1s";
-    session["mrf"]["downStreamToTag"]["collect"]["fdt"]="3s";
-    session["mrf"]["downStreamToTag"]["collect"]["idt"]="2s";
-    session["mrf"]["downStreamToTag"]["collect"]["iterate"]="1";
+    session["mrf"]["collect"]["cleardb"]="true";
+    session["mrf"]["collect"]["edt"]="1s";
+    session["mrf"]["collect"]["fdt"]="3s";
+    session["mrf"]["collect"]["idt"]="2s";
+    session["mrf"]["collect"]["iterate"]="1";
     
-    session["mrf"]["downStreamToTag"]["play"]["barge"]="true";
-    session["mrf"]["downStreamToTag"]["play"]["maxtime"]="11s";
-    session["mrf"]["downStreamToTag"]["play"]["audiouri"]="file:///appl/wav/simpleplay.wav";
+    session["mrf"]["play"]["barge"]="true";
+    session["mrf"]["play"]["maxtime"]="11s";
+    session["mrf"]["play"]["audiouri"]="file:///appl/wav/simpleplay.wav";
 
 /*
     let outevent = {
@@ -165,8 +165,8 @@ function SendINFOPromptandCollect(session : any, event : any, localParams: any )
     offset: defines an offset, measured in units of time, where the <play> is to begin media generation.  Offset is only valid when all child media elements are <audio>.
     */
 
-    content = content + "<collect  cleardb=\"" + session["mrf"]["downStreamToTag"]["collect"]["cleardb"] + "\" edt=\"" + session["mrf"]["downStreamToTag"]["collect"]["edt"]  + "\" fdt=\"" + session["mrf"]["downStreamToTag"]["collect"]["fdt"]  + "\" idt=\"" + session["mrf"]["downStreamToTag"]["collect"]["idt"]  + "\"  iterate=\"" + session["mrf"]["downStreamToTag"]["collect"]["iterate"]  + "\">\n";
-    content = content + "<play barge=\"" + session["mrf"]["downStreamToTag"]["play"]["barge"] + "\"> maxtime=\"" + session["mrf"]["downStreamToTag"]["play"]["maxtime"] + "\" <audio uri=\"" + session["mrf"]["downStreamToTag"]["play"]["audiouri"] + "\"/> </play>\n";
+    content = content + "<collect  cleardb=\"" + session["mrf"]["collect"]["cleardb"] + "\" edt=\"" + session["mrf"]["collect"]["edt"]  + "\" fdt=\"" + session["mrf"]["collect"]["fdt"]  + "\" idt=\"" + session["mrf"]["collect"]["idt"]  + "\"  iterate=\"" + session["mrf"]["collect"]["iterate"]  + "\">\n";
+    content = content + "<play barge=\"" + session["mrf"]["play"]["barge"] + "\"> maxtime=\"" + session["mrf"]["play"]["maxtime"] + "\" <audio uri=\"" + session["mrf"]["play"]["audiouri"] + "\"/> </play>\n";
     content = content + "<pattern digits=\"x\">  <send target=\"source\" event=\"done\" namelist=\"dtmf.digits dtmf.end\"/> </pattern>\n";
     content = content + "<noinput>\n         <send target=\"source\" event=\"done\"\n               namelist=\"dtmf.end\"/>\n      </noinput>\n";
     content = content + "<nomatch>\n         <send target=\"source\" event=\"done\"\n               namelist=\"dtmf.end\"/>\n      </nomatch>\n";
