@@ -152,7 +152,6 @@ function SendINFOPromptandCollect(session : any, event : any, localParams: any )
             mrf_used["pattern"][key] = session["mrf_param"]["pattern"][key];        
         for(key in session["mrf_param"]["play"])
             mrf_used["play"][key] = session["mrf_param"]["play"][key];
-        log.debug("SendINFOPromptandCollect: mrf_used {}:",JSON.stringify(mrf_used));
         log.debug("SendINFOPromptandCollect: use collect");
         collect=true;
     } else {
@@ -161,7 +160,6 @@ function SendINFOPromptandCollect(session : any, event : any, localParams: any )
             mrf_used["play"][key] = session["mrf_param"]["play"][key];
         delete mrf_used["pattern"];
         delete mrf_used["collect"];
-        log.debug("SendINFOPromptandCollect: mrf_used {}:",JSON.stringify(mrf_used));     
         log.debug("SendINFOPromptandCollect: use announcement");
         collect=false;
     }
