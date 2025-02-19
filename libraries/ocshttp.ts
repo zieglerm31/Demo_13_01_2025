@@ -22,6 +22,9 @@ function checkHttpResponse(session : any, event : any, localParams: any ){
     session.restResponse =0;
     session.callstate  ="HTTPRESPONSE_INIT";
     session.CalledPartyOverwritten="sip:+4390123123@" + session.s_SIPInvite.SIP.Contact.address.uri.host + ":5098";
+    
+    //init ocs object
+    session["ocs"]={};
     try {
         //let body = JSON.parse(bodyStr);
 
