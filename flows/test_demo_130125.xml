@@ -1153,7 +1153,7 @@
       </mxCell>
       <structured-object-builder action="io.qsrlabs.nexus.middleware.scxml.handlers.StructuredJsonObjectBuilder"
                                  label="Define MRF Data"
-                                 payload="eyJkZXNjcmlwdGlvbiI6IkluaXRpYWwgUHJvbXB0IGFuZCBDb2xsZWN0IiwiYW5ub3VuY2VtZW50IjoiYW5ub1Rlc3QiLCJhY3Rpb24iOiJwbGF5YW5ub3VuY2VtZW50IiwiZWFybHlkaWFsb2ciOnRydWUsImNvbGxlY3QiOnsiY2xlYXJkYiI6InRydWUiLCJlZHQiOiIxcyIsImZkdCI6IjNzIiwiaWR0IjoiMnMiLCJpdGVyYXRlIjoiMSJ9LCJwbGF5Ijp7ImJhcmdlIjoidHJ1ZSIsIm1heHRpbWUiOiIxMXMiLCJhdWRpb3VyaSI6InNwZWw6c2Vzc2lvbi5hbm5fbmFtZSJ9LCJwYXR0ZXJuIjp7ImRpZ2l0cyI6IlsxLTJdIiwiZm9ybWF0IjoicmVnZXgifX0="
+                                 payload="eyJkZXNjcmlwdGlvbiI6IkluaXRpYWwgUHJvbXB0IGFuZCBDb2xsZWN0IiwiYW5ub3VuY2VtZW50IjoiYW5ub1Rlc3QiLCJhY3Rpb24iOiJwbGF5YW5ub3VuY2VtZW50IiwiZWFybHlkaWFsb2ciOnRydWUsImNvbGxlY3QiOnsiY2xlYXJkYiI6InRydWUiLCJlZHQiOiIxcyIsImZkdCI6IjNzIiwiaWR0IjoiMnMiLCJpdGVyYXRlIjoiMSJ9LCJwbGF5Ijp7ImJhcmdlIjoidHJ1ZSIsIm1heHRpbWUiOiIxMXMiLCJhdWRpb3VyaSI6InNwZWw6I3Nlc3Npb25bXCJhbm5fbmFtZVwiXSJ9LCJwYXR0ZXJuIjp7ImRpZ2l0cyI6IlsxLTJdIiwiZm9ybWF0IjoicmVnZXgifX0="
                                  code="CmZ1bmN0aW9uIHJldHVyblBheWxvYWQoc2Vzc2lvbkRhdGE6YW55LGV2ZW50RGF0YTphbnksbG9jYWxQYXJhbXM6TG9jYWxQYXJhbWV0ZXJzKTphbnl7CiAgICAvLyBwYXlsb2FkIGZpZWxkIG9mIGxvY2FsUGFyYW1zIGFscmVhZHkgaW5jbHVkZXMgdGhlIHJlcXVlc3QgcGF5bG9hZDsgeW91IGNhbiAKICAgIC8vIGNoYW5nZSBpdCBmdXJ0aGVyIGhlcmUgbGlrZSBhZGRpbmcgZHluYW1pY2FsbHkgYXJyYXkgZWxlbWVudHMsIGV0Yy4uLgogICAgcmV0dXJuIGxvY2FsUGFyYW1zLnBheWxvYWQ7Cn0="
                                  jscode="CmZ1bmN0aW9uIHJldHVyblBheWxvYWQoc2Vzc2lvbkRhdGEsZXZlbnREYXRhLGxvY2FsUGFyYW1zKXsKICAgIHJldHVybiBsb2NhbFBhcmFtcy5wYXlsb2FkOwp9"
                                  useScript="false"
@@ -1280,21 +1280,27 @@
               style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;fillColor=#FFFFCC;"
               vertex="1"
               parent="1">
-         <mxGeometry x="-2370" y="-800" width="400" height="40" as="geometry"/>
+         <mxGeometry x="-2120" y="-660" width="180" height="70" as="geometry"/>
       </mxCell>
       <mxCell id="172"
               value="Collect Digits Template&#xA;{&#xA;        &#34;announcement&#34;:&#34;default&#34;,&#xA;        &#34;collect&#34;: {&#xA;            &#34;cleardb&#34;:&#34;true&#34;,&#xA;            &#34;edt&#34;:&#34;1s&#34;,&#xA;            &#34;fdt&#34;:&#34;3s&#34;,&#xA;            &#34;idt&#34;:&#34;2s&#34;,&#xA;            &#34;iterate&#34;:&#34;1&#34;&#xA;        },&#xA;        &#34;play&#34;: {&#xA;            &#34;barge&#34;:&#34;true&#34;,&#xA;            &#34;maxtime&#34;:&#34;11s&#34;,&#xA;            &#34;interval&#34;:&#34;500ms&#34;,&#xA;            &#34;cleardb&#34;:&#34;true&#34;,&#xA;            &#34;offset&#34;:&#34;0s&#34;,&#xA;            &#34;audioiterate&#34;:&#34;1&#34;,&#xA;            &#34;audiouri&#34;:&#34;file:///appl/wav/tictac.wav&#34;            &#xA;        },&#xA;        &#34;pattern&#34;: {&#xA;            &#34;digits&#34;: &#34;[1-2]&#34;,&#xA;            &#34;format&#34;: &#34;regex&#34;&#xA;        }   &#xA;    }"
               style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;fillColor=#FFFFCC;fontSize=10;"
               vertex="1"
               parent="1">
-         <mxGeometry x="-2370" y="-730" width="230" height="300" as="geometry"/>
+         <mxGeometry x="-2540" y="-665" width="230" height="300" as="geometry"/>
       </mxCell>
       <mxCell id="173"
               value="Announcement Template&#xA;{&#xA;        &#34;play&#34;: {&#xA;            &#34;barge&#34;:&#34;true&#34;,&#xA;            &#34;maxtime&#34;:&#34;11s&#34;,&#xA;            &#34;interval&#34;:&#34;500ms&#34;,&#xA;            &#34;cleardb&#34;:&#34;true&#34;,&#xA;            &#34;offset&#34;:&#34;0s&#34;,&#xA;            &#34;audioiterate&#34;:&#34;1&#34;,&#xA;            &#34;audiouri&#34;:&#34;file:///appl/wav/tictac.wav&#34;            &#xA;        }   &#xA;    }"
               style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;fillColor=#FFFFCC;fontSize=10;"
               vertex="1"
               parent="1">
-         <mxGeometry x="-2200" y="-730" width="230" height="300" as="geometry"/>
+         <mxGeometry x="-2370" y="-665" width="230" height="230" as="geometry"/>
+      </mxCell>
+      <mxCell id="174" value="PANI decided on the announcement played in this library"
+              style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;fillColor=#FFFFCC;"
+              vertex="1"
+              parent="1">
+         <mxGeometry x="-2080" y="-810" width="190" height="40" as="geometry"/>
       </mxCell>
    </root>
 </mxGraphModel>
