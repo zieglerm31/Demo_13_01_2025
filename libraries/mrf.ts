@@ -140,56 +140,26 @@ function SendINFOPromptandCollect(session : any, event : any, localParams: any )
 
     let collect=false;
 
-    let mrfx_used = {
-        "announcement":"default",
-        "collect": {
-            "cleardb":"true",
-            "edt":"1s",
-            "fdt":"3s",
-            "idt":"2s",
-            "iterate":"1"
-        },
-        "play": {
-            "barge":"true",
-            "maxtime":"11s",
-            "interval":"1",
-            "cleardb":"true",
-            "offset":"0",
-            "audioiterate":"1",
-            "audiouri":"file:///appl/wav/tictac.wav"            
-        },
-        "pattern": {
-            "digits": "[1-2]",
-            "format": "regex"
-        }   
-    };
     let key="";
     if ( session["mrf_param"]["collect"] != null) {
         //collect is present. this is a prompt and collect
 
         //overwrite default values
-        for(key in session["mrf_param"]["collect"]) {
+        for(key in session["mrf_param"]["collect"])
             log.debug("SendINFOPromptandCollect: process collect key {}",key);
-            mrfx_used["collect"][key] = session["mrf_param"]["collect"][key];
-        }
+            mrf_used["collect"][key] = session["mrf_param"]["collect"][key];
         for(key in session["mrf_param"]["collect"])
-            mrfx_used["pattern"][key] = session["mrf_param"]["pattern"][key];        
+            mrf_used["pattern"][key] = session["mrf_param"]["pattern"][key];        
         for(key in session["mrf_param"]["collect"])
-            mrfx_used["play"][key] = session["mrf_param"]["play"][key];
-        log.debug("SendINFOPromptandCollect: mrfx_used {}:",JSON.stringify(mrfx_used));
-        
-        mrf_used["collect"] = session["mrf_param"]["collect"];
-        mrf_used["pattern"] = session["mrf_param"]["pattern"];
-        mrf_used["play"] = session["mrf_param"]["play"];
+            mrf_used["play"][key] = session["mrf_param"]["play"][key];
+        log.debug("SendINFOPromptandCollect: mrf_used {}:",JSON.stringify(mrf_used));
         log.debug("SendINFOPromptandCollect: use collect");
         collect=true;
     } else {
         //this is only a play announcement
         for(key in session["mrf_param"]["collect"])
-            mrfx_used["play"][key] = session["mrf_param"]["play"][key];
-        log.debug("SendINFOPromptandCollect: mrfx_used {}:",JSON.stringify(mrfx_used));
-
-        mrf_used["play"] = session["mrf_param"]["play"];        
+            mrf_used["play"][key] = session["mrf_param"]["play"][key];
+        log.debug("SendINFOPromptandCollect: mrf_used {}:",JSON.stringify(mrf_used));     
         log.debug("SendINFOPromptandCollect: use announcement");
         collect=false;
     }
