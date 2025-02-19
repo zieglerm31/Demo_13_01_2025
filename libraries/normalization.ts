@@ -44,6 +44,7 @@ function extractAndCompare(session : any, event : any, localParams: any ){
          session.w="3";
          session.ann_name="error.wav";
       }
+      session.ann_name="file:///appl/wav/" + session.ann_name;
       return session.ann_name;
    } catch (e) {
       log.debug("extractAndCompare.Log: {}", e);
