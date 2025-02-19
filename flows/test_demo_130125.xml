@@ -1218,7 +1218,7 @@
          <mxGeometry relative="1" as="geometry"/>
       </mxCell>
       <invoke-subflow action="io.qsrlabs.nexus.middleware.scxml.handlers.Subflow#combobox"
-                      label="Subflow Ann without200"
+                      label="MRF subflow 2"
                       subflow="Demo_13_01_2025:MRF-PlayAnn-PromptAndCollect"
                       category="procedure"
                       id="159">
