@@ -141,14 +141,16 @@ function SendINFOPromptandCollect(session : any, event : any, localParams: any )
     let collect=false;
 
     let mrfx_used={};
-    //if this is only a playannouncement
     if ( session["mrf_param"]["collect"] != null) {
         //collect is present. this is a prompt and collect
 
-        //overwrite default values        
-        mrfx_used["collect"] = Object.assign({},session["mrf_param"]["collect"]);
-        mrfx_used["pattern"] = Object.assign({},session["mrf_param"]["pattern"]);
-        mrfx_used["play"] = Object.assign({},session["mrf_param"]["play"]);
+        //overwrite default values
+        for(key in session["mrf_param"]["collect"])
+            mrfx_used["collect"][key] = session["mrf_param"]["collect"][key];
+        for(key in session["mrf_param"]["collect"])
+            mrfx_used["pattern"][key] = session["mrf_param"]["pattern"][key];        
+        for(key in session["mrf_param"]["collect"])
+            mrfx_used["play"][key] = session["mrf_param"]["play"][key];
         log.debug("SendINFOPromptandCollect: mrfx_used {}:",JSON.stringify(mrfx_used));
         
         mrf_used["collect"] = session["mrf_param"]["collect"];
@@ -158,7 +160,8 @@ function SendINFOPromptandCollect(session : any, event : any, localParams: any )
         collect=true;
     } else {
         //this is only a play announcement
-        mrfx_used["play"] = Object.assign({},session["mrf_param"]["play"]);
+        for(key in session["mrf_param"]["collect"])
+            mrfx_used["play"][key] = session["mrf_param"]["play"][key];
         log.debug("SendINFOPromptandCollect: mrfx_used {}:",JSON.stringify(mrfx_used));
 
         mrf_used["play"] = session["mrf_param"]["play"];        
