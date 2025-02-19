@@ -104,7 +104,7 @@ function SendINFOPromptandCollect(session : any, event : any, localParams: any )
     //this function builds the MRF XML and sends it. a lib is used as the handerl sends only a default one that is only using play.end play.amt wihtout dtmf.
     let log = session.log;
 
-    log.debug("SendINFOPromptandCollect: mrf_param {}:",JSON.stringify(session["mrf_param"]));
+    log.debug("SendINFOPromptandCollect: mrf_param {}:",session["mrf_param"]);
     //default values
     let mrf_used = {
         "announcement":"default",
