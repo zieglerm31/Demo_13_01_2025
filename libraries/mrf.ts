@@ -137,7 +137,7 @@ function SendINFOPromptandCollect(session : any, event : any, localParams: any )
         //content = content + "<detect><send target=\"play.beforebargeplay\" event=\"terminate\"/></detect>\n<noinput><send target=\"source\" event=\"dialognamedefault\" namelist=\"dtmf.digits dtmf.end\"/></noinput>\n<nomatch><send target=\"source\" event=\"dialognamedefault\" namelist=\"dtmf.digits dtmf.end\"/></nomatch>\n</collect>\n";
         //content = content + "<detect><send target=\"source\" event=\"terminate\"/></detect>\n<noinput><send target=\"source\" event=\"dialognamedefault\" namelist=\"dtmf.digits dtmf.end\"/></noinput>\n<nomatch><send target=\"source\" event=\"dialognamedefault\" namelist=\"dtmf.digits dtmf.end\"/></nomatch>\n</collect>\n";
         //content = content + "</group>\n";
-    /*
+    /* supported OCMP4.8 collect parameters
     id: an optional identifier that may be referenced elsewhere for sending events to this primitive.
     cleardb: a boolean indication of whether the buffer for digit collection should be cleared of any collected digits when the element is instantiated.  If set to false, any digits currently in the buffer MUST be immediately compared against the pattern elements.
     fdt: defines the first-digit timer value.  The first-digit timer is started when DTMF detection is initially invoked.  If no DTMF digits are detected during this initial interval, the <noinput> element MUST be invoked.  Optional, default is 0 s (wait forever for the first digit).
@@ -145,8 +145,17 @@ function SendINFOPromptandCollect(session : any, event : any, localParams: any )
     edt: defines the extra-digit timer value.  Specifies the length of time the media server MUST wait after a match to detect a termination key, if one is specified by the <pattern> element. Optional, default is 4 s.
     iterate: specifies the number of times the <pattern>, <noinput>,  and <nomatch> elements may be executed unless those elements specify differently.  The value "forever" MAY be used to indicate that these may be executed any number of times.  Default is once '1'.
     */
+    /* supported OCMP4.8 play parameters
+    id: an optional identifier that may be referenced elsewhere for sending events to the play primitive.
+    interval: specifies the delay between stopping one iteration and beginning another.  The attribute has no effect if iterate is not also specified.  Default is no interval. 
+    iterate: specifies the number of times the media specified by the child media elements should be played.  Each iteration is a  complete play of each of the child media elements in document order.  Defaults to once '1'.
+    maxtime: defines the maximum allowed time for the <play> to complete.
+    barge: defines whether or not audio announcements may be  interrupted by DTMF detection during play-out.  The DTMF digit barging the announcement is stored in the digit buffer.  Valid values for barge are "true" or "false", and the attribute is mandatory.  When barge is applied to a conference target, DTMF digit detected from any conference participant MUST terminate the announcement.
+    cleardb: defines whether or not the digit buffer is cleared, prior  to starting the announcement.  Valid values for cleardb are "true" or "false", and the attribute is mandatory. 
+    offset: defines an offset, measured in units of time, where the <play> is to begin media generation.  Offset is only valid when all child media elements are <audio>.
+    */
     content = content + "<collect  cleardb=\"true\" edt=\"1s\" fdt=\"3s\" idt=\"2s\"  iterate=\"1\">\n";
-    content = content + "<play barge=\"true\">\n         <audio uri=\"file:///appl/wav/simpleplay.wav\"/>\n      </play>\n";
+    content = content + "<play barge=\"true\">\n  maxtime=\"7s\"       <audio uri=\"file:///appl/wav/simpleplay.wav\"/>\n      </play>\n";
     content = content + "<pattern digits=\"x\">\n         <send target=\"source\" event=\"done\"\n               namelist=\"dtmf.digits dtmf.end\"/>\n      </pattern>\n";
     content = content + "<noinput>\n         <send target=\"source\" event=\"done\"\n               namelist=\"dtmf.end\"/>\n      </noinput>\n";
     content = content + "<nomatch>\n         <send target=\"source\" event=\"done\"\n               namelist=\"dtmf.end\"/>\n      </nomatch>\n";
