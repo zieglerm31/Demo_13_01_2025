@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<mxGraphModel dx="4735" dy="3359" grid="1" gridSize="10" guides="1" tooltips="1" connect="1"
+<mxGraphModel dx="4496" dy="3231" grid="1" gridSize="10" guides="1" tooltips="1" connect="1"
               fold="1"
               page="1"
               pageScale="1"
@@ -73,7 +73,7 @@
          <mxGeometry relative="1" as="geometry">
             <Array as="points">
                <mxPoint x="-1280" y="-850"/>
-               <mxPoint x="-1520" y="-850"/>
+               <mxPoint x="-1840" y="-850"/>
             </Array>
          </mxGeometry>
       </mxCell>
@@ -272,7 +272,7 @@
                           function="extractAndCompare"
                           id="37">
          <mxCell style="image;html=1;image=clipart/script.png" parent="1" vertex="1">
-            <mxGeometry x="-1580" y="-800" width="120" height="60" as="geometry"/>
+            <mxGeometry x="-1900" y="-800" width="120" height="60" as="geometry"/>
          </mxCell>
       </typescript-library>
       <mxCell id="38" value="*"
@@ -295,8 +295,9 @@
               edge="1">
          <mxGeometry relative="1" as="geometry">
             <Array as="points">
-               <mxPoint x="-1490" y="-680"/>
-               <mxPoint x="-2000" y="-680"/>
+               <mxPoint x="-2020" y="-740"/>
+               <mxPoint x="-2020" y="-680"/>
+               <mxPoint x="-2240" y="-680"/>
             </Array>
          </mxGeometry>
       </mxCell>
@@ -308,9 +309,7 @@
               edge="1">
          <mxGeometry relative="1" as="geometry">
             <Array as="points">
-               <mxPoint x="-1550" y="-640"/>
-               <mxPoint x="-1660" y="-640"/>
-               <mxPoint x="-1660" y="-530"/>
+               <mxPoint x="-1840" y="-740"/>
             </Array>
          </mxGeometry>
       </mxCell>
@@ -320,16 +319,7 @@
                    payload="{\&#34;playannouncement\&#34;: \&#34;annoTest\&#34;,\&#34;action\&#34;: \&#34;promptandcollect\&#34;,\&#34;earlydialog\&#34;: true}"
                    id="41">
          <mxCell style="image;html=1;image=clipart/local-event.png" parent="1" vertex="1">
-            <mxGeometry x="-2060" y="-425" width="120" height="60" as="geometry"/>
-         </mxCell>
-      </local-event>
-      <local-event action="io.qsrlabs.nexus.middleware.scxml.handlers.GenerateSessionEvent"
-                   label="set Ann without200"
-                   event-name="inevent"
-                   payload="{&#34;playannouncement&#34;: &#34;annoTest&#34;,&#34;action&#34;: &#34;playannouncement&#34;,&#34;earlydialog&#34;: true}"
-                   id="42">
-         <mxCell style="image;html=1;image=clipart/local-event.png" parent="1" vertex="1">
-            <mxGeometry x="-2300" y="-500" width="120" height="60" as="geometry"/>
+            <mxGeometry x="-2300" y="-820" width="120" height="60" as="geometry"/>
          </mxCell>
       </local-event>
       <invoke-subflow action="io.qsrlabs.nexus.middleware.scxml.handlers.Subflow#combobox"
@@ -338,16 +328,16 @@
                       category="procedure"
                       id="43">
          <mxCell style="image;html=1;image=clipart/subflow-static.png" parent="1" vertex="1">
-            <mxGeometry x="-2060" y="-285" width="120" height="60" as="geometry"/>
+            <mxGeometry x="-2300" y="-680" width="120" height="60" as="geometry"/>
          </mxCell>
       </invoke-subflow>
       <invoke-subflow action="io.qsrlabs.nexus.middleware.scxml.handlers.Subflow#combobox"
-                      label="Subflow Ann without200"
+                      label="MRF subflow"
                       subflow="Demo_13_01_2025:MRF-PlayAnn-PromptAndCollect"
                       category="procedure"
                       id="44">
          <mxCell style="image;html=1;image=clipart/subflow-static.png" parent="1" vertex="1">
-            <mxGeometry x="-1900" y="-295" width="120" height="60" as="geometry"/>
+            <mxGeometry x="-1900" y="-510" width="120" height="60" as="geometry"/>
          </mxCell>
       </invoke-subflow>
       <mxCell id="45" value="*"
@@ -366,8 +356,8 @@
               edge="1">
          <mxGeometry relative="1" as="geometry">
             <Array as="points">
-               <mxPoint x="-1820" y="-382"/>
-               <mxPoint x="-1840" y="-382"/>
+               <mxPoint x="-1840" y="-540"/>
+               <mxPoint x="-1840" y="-540"/>
             </Array>
          </mxGeometry>
       </mxCell>
@@ -947,17 +937,15 @@
          <mxGeometry relative="1" as="geometry"/>
       </mxCell>
       <mxCell id="119" value="dtmf.digit.2"
-              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.75;exitY=1;entryX=1;entryY=0.5;"
+              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.75;exitY=1;entryX=0.5;entryY=0;"
               parent="1"
               source="44"
-              target="155"
+              target="156"
               edge="1">
          <mxGeometry relative="1" as="geometry">
             <Array as="points">
-               <mxPoint x="-1810" y="-230"/>
-               <mxPoint x="-1770" y="-230"/>
-               <mxPoint x="-1770" y="-405"/>
-               <mxPoint x="-1760" y="-405"/>
+               <mxPoint x="-1810" y="-400"/>
+               <mxPoint x="-1710" y="-400"/>
             </Array>
          </mxGeometry>
       </mxCell>
@@ -988,7 +976,12 @@
               source="44"
               target="120"
               edge="1">
-         <mxGeometry relative="1" as="geometry"/>
+         <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+               <mxPoint x="-1870" y="-380"/>
+               <mxPoint x="-2000" y="-380"/>
+            </Array>
+         </mxGeometry>
       </mxCell>
       <undefined action="com.eitg.quasar.nexus.siphandlers.ScxmlAbortCall"
                  label="Terminate call Default"
@@ -1017,7 +1010,12 @@
               source="44"
               target="122"
               edge="1">
-         <mxGeometry relative="1" as="geometry"/>
+         <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+               <mxPoint x="-1870" y="-400"/>
+               <mxPoint x="-2150" y="-400"/>
+            </Array>
+         </mxGeometry>
       </mxCell>
       <trace-info action="io.qsrlabs.nexus.middleware.scxml.handlers.TraceInfo"
                   label="Trace info"
@@ -1191,15 +1189,134 @@
       </mxCell>
       <structured-object-builder action="io.qsrlabs.nexus.middleware.scxml.handlers.StructuredJsonObjectBuilder"
                                  label="Define MRF Data"
-                                 payload="ewogICJhbm5vdW5jZW1lbnQiOiAiYW5ub1Rlc3QiLAogICJhY3Rpb24iOiJwbGF5YW5ub3VuY2VtZW50IiwKICAgICAgICAgImVhcmx5ZGlhbG9nIjogdHJ1ZSwKICAgICAgICAgImNvbGxlY3QiOiB7CiAgICAgICAgICAgICJjbGVhcmRiIjoidHJ1ZSIsCiAgICAgICAgICAgICJlZHQiOiIxcyIsCiAgICAgICAgICAgICJmZHQiOiIzcyIsCiAgICAgICAgICAgICJpZHQiOiIycyIsCiAgICAgICAgICAgICJpdGVyYXRlIjoiMSIKICAgICAgICAgfSwKICAgICAgICAgInBsYXkiOiB7CiAgICAgICAgICAgICJiYXJnZSI6InRydWUiLAogICAgICAgICAgICAibWF4dGltZSI6IjExcyIsCiAgICAgICAgICAgICJhdWRpb3VyaSI6ImZpbGU6Ly8vYXBwbC93YXYvdGljdGFjLndhdiIgICAgICAgICAgICAKICAgICAgICAgfSwKICAgICAgICAgInBhdHRlcm4iOiB7CiAgICAgICAgICAgICJkaWdpdHMiOiAiWzEtMl0iLAogICAgICAgICAgICAiZm9ybWF0IjogInJlZ2V4IgogICAgICAgICB9Cn0="
+                                 payload="eyJkZXNjcmlwdGlvbiI6IkluaXRpYWwgUHJvbXB0IGFuZCBDb2xsZWN0IiwiYW5ub3VuY2VtZW50IjoiYW5ub1Rlc3QiLCJhY3Rpb24iOiJwbGF5YW5ub3VuY2VtZW50IiwiZWFybHlkaWFsb2ciOnRydWUsImNvbGxlY3QiOnsiY2xlYXJkYiI6InRydWUiLCJlZHQiOiIxcyIsImZkdCI6IjNzIiwiaWR0IjoiMnMiLCJpdGVyYXRlIjoiMSJ9LCJwbGF5Ijp7ImJhcmdlIjoidHJ1ZSIsIm1heHRpbWUiOiIxMXMiLCJhdWRpb3VyaSI6ImZpbGU6Ly8vYXBwbC93YXYvdGljdGFjLndhdiJ9LCJwYXR0ZXJuIjp7ImRpZ2l0cyI6IlsxLTJdIiwiZm9ybWF0IjoicmVnZXgifX0="
                                  code="CmZ1bmN0aW9uIHJldHVyblBheWxvYWQoc2Vzc2lvbkRhdGE6YW55LGV2ZW50RGF0YTphbnksbG9jYWxQYXJhbXM6TG9jYWxQYXJhbWV0ZXJzKTphbnl7CiAgICAvLyBwYXlsb2FkIGZpZWxkIG9mIGxvY2FsUGFyYW1zIGFscmVhZHkgaW5jbHVkZXMgdGhlIHJlcXVlc3QgcGF5bG9hZDsgeW91IGNhbiAKICAgIC8vIGNoYW5nZSBpdCBmdXJ0aGVyIGhlcmUgbGlrZSBhZGRpbmcgZHluYW1pY2FsbHkgYXJyYXkgZWxlbWVudHMsIGV0Yy4uLgogICAgcmV0dXJuIGxvY2FsUGFyYW1zLnBheWxvYWQ7Cn0="
                                  jscode="CmZ1bmN0aW9uIHJldHVyblBheWxvYWQoc2Vzc2lvbkRhdGEsZXZlbnREYXRhLGxvY2FsUGFyYW1zKXsKICAgIHJldHVybiBsb2NhbFBhcmFtcy5wYXlsb2FkOwp9"
                                  useScript="false"
                                  slotInSession="mrf"
                                  id="155">
          <mxCell style="image;html=1;image=clipart/json.png" vertex="1" parent="1">
-            <mxGeometry x="-1880" y="-530" width="120" height="60" as="geometry"/>
+            <mxGeometry x="-1900" y="-650" width="120" height="60" as="geometry"/>
          </mxCell>
       </structured-object-builder>
+      <structured-object-builder action="io.qsrlabs.nexus.middleware.scxml.handlers.StructuredJsonObjectBuilder"
+                                 label="Define MRF Data"
+                                 payload="eyJkZXNjcmlwdGlvbiI6IkFmdGVyIERUTUQgZGlnaXQgMiIsImFubm91bmNlbWVudCI6ImFubm9UZXN0IiwiYWN0aW9uIjoicGxheWFubm91bmNlbWVudCIsImVhcmx5ZGlhbG9nIjp0cnVlLCJwbGF5Ijp7ImJhcmdlIjoidHJ1ZSIsIm1heHRpbWUiOiIxMXMiLCJhdWRpb3VyaSI6ImZpbGU6Ly8vYXBwbC93YXYvdGljdGFjLndhdiJ9fQ=="
+                                 code="CmZ1bmN0aW9uIHJldHVyblBheWxvYWQoc2Vzc2lvbkRhdGE6YW55LGV2ZW50RGF0YTphbnksbG9jYWxQYXJhbXM6TG9jYWxQYXJhbWV0ZXJzKTphbnl7CiAgICAvLyBwYXlsb2FkIGZpZWxkIG9mIGxvY2FsUGFyYW1zIGFscmVhZHkgaW5jbHVkZXMgdGhlIHJlcXVlc3QgcGF5bG9hZDsgeW91IGNhbiAKICAgIC8vIGNoYW5nZSBpdCBmdXJ0aGVyIGhlcmUgbGlrZSBhZGRpbmcgZHluYW1pY2FsbHkgYXJyYXkgZWxlbWVudHMsIGV0Yy4uLgogICAgcmV0dXJuIGxvY2FsUGFyYW1zLnBheWxvYWQ7Cn0="
+                                 jscode="CmZ1bmN0aW9uIHJldHVyblBheWxvYWQoc2Vzc2lvbkRhdGEsZXZlbnREYXRhLGxvY2FsUGFyYW1zKXsKICAgIHJldHVybiBsb2NhbFBhcmFtcy5wYXlsb2FkOwp9"
+                                 useScript="false"
+                                 slotInSession="mrf"
+                                 id="156">
+         <mxCell style="image;html=1;image=clipart/json.png" vertex="1" parent="1">
+            <mxGeometry x="-1770" y="-360" width="120" height="60" as="geometry"/>
+         </mxCell>
+      </structured-object-builder>
+      <mxCell id="158" value="*"
+              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;"
+              edge="1"
+              parent="1">
+         <mxGeometry relative="1" as="geometry"/>
+      </mxCell>
+      <invoke-subflow action="io.qsrlabs.nexus.middleware.scxml.handlers.Subflow#combobox"
+                      label="Subflow Ann without200"
+                      subflow="Demo_13_01_2025:MRF-PlayAnn-PromptAndCollect"
+                      category="procedure"
+                      id="159">
+         <mxCell style="image;html=1;image=clipart/subflow-static.png" vertex="1" parent="1">
+            <mxGeometry x="-1770" y="-230" width="120" height="60" as="geometry"/>
+         </mxCell>
+      </invoke-subflow>
+      <mxCell id="160"
+              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;"
+              edge="1"
+              parent="1"
+              source="156"
+              target="159">
+         <mxGeometry relative="1" as="geometry"/>
+      </mxCell>
+      <undefined action="com.eitg.quasar.nexus.siphandlers.ScxmlAbortCall"
+                 label="Terminate call BUSY"
+                 name=""
+                 errorCode="486"
+                 cause="REJECTED"
+                 reason.up.q850.cause="17"
+                 reason.up.q850.text="dtmfdigit2"
+                 reason.up.sip.cause=""
+                 reason.up.sip.text=""
+                 reason.down.q850.cause=""
+                 reason.down.q850.text=""
+                 reason.down.sip.cause=""
+                 reason.down.sip.text=""
+                 message="spel:#initial"
+                 id="163">
+         <mxCell style="rectangle;shape=ext;rounded=1;html=1;whiteSpace=wrap;double=1;"
+                 vertex="1"
+                 parent="1">
+            <mxGeometry x="-1770" y="-85" width="120" height="60" as="geometry"/>
+         </mxCell>
+      </undefined>
+      <trace-info action="io.qsrlabs.nexus.middleware.scxml.handlers.TraceInfo"
+                  label="Trace info"
+                  scenario="dtmf.no"
+                  trace-level="spel:2"
+                  trace-ttl="spel:2419200"
+                  trace-size="spel:1000"
+                  id="164">
+         <mxCell style="image;html=1;image=clipart/trace-metadata.png" vertex="1" parent="1">
+            <mxGeometry x="-1770" y="140" width="120" height="60" as="geometry"/>
+         </mxCell>
+      </trace-info>
+      <counter action="com.eitg.quasar.nexus.middleware.scxml.handlers.CustomCounterHandler"
+               label="Statistic counter"
+               category="http"
+               type="httpresponse"
+               name="error"
+               id="165">
+         <mxCell style="image;html=1;image=clipart/statistics.png" vertex="1" parent="1">
+            <mxGeometry x="-1770" y="40" width="120" height="60" as="geometry"/>
+         </mxCell>
+      </counter>
+      <mxCell id="166" value="sip.callEnd"
+              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;"
+              edge="1"
+              source="163"
+              target="165"
+              parent="1">
+         <mxGeometry relative="1" as="geometry"/>
+      </mxCell>
+      <mxCell id="167"
+              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;"
+              edge="1"
+              source="165"
+              target="164"
+              parent="1">
+         <mxGeometry relative="1" as="geometry"/>
+      </mxCell>
+      <mxCell id="168" value="*"
+              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;"
+              edge="1"
+              parent="1"
+              source="159"
+              target="163">
+         <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+               <mxPoint x="-1710" y="-140"/>
+               <mxPoint x="-1710" y="-140"/>
+            </Array>
+         </mxGeometry>
+      </mxCell>
+      <mxCell id="169"
+              value="Set mrf object before MRF subflow. The mrf object is deleted in the subflow for next invocation"
+              style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;fillColor=#FFFFCC;"
+              vertex="1"
+              parent="1">
+         <mxGeometry x="-2040" y="-650" width="120" height="90" as="geometry"/>
+      </mxCell>
+      <mxCell id="170" value="Set mrf object again - now for PA only"
+              style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;fillColor=#FFFFCC;"
+              vertex="1"
+              parent="1">
+         <mxGeometry x="-1660" y="-395" width="100" height="70" as="geometry"/>
+      </mxCell>
    </root>
 </mxGraphModel>
