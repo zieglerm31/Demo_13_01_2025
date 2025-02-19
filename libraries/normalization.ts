@@ -24,33 +24,6 @@ function extractAndCompare(session : any, event : any, localParams: any ){
    let log = session.log;
 
    try {
-      //set input parameters
-      //interim
-      // tictac.wav .. 5s, simpleplay.wav .. 32s
-      //format: moml+digits or regex ([1-2])
-      session["mrf"]={};
-      session["mrf"]= {
-         "announcement":"annoTest",
-         "action":"playannouncement",
-         "earlydialog": true,
-         "collect": {
-            "cleardb":"true",
-            "edt":"1s",
-            "fdt":"3s",
-            "idt":"2s",
-            "iterate":"1"
-         },
-         "play": {
-            "barge":"true",
-            "maxtime":"11s",
-            "audiouri":"file:///appl/wav/tictac.wav"            
-         },
-         "pattern": {
-            "digits": "[1-2]",
-            "format": "regex"
-         }
-      };
-
       let x : string;
       try {
          if ( session.s_initialSIP.SIP["P-Access-Network-Info"].cellId != null)
