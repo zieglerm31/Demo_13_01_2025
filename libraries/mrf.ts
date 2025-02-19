@@ -119,7 +119,7 @@ function SendINFOPromptandCollect(session : any, event : any, localParams: any )
         "play": {
             "barge":"true",
             "maxtime":"11s",
-            "interval":"1",
+            "interval":"500ms",
             "cleardb":"true",
             "offset":"0s",
             "audioiterate":"1",
