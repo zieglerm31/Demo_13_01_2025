@@ -150,18 +150,18 @@ function SendINFOPromptandCollect(session : any, event : any, localParams: any )
     }
 
     if (collect==true) {
-        content = content + "<collect  cleardb=\"" + session["mrf"]["collect"]["cleardb"] + "\" edt=\"" + session["mrf"]["collect"]["edt"]  + "\" fdt=\"" + session["mrf"]["collect"]["fdt"]  + "\" idt=\"" + session["mrf"]["collect"]["idt"]  + "\"  iterate=\"" + session["mrf"]["collect"]["iterate"]  + "\">\n";
-        content = content + "<play barge=\"" + session["mrf"]["play"]["barge"] + "\"> maxtime=\"" + session["mrf"]["play"]["maxtime"] + "\" <audio uri=\"" + session["mrf"]["play"]["audiouri"] + "\"/> </play>\n";
-        content = content + "<pattern digits=\"" + session["mrf"]["pattern"]["digits"] + "\">  <send target=\"source\" event=\"done\" namelist=\"dtmf.digits dtmf.end\"/> </pattern>\n";
+        content = content + "<collect  cleardb=\"" + mrf_used["collect"]["cleardb"] + "\" edt=\"" + mrf_used["collect"]["edt"]  + "\" fdt=\"" + mrf_used["collect"]["fdt"]  + "\" idt=\"" + mrf_used["collect"]["idt"]  + "\"  iterate=\"" + mrf_used["collect"]["iterate"]  + "\">\n";
+        content = content + "<play barge=\"" + mrf_used["play"]["barge"] + "\"> maxtime=\"" + mrf_used["play"]["maxtime"] + "\" <audio uri=\"" + mrf_used["play"]["audiouri"] + "\"/> </play>\n";
+        content = content + "<pattern digits=\"" + mrf_used["pattern"]["digits"] + "\">  <send target=\"source\" event=\"done\" namelist=\"dtmf.digits dtmf.end\"/> </pattern>\n";
         content = content + "<noinput> <send target=\"source\" event=\"done\" namelist=\"dtmf.end\"/> </noinput>\n";
         content = content + "<nomatch> <send target=\"source\" event=\"done\" namelist=\"dtmf.end\"/> </nomatch>\n";
         content = content + "</collect>\n";        
     } else {
-        content = content + "<play barge=\"" + session["mrf"]["play"]["barge"] + "\" maxtime=\"" + session["mrf"]["play"]["maxtime"] + "\" interval=\"" + session["mrf"]["play"]["interval"] + "\" cleardb=\"" + session["mrf"]["play"]["cleardb"] + "\" offset=\"" + session["mrf"]["play"]["offset"] + "\">\n";
-        content = content + "<audio uri=\"" + session["mrf"]["play"]["audiouri"] + "\"" + "\" iterate=\"" + session["mrf"]["play"]["iterate"] + "\"/>\n";
+        content = content + "<play barge=\"" + mrf_used["play"]["barge"] + "\" maxtime=\"" + mrf_used["play"]["maxtime"] + "\" interval=\"" + mrf_used["play"]["interval"] + "\" cleardb=\"" + mrf_used["play"]["cleardb"] + "\" offset=\"" + mrf_used["play"]["offset"] + "\">\n";
+        content = content + "<audio uri=\"" + mrf_used["play"]["audiouri"] + "\"" + "\" iterate=\"" + mrf_used["play"]["iterate"] + "\"/>\n";
         content = content + "<playexit>\n<exit namelist=\"play.end play.amt\"/>\n</playexit>\n";
         content = content + "</play>";
-    }
+    }	
     content = content + "</dialogstart>\n</msml>\n";
 
     let outevent = {
