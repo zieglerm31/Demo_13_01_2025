@@ -86,7 +86,7 @@ function armeventsNetworkRingtone(session:any,event:any,localParams:any): any {
     ring.anno_type=Annotype.RINGING;
     ringingTones.push(comf, ring);
 
-    let capabilities = sessionData.inCapabilities;
+    let capabilities = session.inCapabilities;
     if( capabilities!=null){
         capabilities.push(Capabilities.PEM);
         capabilities.push(Capabilities.FORKING);
