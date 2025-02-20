@@ -3,7 +3,18 @@
 //DEPS:utils:LATEST
 
 function armevents(sessionData:any,eventData:any,localParams:any): any {
- let ret: ResultCode ;
+    let ret: ResultCode ;
+    let log = sessionData.log;
+
+    try {
+        if (eventData["event-name"] = "sip.callAnswered.SipCallLegUaClient") {
+            sessionData.callstate  ="ANSWERED";
+            sessionData.timeend= Math.floor(new Date()/1000);     
+            log.debug("armevents: Call Answered");  
+        }
+    } catch (e) {
+        log.debug("armevents: Call Answered Log: {}", e);
+    }
 
     let status2 : string;
     let events : Events;
@@ -138,6 +149,17 @@ function getdisconnectreason(session:any,event any,localParams:any) {
 
     try {
 
+        session.callstate  ="CLOSED";
+        session.timeend= Math.floor(new Date()/1000);
+        try {
+            if (session.timeanswer!=null) {
+                session.duration= session.timeend - session.timeanswer;
+            } else {
+                session.duration="not-started";    
+            }
+        } catch (e) {
+            session.duration="exception";
+        }
         //prepare the LOG line - send to the log_sipdemo process 
         let logline = {};
         try{
@@ -146,8 +168,8 @@ function getdisconnectreason(session:any,event any,localParams:any) {
             logline["MsgType"] = "SIP.INVITE";
             logline["MsgSessionId"] = session["fsm-id"];
             logline["MsgId"] = session["s_initialSIP"]["SIP"]["Call-ID"]["value"];
-            logline["MsgDetails"] = "";
-            logline["Servicedetails"] = "";
+            logline["MsgDetails"] = "to be filled";
+            logline["Servicedetails"] = "to be filled";
             logline["callAnswered"] = session.timeanswer;
             logline["callEnded"] = session.timeend;
             logline["callDuration"] = session.duration;
