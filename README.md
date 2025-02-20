@@ -1,4 +1,126 @@
+This is an md format help page. Click on "Edit readme" to make changes, then "Save readme" and switch back into the "View reame". Press "Push" to push the change to the central repository server. 
+___
 # this is the Demo rating application 
+[TOC]
+
+## Introduction
+This is the demo serviceto for SIP calls. The serviec can be triggered on the SNF endpoint (10.20.110.19:5060 UDP). The SIP INVITE is routed to the TAS VM (10.20.110.18:5060 UDP) with the AEP RTE processes. The AEP invokes via the Http-Client the external HTTP-Server (), the MRF (10.20.110.16:5060 UDP) or connects the call to B-parties via the TAS instance.
+
+## Sequence diagram
+The sequence diagram is only a high level visualization of the sample application/service. The Service interacts with MRF and External HTTP-Server based on the SIP-Invite content (RUIR, PANI) and finally Terminates or Connects the Call. The MRF interaction is either a Prompt&Collect or Announcement. 
+
+```
+sequenceDiagram
+    uac->>tas: SIP-Invite
+    tas->>rte: Invite-event
+    Note right of rte: Validate if this is a new SIP call
+    Note right of rte: Analyse RUIR and PANI
+    alt RUIR starts with 3000
+        Note right of rte: Normalize number
+        Note right of rte: Create XML 
+        rte->>httpserver: http-req(XML with source/A-number)
+        httpserver->>rte: http-response (success w/ XML, failure/timeout)
+        alt success
+            Note right of rte: Evaluate respones and determine scenario
+            Note right of rte: scenario 0 (Connect to MRF in Established A leg and wait for DTMF)
+            Note right of rte: scenario 4 (Connect to MRF in Early Media A and play announcement)
+        else
+            Note right of rte: Terminate Call with 486 (BUSY)
+        end
+    else 
+        Note right of rte: Set AnnouncementID based on PANI
+        Note right of rte: Prepare MRF Announcement for Prompt&Colect (early-dialog)
+        tas->>mrf: SIP-Invite
+        uac ->>mrf: DTMF-digits
+        mrf->>tas: SIP-Info (digits, nomatch, nodigits, error)
+        tas->>mrf: SIP-BYE
+        Note right of rte: DTMF=1 close call handling to A
+        Note right of rte: DTMF=2 prompt announcement and close call handling to A
+    end
+```
+
+## Trigger Scenarios
+RUIR 
+- if starts with 3000 -> http-server interaction
+- else -> no http-server interaction
+PANI 
+- if starts with 42501 -> maxspeechtimeout.wav
+- if starts with 42503 -> help.wav
+- else -> error.wav
+Http-Server respones (currently the server does not provide a good result - hence the response is processed with following rules)
+- if RURI ends with 4 -> scenario4
+- if RURI ends with 5 -> scenario5
+- if RURI ends with 0 -> scenario0
+- else unknown/timeout -> Terminate call with text "httpservererror"
+
+Scenario: 0
+The call is connected to sip:+4390123123@" + session.s_SIPInvite.SIP.Contact.address.uri.host + ":5098". This is currently hardcoded as the http-sever does not give a good result. 
+The call is connected in a B2BUA mode and events are armed.
+The call is connected with a no-answer timer of 3 seconds and a maximum call-duration of 10s. 
+The call connection time is recorded.
+In case any of the timers is fired the call duration is computed and the call is disconnected with a 486 (BUSY).
+In case the call is ended normally and call duration is computed.
+
+Scenario: 4
+The MRF MSML is prepared for Prompt&Collect with the A-leg in Early-Media and MSML.xml1 from below.
+The MRF either responds with a nomatch, nodigit(timeout), erorr or match with the DTMF.digit.
+- if DTMF.digit=1 -> terminate call with 402 (Payment required)
+- if DTMF.digit=2 -> invoke the 2nd MRF for announcement and Terminate the call with 486 (BUSY) and text "dtmfdigit2"
+- if nomatch (other digits) -> Terminate the call with 603 (DECLINE) and text "anytext"
+- else Terminate call iwth default TAS setting
+
+Scenario: 5
+The MRF MSML is prepared for Prompt&Collect with the A-leg in Connected-State (200-OK invite) and MSML.xml1 from below.
+Similar as scenario4.
+
+MSML.xml1
+  "collect": {
+    "cleardb": "true",
+    "edt": "1s",
+    "fdt": "3s",
+    "idt": "2s",
+    "iterate": "1"
+  },
+  "play": {
+    "barge": "true",
+    "maxtime": "11s",
+    "audiouri": "spel:#session[\"ann_name\"]"
+  },
+  "pattern": {
+    "digits": "[1-2]",
+    "format": "regex"
+  }
+
+MSML.xml2
+  "play": {
+    "barge": "false",
+    "maxtime": "5500ms",
+    "audiouri": "file:///appl/wav/noservice.wav"
+  }
+
+## Deployment Setup
+```
+sequenceDiagram
+    mgnt->>snf: Management Interface
+    Note right of mngt: management, deployment, sipp
+    sipgw-->>snf: External SIP Interface
+    Note right of snf: SIP integration point
+    snf->>tas: Internal SIP Interface
+    Note right of tas: TAS, AEP RTE, AEP CDR, AEP HttpClient
+    tas->>tmp: SIP MSML MRF Interface
+    Note right of tmp: MRF
+    tas-->>httpserver: External HTTP Interface
+```
+
+## Config Changes
+The Announcements are on the TMP server at /appl/wav in wav format".
+For simplicity reason - every GUI user works on the same local (MGNT VM) git directory that is under
+The service logic as in the git-project ---
+
+##Simulation Setup
+Calls can be simulated using sipp.
+
+(mgt,10.20.110.17) 
 
 ## sipp tests on nfems
 UAS - b2bua test
