@@ -104,7 +104,7 @@
                  name=""
                  destination="sip:9900001@172.31.11.142:5062"
                  leaveType="b2bua"
-                 message="&lt;enter last saved SIP message here&gt;"
+                 message=""
                  id="68">
          <mxCell style="rectangle;shape=ext;rounded=1;html=1;whiteSpace=wrap;double=1;"
                  vertex="1"
@@ -123,7 +123,7 @@
                  name=""
                  destination="sip:9900001@172.31.11.142:5062"
                  leaveType="proxy"
-                 message="&lt;enter last saved SIP message here&gt;"
+                 message=""
                  id="70">
          <mxCell style="rectangle;shape=ext;rounded=1;html=1;whiteSpace=wrap;double=1;"
                  vertex="1"
@@ -131,5 +131,252 @@
             <mxGeometry x="150" y="465" width="120" height="60" as="geometry"/>
          </mxCell>
       </undefined>
+      <stop action="com.eitg.quasar.nexus.middleware.scxml.handlers.StopHandler"
+            label="Stop"
+            isfinal="yes"
+            id="71">
+         <mxCell style="image;html=1;image=clipart/plain-stop.png" vertex="1" parent="1">
+            <mxGeometry x="390" y="620" width="80" height="80" as="geometry"/>
+         </mxCell>
+      </stop>
+      <mxCell id="72" value="*"
+              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;"
+              edge="1"
+              source="97"
+              target="71"
+              parent="1">
+         <mxGeometry relative="1" as="geometry"/>
+      </mxCell>
+      <undefined action="com.eitg.quasar.nexus.siphandlers.ScxmlForwardCall"
+                 label="Connect call"
+                 name=""
+                 destination="spel:#session[&#34;destlist&#34;]"
+                 message="spel:#session[&#34;s_SIPInvite&#34;]"
+                 no-answer-timer="6"
+                 max-call-duration="8"
+                 id="73">
+         <mxCell style="rectangle;shape=ext;rounded=1;html=1;whiteSpace=wrap;double=1;"
+                 vertex="1"
+                 parent="1">
+            <mxGeometry x="550" y="475" width="120" height="60" as="geometry"/>
+         </mxCell>
+      </undefined>
+      <mxCell id="74"
+              value="Connect the Call to Destination in Proxy Mode and then leave it up to the TAS to control it."
+              style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;fillColor=#FFFFCC;"
+              vertex="1"
+              parent="1">
+         <mxGeometry x="690" y="460" width="220" height="90" as="geometry"/>
+      </mxCell>
+      <typescript-library action="io.qsrlabs.nexus.middleware.scxml.handlers.TypeScriptLibrary#fixed"
+                          label="function ParallelRinging"
+                          library="Demo_13_01_2025:call"
+                          function="setdestinationlist"
+                          id="75">
+         <mxCell style="image;html=1;image=clipart/script.png" vertex="1" parent="1">
+            <mxGeometry x="550" y="330" width="120" height="60" as="geometry"/>
+         </mxCell>
+      </typescript-library>
+      <mxCell id="76"
+              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;"
+              edge="1"
+              source="75"
+              target="73"
+              parent="1">
+         <mxGeometry relative="1" as="geometry"/>
+      </mxCell>
+      <mxCell id="77"
+              value="sip.callStart.NOT_REACHABLE&#xA;sip.callStart.DISCONNECTED&#xA;sip.callStart.BUSY&#xA;sip.callStart.REJECTED&#xA;&#xA;sip.callEarlyMediaAnswered.*&#xA;sip.callAnswered.*&#xA;&#xA;a connect during a connect is not supported by TAS. Use parallel-ringing for this task&#xA;release leg does not work. this terminates the entire call. so far only for MRF"
+              style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;fillColor=#FFFFCC;"
+              vertex="1"
+              parent="1">
+         <mxGeometry x="470" y="840" width="310" height="180" as="geometry"/>
+      </mxCell>
+      <mxCell id="78"
+              value="Connect the Call to Destination in Proxy Mode and then leave it up to the TAS to control it."
+              style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;fillColor=#FFFFCC;"
+              vertex="1"
+              parent="1">
+         <mxGeometry x="1110" y="460" width="220" height="90" as="geometry"/>
+      </mxCell>
+      <undefined action="com.eitg.quasar.nexus.siphandlers.ScxmlForwardCall"
+                 label="Connect to B"
+                 name=""
+                 destination="spel:#session[&#34;CalledPartyOverwritten&#34;]"
+                 message="spel:#session[&#34;s_SIPInvite&#34;]"
+                 no-answer-timer="2"
+                 max-call-duration="10"
+                 continue="true"
+                 id="79">
+         <mxCell style="rectangle;shape=ext;rounded=1;html=1;whiteSpace=wrap;double=1;"
+                 vertex="1"
+                 parent="1">
+            <mxGeometry x="982" y="471" width="120" height="60" as="geometry"/>
+         </mxCell>
+      </undefined>
+      <typescript-library action="io.qsrlabs.nexus.middleware.scxml.handlers.TypeScriptLibrary#fixed"
+                          label="armevents"
+                          library="Demo_13_01_2025:call"
+                          function="armevents"
+                          id="80">
+         <mxCell style="image;html=1;image=clipart/script.png" vertex="1" parent="1">
+            <mxGeometry x="982" y="341" width="120" height="60" as="geometry"/>
+         </mxCell>
+      </typescript-library>
+      <mxCell id="81"
+              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;"
+              edge="1"
+              source="80"
+              target="79"
+              parent="1">
+         <mxGeometry relative="1" as="geometry"/>
+      </mxCell>
+      <park-and-wait action="io.qsrlabs.nexus.middleware.scxml.handlers.WaitForNextEvent"
+                     label="Wait for next ingres event"
+                     id="82">
+         <mxCell style="image;html=1;image=clipart/next.png" vertex="1" parent="1">
+            <mxGeometry x="982" y="591" width="120" height="60" as="geometry"/>
+         </mxCell>
+      </park-and-wait>
+      <mxCell id="83" value="*"
+              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;"
+              edge="1"
+              source="79"
+              target="82"
+              parent="1">
+         <mxGeometry relative="1" as="geometry"/>
+      </mxCell>
+      <mxCell id="84" value="sip.callAnswered.*"
+              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.75;exitY=1;entryX=0.75;entryY=0;"
+              edge="1"
+              source="82"
+              target="82"
+              parent="1">
+         <mxGeometry relative="1" as="geometry"/>
+      </mxCell>
+      <undefined action="com.eitg.quasar.nexus.siphandlers.ScxmlForwardCall"
+                 label="Connect to C"
+                 name=""
+                 destination="spel:#session[&#34;CalledPartyOverwritten&#34;]"
+                 message="spel:#session[&#34;s_SIPInvite&#34;]"
+                 no-answer-timer="2"
+                 max-call-duration="10"
+                 continue="true"
+                 id="85">
+         <mxCell style="rectangle;shape=ext;rounded=1;html=1;whiteSpace=wrap;double=1;"
+                 vertex="1"
+                 parent="1">
+            <mxGeometry x="760" y="760" width="120" height="60" as="geometry"/>
+         </mxCell>
+      </undefined>
+      <mxCell id="86" value="sip.callStart.DISCONNECTED"
+              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;"
+              edge="1"
+              source="82"
+              target="85"
+              parent="1">
+         <mxGeometry relative="1" as="geometry"/>
+      </mxCell>
+      <undefined action="com.eitg.quasar.nexus.siphandlers.ScxmlForwardCall"
+                 label="Connect to C"
+                 name=""
+                 destination="spel:#session[&#34;CalledPartyOverwritten&#34;]"
+                 message="spel:#session[&#34;s_SIPInvite&#34;]"
+                 no-answer-timer="2"
+                 max-call-duration="10"
+                 continue="true"
+                 id="87">
+         <mxCell style="rectangle;shape=ext;rounded=1;html=1;whiteSpace=wrap;double=1;"
+                 vertex="1"
+                 parent="1">
+            <mxGeometry x="1140" y="890" width="120" height="60" as="geometry"/>
+         </mxCell>
+      </undefined>
+      <mxCell id="88" value="*"
+              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;"
+              edge="1"
+              source="82"
+              target="90"
+              parent="1">
+         <mxGeometry relative="1" as="geometry"/>
+      </mxCell>
+      <mxCell id="89" value="could be answer timeout"
+              style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;fillColor=#FFFFCC;"
+              vertex="1"
+              parent="1">
+         <mxGeometry x="840" y="720" width="160" height="30" as="geometry"/>
+      </mxCell>
+      <undefined action="com.eitg.quasar.nexus.siphandlers.ReleaseLeg" label="Release leg"
+                 name=""
+                 reason.down.q850.cause=""
+                 reason.down.q850.text=""
+                 reason.down.sip.cause=""
+                 reason.down.sip.text=""
+                 message=""
+                 id="90">
+         <mxCell style="rectangle;shape=ext;rounded=1;html=1;whiteSpace=wrap;double=1;"
+                 vertex="1"
+                 parent="1">
+            <mxGeometry x="1140" y="760" width="120" height="60" as="geometry"/>
+         </mxCell>
+      </undefined>
+      <mxCell id="91" value="*"
+              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;"
+              edge="1"
+              source="90"
+              target="87"
+              parent="1">
+         <mxGeometry relative="1" as="geometry"/>
+      </mxCell>
+      <stop action="com.eitg.quasar.nexus.middleware.scxml.handlers.StopHandler"
+            label="Stop"
+            isfinal="yes"
+            id="92">
+         <mxCell style="image;html=1;image=clipart/plain-stop.png" vertex="1" parent="1">
+            <mxGeometry x="1002" y="1040" width="80" height="80" as="geometry"/>
+         </mxCell>
+      </stop>
+      <mxCell id="93" value="*"
+              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;"
+              edge="1"
+              source="85"
+              target="92"
+              parent="1">
+         <mxGeometry relative="1" as="geometry"/>
+      </mxCell>
+      <mxCell id="94" value="*"
+              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;"
+              edge="1"
+              source="87"
+              target="92"
+              parent="1">
+         <mxGeometry relative="1" as="geometry"/>
+      </mxCell>
+      <stop action="com.eitg.quasar.nexus.middleware.scxml.handlers.StopHandler"
+            label="Stop"
+            isfinal="yes"
+            id="95">
+         <mxCell style="image;html=1;image=clipart/plain-stop.png" vertex="1" parent="1">
+            <mxGeometry x="570" y="620" width="80" height="80" as="geometry"/>
+         </mxCell>
+      </stop>
+      <mxCell id="96" value="*"
+              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;"
+              edge="1"
+              source="73"
+              target="95"
+              parent="1">
+         <mxGeometry relative="1" as="geometry"/>
+      </mxCell>
+      <event-generator-handler action="io.qsrlabs.nexus.middleware.scxml.handlers.EvaluateParamsAndGenerateEvent"
+                               label="Expression Evaluator"
+                               evt.51uri="spel:#session[&#34;s_InitialSIP&#34;][&#34;SIP&#34;][&#34;R-URI&#34;][&#34;address&#34;][&#34;uri&#34;][&#34;user&#34;].startsWith(&#34;51&#34;)"
+                               evt.52uri="spel:#session[&#34;s_InitialSIP&#34;][&#34;SIP&#34;][&#34;R-URI&#34;][&#34;address&#34;][&#34;uri&#34;][&#34;user&#34;].startsWith(&#34;52&#34;)"
+                               evt.53uri="spel:#session[&#34;s_InitialSIP&#34;][&#34;SIP&#34;][&#34;R-URI&#34;][&#34;address&#34;][&#34;uri&#34;][&#34;user&#34;].startsWith(&#34;53&#34;)"
+                               id="97">
+         <mxCell style="image;html=1;image=clipart/check-list.png" vertex="1" parent="1">
+            <mxGeometry x="710" y="180" width="120" height="60" as="geometry"/>
+         </mxCell>
+      </event-generator-handler>
    </root>
 </mxGraphModel>
