@@ -6,8 +6,8 @@ ___
 ## Introduction
 This is the demo serviceto for SIP calls. The serviec can be triggered on the SNF endpoint (10.20.110.19:5060 UDP). The SIP INVITE is routed to the TAS VM (10.20.110.18:5060 UDP) with the AEP RTE processes. The AEP invokes via the Http-Client the external HTTP-Server (), the MRF (10.20.110.16:5060 UDP) or connects the call to B-parties via the TAS instance.
 
-
-## Sequence diagram
+## Demo Application
+### Sequence diagram
 The sequence diagram is only a high level visualization of the sample application/service. The Service interacts with MRF and External HTTP-Server based on the SIP-Invite content (RUIR, PANI) and finally Terminates or Connects the Call. The MRF interaction is either a Prompt&Collect or Announcement. 
 
 ```
@@ -39,6 +39,32 @@ sequenceDiagram
         Note right of rte: DTMF=2 prompt announcement and close call handling to A
     end
 ```
+
+### Flows and Libraries Explained
+The service is a set of "flows" and "libraries" that are executed in a RTE process.\
+The RTE process uses for every new call the *library Dispatcher* to find the *start flow*. In this setup the *Dispatcher* returns the *flow test_demo_130125* as the start flow.
+
+1. initial **flow test_demo_130125** for general call handling
+   1. invokes **library normalization** to normalize the number
+   2. invokes **library ocshttp** for OCS Http server communication
+   3. invokes **library call** for call specific details like arm events, set destination number, compute time
+
+2. the main flow invokes **flow MRF-PlayAnn-PromptAndCollect** for MRF communication
+   1. invokes **library mrf** for the details of MRF communication. Can be hidded from the user logic if not changes are required
+   2. **library mrfinterfaces** is a **dependency** of the mrf library used for some definitions. Can be hidded from the user logic if not changes are required
+
+### Visualize Calls in flows
+The best way to understand the service and how it traverses through the flows is to make a call and look for the **trace**.\
+The **trace** is the captured information of the call.\
+To view the **trace** go to **runtime view**, select initial flow from the **Flows** dropdown box and click on **retrieve**. If nothing shows up no trace is abvilaable (they expire) or the tracedb is not selectd in your "workspace".\
+The available traecs are listed in chronilogical order with the timestamp.\
+- Click on the ladder/grid button to open the trace in table form. Each row is a step that got exectued.\
+- Click on the FlowChart button to see the flow view\
+- Click on the Sequence button to see the ingress/egress events from the RTE process.\
+
+### Output (CDRs App CDRs MRF)
+The App CDR is on TAS VM: /appl/aep/var/cdr/poc/
+The MRF CDR is on TMP VM: on gui - cluster monitoring - base CDR
 
 ## Trigger Scenarios
 ### RUIR 
