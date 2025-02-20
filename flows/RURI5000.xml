@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<mxGraphModel dx="2224" dy="986" grid="1" gridSize="10" guides="1" tooltips="1" connect="1"
+<mxGraphModel dx="2460" dy="2295" grid="1" gridSize="10" guides="1" tooltips="1" connect="1"
               fold="1"
               page="1"
               pageScale="1"
@@ -18,7 +18,7 @@
              traceCondition=""
              id="2">
          <mxCell style="image;html=1;image=clipart/start-button.png" parent="1" vertex="1">
-            <mxGeometry x="660" y="30" width="80" height="80" as="geometry"/>
+            <mxGeometry x="660" y="-3" width="80" height="80" as="geometry"/>
          </mxCell>
       </start>
       <stop action="com.eitg.quasar.nexus.middleware.scxml.handlers.StopHandler"
@@ -37,7 +37,8 @@
               edge="1">
          <mxGeometry relative="1" as="geometry">
             <Array as="points">
-               <mxPoint x="410" y="210"/>
+               <mxPoint x="700" y="240"/>
+               <mxPoint x="410" y="240"/>
             </Array>
          </mxGeometry>
       </mxCell>
@@ -350,15 +351,15 @@
       </mxCell>
       <event-generator-handler action="io.qsrlabs.nexus.middleware.scxml.handlers.EvaluateParamsAndGenerateEvent"
                                label="RURI starts with 3000"
-                               evt.51uri="spel:#initial[&#34;SIP&#34;][&#34;R-URI&#34;][&#34;address&#34;][&#34;uri&#34;][&#34;user&#34;].startsWith(&#34;51&#34;)"
-                               evt.52uri="spel:#initial[&#34;SIP&#34;][&#34;R-URI&#34;][&#34;address&#34;][&#34;uri&#34;][&#34;user&#34;].startsWith(&#34;52&#34;)"
-                               evt.53uri="spel:#initial[&#34;SIP&#34;][&#34;R-URI&#34;][&#34;address&#34;][&#34;uri&#34;][&#34;user&#34;].startsWith(&#34;53&#34;)"
+                               evt.51uri="spel:#session[&#34;s_InitialSIP&#34;][&#34;SIP&#34;][&#34;R-URI&#34;][&#34;address&#34;][&#34;uri&#34;][&#34;user&#34;].startsWith(&#34;51&#34;)"
+                               evt.52uri="spel:#initial[&#34;s_InitialSIP&#34;][&#34;R-URI&#34;][&#34;address&#34;][&#34;uri&#34;][&#34;user&#34;].startsWith(&#34;52&#34;)"
+                               evt.53uri="spel:#initial[&#34;s_InitialSIP&#34;][&#34;R-URI&#34;][&#34;address&#34;][&#34;uri&#34;][&#34;user&#34;].startsWith(&#34;53&#34;)"
                                id="51">
          <mxCell style="image;html=1;image=clipart/check-list.png" parent="1" vertex="1">
             <mxGeometry x="640" y="150" width="120" height="60" as="geometry"/>
          </mxCell>
       </event-generator-handler>
-      <mxCell id="52"
+      <mxCell id="52" value="*"
               style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;"
               parent="1"
               source="2"
