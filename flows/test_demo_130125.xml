@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<mxGraphModel dx="4785" dy="3444" grid="1" gridSize="10" guides="1" tooltips="1" connect="1"
+<mxGraphModel dx="4566" dy="3307" grid="1" gridSize="10" guides="1" tooltips="1" connect="1"
               fold="1"
               page="1"
               pageScale="1"
@@ -645,9 +645,11 @@
               style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;"
               parent="1"
               source="82"
-              target="83"
+              target="198"
               edge="1">
-         <mxGeometry relative="1" as="geometry"/>
+         <mxGeometry relative="1" as="geometry">
+            <Array as="points"/>
+         </mxGeometry>
       </mxCell>
       <mxCell id="85" value="Create XML ocnent"
               style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;fillColor=#FFFFCC;"
@@ -1322,85 +1324,85 @@
             label="Stop.callended.scenario0"
             isfinal="yes"
             id="179">
-         <mxCell style="image;html=1;image=clipart/plain-stop.png" vertex="1" parent="1">
+         <mxCell style="image;html=1;image=clipart/plain-stop.png" parent="1" vertex="1">
             <mxGeometry x="-787" y="520" width="80" height="80" as="geometry"/>
          </mxCell>
       </stop>
       <mxCell id="180" value="The call is closed by A or B leg.&#xA;Compute the time"
               style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;fillColor=#FFFFCC;"
-              vertex="1"
-              parent="1">
+              parent="1"
+              vertex="1">
          <mxGeometry x="-1022" y="260" width="120" height="60" as="geometry"/>
       </mxCell>
       <mxCell id="181"
               value="This is required to define the granularity of events that want to be seen in the service. &#xA;We arm a lot here"
               style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;fillColor=#FFFFCC;"
-              vertex="1"
-              parent="1">
+              parent="1"
+              vertex="1">
          <mxGeometry x="-1022" y="-212" width="202" height="85" as="geometry"/>
       </mxCell>
       <mxCell id="184" value="The call got answered"
               style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;fillColor=#FFFFCC;"
-              vertex="1"
-              parent="1">
+              parent="1"
+              vertex="1">
          <mxGeometry x="-1533" y="255" width="120" height="60" as="geometry"/>
       </mxCell>
       <mxCell id="185"
               value="Handle errors. In this case the flow is stopped and no -Terminate is done on the call. This is only an example - ideally the call is terminated.&#xA;&#xA;error.nolib exit if library is not found"
               style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;fillColor=#FFFFCC;"
-              vertex="1"
-              parent="1">
+              parent="1"
+              vertex="1">
          <mxGeometry x="-747" y="-705" width="224" height="110" as="geometry"/>
       </mxCell>
       <mxCell id="186"
               value="This handler finally sends the http event ot the http-client process that sends the request out.&#xA;Timeouts etc can be set here."
               style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;fillColor=#FFFFCC;"
-              vertex="1"
-              parent="1">
+              parent="1"
+              vertex="1">
          <mxGeometry x="-1590" y="-535" width="290" height="60" as="geometry"/>
       </mxCell>
       <mxCell id="187"
               value="This is a sample handler to show how if-conditions can be done in the flow.&#xA;Create output transitions based on available fields"
               style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;fillColor=#FFFFCC;"
-              vertex="1"
-              parent="1">
+              parent="1"
+              vertex="1">
          <mxGeometry x="-1194" y="-1005" width="214" height="70" as="geometry"/>
       </mxCell>
       <mxCell id="188"
               style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;"
-              edge="1"
               parent="1"
               source="54"
-              target="59">
+              target="59"
+              edge="1">
          <mxGeometry relative="1" as="geometry"/>
       </mxCell>
       <mxCell id="189"
               style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;"
-              edge="1"
               parent="1"
               source="59"
-              target="3">
+              target="3"
+              edge="1">
          <mxGeometry relative="1" as="geometry"/>
       </mxCell>
       <mxCell id="190"
               value="Send back the action to continue the call.&#xA;And wait for the next event"
               style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;fillColor=#FFFFCC;"
-              vertex="1"
-              parent="1">
+              parent="1"
+              vertex="1">
          <mxGeometry x="-1520" y="500" width="120" height="60" as="geometry"/>
       </mxCell>
       <mxCell id="191"
               value="This is very simple connect of a call. the &#34;Leave&#34; handler means that the call shall only be connected and no further event shall be given to the applicaiton &#34;leave the call alone&#34;. The TAS handles it without special business logic."
               style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;fillColor=#FFFFCC;"
-              vertex="1"
-              parent="1">
+              parent="1"
+              vertex="1">
          <mxGeometry x="-1730" y="545" width="170" height="125" as="geometry"/>
       </mxCell>
       <mxCell id="192"
               value="If any global error comes up in the flow it goes directly into the STOP handler. &#xA;any special exceptoin handling can be done here."
               style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;fillColor=#FFFFCC;"
-              vertex="1"
-              parent="1">
+              parent="1"
+              vertex="1">
          <mxGeometry x="-1760" y="-1270" width="230" height="60" as="geometry"/>
       </mxCell>
       <invoke-subflow action="io.qsrlabs.nexus.middleware.scxml.handlers.Subflow#combobox"
@@ -1408,39 +1410,56 @@
                       subflow="Demo_13_01_2025:RURI5000"
                       category="procedure"
                       id="193">
-         <mxCell style="image;html=1;image=clipart/subflow-static.png" vertex="1" parent="1">
+         <mxCell style="image;html=1;image=clipart/subflow-static.png" parent="1" vertex="1">
             <mxGeometry x="-1690" y="-1000" width="120" height="60" as="geometry"/>
          </mxCell>
       </invoke-subflow>
       <mxCell id="194" value="5000uri"
               style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0;exitY=0.5;entryX=1;entryY=0.5;"
-              edge="1"
               parent="1"
               source="5"
-              target="193">
+              target="193"
+              edge="1">
          <mxGeometry relative="1" as="geometry"/>
       </mxCell>
       <stop action="com.eitg.quasar.nexus.middleware.scxml.handlers.StopHandler"
             label="Stop 5000uri"
             isfinal="yes"
             id="195">
-         <mxCell style="image;html=1;image=clipart/plain-stop.png" vertex="1" parent="1">
+         <mxCell style="image;html=1;image=clipart/plain-stop.png" parent="1" vertex="1">
             <mxGeometry x="-1840" y="-1009.111083984375" width="80" height="80" as="geometry"/>
          </mxCell>
       </stop>
       <mxCell id="196"
               style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0;exitY=0.5;entryX=1;entryY=0.5;"
-              edge="1"
               parent="1"
               source="193"
-              target="195">
+              target="195"
+              edge="1">
          <mxGeometry relative="1" as="geometry"/>
       </mxCell>
       <mxCell id="197" value="if RUIR starts with 5000 - enter this subflow"
               style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;fillColor=#FFFFCC;"
-              vertex="1"
-              parent="1">
+              parent="1"
+              vertex="1">
          <mxGeometry x="-1553" y="-1009" width="253" height="30" as="geometry"/>
+      </mxCell>
+      <cdr-request action="io.qsrlabs.nexus.cdr.CdrRequestHandler" label="Generate file CDR"
+                   queue="poc_cdrGW_ingress"
+                   template="default"
+                   ref="spel:#session[&#34;logline&#34;]"
+                   id="198">
+         <mxCell style="image;html=1;image=clipart/cdr.png" vertex="1" parent="1">
+            <mxGeometry x="-1114" y="395" width="120" height="60" as="geometry"/>
+         </mxCell>
+      </cdr-request>
+      <mxCell id="199"
+              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;"
+              edge="1"
+              parent="1"
+              source="198"
+              target="83">
+         <mxGeometry relative="1" as="geometry"/>
       </mxCell>
    </root>
 </mxGraphModel>
