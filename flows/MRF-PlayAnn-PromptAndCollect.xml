@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<mxGraphModel dx="2249" dy="2053" grid="1" gridSize="10" guides="1" tooltips="1" connect="1"
+<mxGraphModel dx="2307" dy="2275" grid="1" gridSize="10" guides="1" tooltips="1" connect="1"
               fold="1"
               page="1"
               pageScale="1"
@@ -117,8 +117,8 @@
               edge="1">
          <mxGeometry relative="1" as="geometry">
             <Array as="points">
-               <mxPoint x="400" y="237"/>
-               <mxPoint x="540" y="237"/>
+               <mxPoint x="400" y="220"/>
+               <mxPoint x="540" y="220"/>
             </Array>
          </mxGeometry>
       </mxCell>
@@ -126,24 +126,14 @@
               style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;fillColor=#FFFFCC;"
               parent="1"
               vertex="1">
-         <mxGeometry x="140" y="330" width="80" height="40" as="geometry"/>
+         <mxGeometry x="290" y="270" width="80" height="40" as="geometry"/>
       </mxCell>
       <mxCell id="16" value="scenario5"
               style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;fillColor=#FFFFCC;"
               parent="1"
               vertex="1">
-         <mxGeometry x="570" y="330" width="80" height="40" as="geometry"/>
+         <mxGeometry x="420" y="270" width="80" height="40" as="geometry"/>
       </mxCell>
-      <undefined action="com.eitg.quasar.nexus.siphandlers.ScxmlSIPStartHandler"
-                 label="Wait SIP Event"
-                 name=""
-                 message="spel:#session[&#34;s_initialSIP&#34;]"
-                 id="17">
-         <mxCell style="rectangle;shape=ext;rounded=1;html=1;whiteSpace=wrap;" parent="1"
-                 vertex="1">
-            <mxGeometry x="-280" y="510" width="120" height="60" as="geometry"/>
-         </mxCell>
-      </undefined>
       <mxCell id="18" value="*"
               style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;"
               parent="1"
@@ -158,13 +148,15 @@
               style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;"
               parent="1"
               source="10"
-              target="82"
+              target="78"
               edge="1">
          <mxGeometry relative="1" as="geometry">
             <Array as="points">
                <mxPoint x="540" y="475"/>
                <mxPoint x="430" y="475"/>
+               <mxPoint x="430" y="500"/>
             </Array>
+            <mxPoint x="400" y="610" as="targetPoint"/>
          </mxGeometry>
       </mxCell>
       <typescript-library action="io.qsrlabs.nexus.middleware.scxml.handlers.TypeScriptLibrary#fixed"
@@ -570,14 +562,7 @@
                      label="Wait for next ingres event"
                      id="78">
          <mxCell style="image;html=1;image=clipart/next.png" parent="1" vertex="1">
-            <mxGeometry x="190" y="500" width="120" height="60" as="geometry"/>
-         </mxCell>
-      </park-and-wait>
-      <park-and-wait action="io.qsrlabs.nexus.middleware.scxml.handlers.WaitForNextEvent"
-                     label="Wait for next ingres event"
-                     id="82">
-         <mxCell style="image;html=1;image=clipart/next.png" parent="1" vertex="1">
-            <mxGeometry x="370" y="500" width="120" height="60" as="geometry"/>
+            <mxGeometry x="340" y="500" width="120" height="60" as="geometry"/>
          </mxCell>
       </park-and-wait>
       <mxCell id="83" value="use error.* and not error*"

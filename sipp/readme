@@ -1,0 +1,11 @@
+
+dtmf test with ocmp
+sipp 10.20.110.19:5060 -i 10.20.110.17 -p 5099 -sf telzar_scenario_dtmf2-busyhere.xml -m 1 -r 1 -nr -default_behaviors abortunexp -key urinamevar 400079999700 -mp 39000 -rtp_echo
+
+
+
+cd /appl/sipp/testing/
+sipp -sf sipp_uas_basic.xml  -i 10.20.110.17 -p 5098
+sipp -sf sipp_uas_basic_b2bua.xml  -i 10.20.110.17 -p 5098
+
+
