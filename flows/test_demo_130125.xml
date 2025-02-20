@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<mxGraphModel dx="4566" dy="3307" grid="1" gridSize="10" guides="1" tooltips="1" connect="1"
+<mxGraphModel dx="4806" dy="3307" grid="1" gridSize="10" guides="1" tooltips="1" connect="1"
               fold="1"
               page="1"
               pageScale="1"
@@ -638,19 +638,9 @@
             isfinal="yes"
             id="83">
          <mxCell style="image;html=1;image=clipart/plain-stop.png" parent="1" vertex="1">
-            <mxGeometry x="-1094" y="520" width="80" height="80" as="geometry"/>
+            <mxGeometry x="-1094" y="597" width="80" height="80" as="geometry"/>
          </mxCell>
       </stop>
-      <mxCell id="84"
-              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;"
-              parent="1"
-              source="82"
-              target="198"
-              edge="1">
-         <mxGeometry relative="1" as="geometry">
-            <Array as="points"/>
-         </mxGeometry>
-      </mxCell>
       <mxCell id="85" value="Create XML ocnent"
               style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;fillColor=#FFFFCC;"
               parent="1"
@@ -683,11 +673,12 @@
             <mxPoint as="offset"/>
          </mxGeometry>
       </mxCell>
-      <mxCell id="88" value="Terminate the call in case of no-answer timeout of the 2s"
+      <mxCell id="88"
+              value="Terminate the call in case of no-answer timeout of the 2s or normal call release"
               style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;fillColor=#FFFFCC;"
               parent="1"
               vertex="1">
-         <mxGeometry x="-707" y="265" width="120" height="60" as="geometry"/>
+         <mxGeometry x="-707" y="265" width="207" height="60" as="geometry"/>
       </mxCell>
       <mxCell id="89" value="Sit and wait for events ..."
               style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;fillColor=#FFFFCC;"
@@ -793,11 +784,11 @@
          <mxGeometry relative="1" as="geometry"/>
       </mxCell>
       <mxCell id="103"
-              value="add event-stack processing. the last or one before last is &#xA;&#xA;&#xA;events-stack&#x9;&#x9;[5]&#xA;0&#x9;:&#x9;sip.callStart.NONE&#xA;1&#x9;:&#x9;sip.callPoll.SIPSuccessResponsePollEvent&#xA;2&#x9;:&#x9;sip.callAnswered.SipCallLegUaClient&#xA;3&#x9;:&#x9;leg.max_call_duration&#xA;4&#x9;:&#x9;sip.callStart.DISCONNECTED&#xA;"
+              value="add event-stack processing. the last or one before last is &#xA;&#xA;&#xA;events-stack&#x9;&#x9;[5]&#xA;0&#x9;:&#x9;sip.callStart.NONE&#xA;1&#x9;:&#x9;sip.callPoll.SIPSuccessResponsePollEvent&#xA;2&#x9;:&#x9;sip.callAnswered.SipCallLegUaClient&#xA;3&#x9;:&#x9;leg.max_call_duration&#xA;4&#x9;:&#x9;sip.callStart.DISCONNECTED&#xA;&#xA;normal disconnect&#xA;0&#x9;:&#x9;sip.callStart.NONE&#xA;1&#x9;:&#x9;sip.callPoll.SIPSuccessResponsePollEvent&#xA;2&#x9;:&#x9;sip.callAnswered.SipCallLegUaClient&#xA;3&#x9;:&#x9;sip.callStart.DISCONNECTED"
               style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;fillColor=#FFFFCC;"
               parent="1"
               vertex="1">
-         <mxGeometry x="-672" y="335" width="280" height="150" as="geometry"/>
+         <mxGeometry x="-672" y="335" width="352" height="245" as="geometry"/>
       </mxCell>
       <undefined action="com.eitg.quasar.nexus.siphandlers.ScxmlSendAction" label="SendAction"
                  name=""
@@ -840,11 +831,11 @@
               edge="1">
          <mxGeometry relative="1" as="geometry"/>
       </mxCell>
-      <mxCell id="108" value="*"
+      <mxCell id="108" value="sip.callEnd"
               style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;"
               parent="1"
               source="90"
-              target="179"
+              target="200"
               edge="1">
          <mxGeometry relative="1" as="geometry">
             <Array as="points"/>
@@ -1325,10 +1316,10 @@
             isfinal="yes"
             id="179">
          <mxCell style="image;html=1;image=clipart/plain-stop.png" parent="1" vertex="1">
-            <mxGeometry x="-787" y="520" width="80" height="80" as="geometry"/>
+            <mxGeometry x="-787" y="597" width="80" height="80" as="geometry"/>
          </mxCell>
       </stop>
-      <mxCell id="180" value="The call is closed by A or B leg.&#xA;Compute the time"
+      <mxCell id="180" value="TAS initiated disconect"
               style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;fillColor=#FFFFCC;"
               parent="1"
               vertex="1">
@@ -1448,16 +1439,24 @@
                    queue="poc_cdrGW_ingress"
                    template="default"
                    ref="spel:#session[&#34;logline&#34;]"
-                   id="198">
+                   id="200">
          <mxCell style="image;html=1;image=clipart/cdr.png" vertex="1" parent="1">
-            <mxGeometry x="-1114" y="395" width="120" height="60" as="geometry"/>
+            <mxGeometry x="-807" y="488" width="120" height="60" as="geometry"/>
          </mxCell>
       </cdr-request>
-      <mxCell id="199"
+      <mxCell id="201"
               style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;"
               edge="1"
               parent="1"
-              source="198"
+              source="200"
+              target="179">
+         <mxGeometry relative="1" as="geometry"/>
+      </mxCell>
+      <mxCell id="202" value="*"
+              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;"
+              edge="1"
+              parent="1"
+              source="82"
               target="83">
          <mxGeometry relative="1" as="geometry"/>
       </mxCell>
