@@ -344,3 +344,75 @@ function setdestinationlist(session:any,event:any,localParams:any) {
     
     return true;
 }
+
+
+
+function addheader(session : any, event : any, localParams: any ){    
+    
+    let addHeaders = [];
+    let removeHeaders = [];
+
+    //add history-info header
+    let hi: Header = {};
+    hi.header = "History-Info";
+    hi.value = "sip:+11004366087962011@172.20.208.99;user=phone";
+    let addHistoryInfo = [];
+    addHistoryInfo.push(hi);
+    addHeaders.push(addHistoryInfo[0]);
+    //add 2nd header
+    let niceheader: Header = {};
+    niceheader.header = "MyNewHeader";
+    niceheader.value = "whateveryoulike";
+    addHeaders.push(niceheader);
+    //if all headers are added - add to session 
+    session.addHeaders = JSON.stringify(addHeaders);
+
+    //now remove a header
+    removeHeaders.push("Subject");
+    session.removeHeaders = JSON.stringify(removeHeaders);
+
+    //Set headers for outgoing message
+    //let headerVars : HeaderVars;
+    //headerVars = headerVars || {};
+    //headerVars.disableSendDefaultReason = "Disabled";
+    //headerVars.disableSendNoAnswerReason = "Disabled";    
+    //session.headerrulevar=JSON.stringify(headerVars);
+    
+    //select header rule set in TAS for proxy/b2bua scenarios
+    session.headerrulesselect = "SipServiceSpecificRulesSet";
+
+    // session.ringingtones = JSON.stringify(ringingTones);
+
+    //let events : Events;
+    //events = events || {};
+    //events.InfoPollEvent="null";
+    //events.SuccessResponsePollEvent="null";
+    //events.SIPRingingPollEvent="null";
+    //events.RawContentPollEvent="test/test";
+    //session.events = JSON.stringify(events);
+   
+
+    //let unsub = {"InfoPollEvent":"", "SuccessResponsePollEvent":"", "SIPRingingPollEvent":"", "RawContentPollEvent":""};
+    //session.unsubscribeEvents=JSON.stringify(unsub);
+    //let unsub = {"SIP18xAnswerEvent":""};
+    //session.unsubscribeEvents=JSON.stringify(unsub);    
+
+
+    //Specify the Mode for the SNF, so SNF adds itself to Record-Route (needed for b2bua) or not (proxy)
+    //headerVars.privateServiceMode = session.s_PrivateServiceMode;
+
+    /*        
+    let capabilities : any[] = [];
+    capabilities.push(Capabilities.PEM);
+    capabilities.push(Capabilities.REL1XX);
+    capabilities.push(Capabilities.UPDATE);
+    capabilities.push(Capabilities.FORKING);
+    //session.upstreamCapabilities = JSON.stringify(capabilities);
+    */
+    //set the action for the call 
+    //let pollAction : CallPollAction = {};
+    //pollAction.type = actionType;
+    //session.sendAction = JSON.stringify(pollAction);
+
+    return "success";
+}
