@@ -86,17 +86,17 @@ function callended(session : any, eventData : any, localParams: any ){
     //prepare the LOG line - send to the log_sipdemo process 
     let logline : LOG = {};
     try{
-        logline.MSISDN = session.CalledParty;
-        logline.ServiceSessionId = session["fsm-id"];
-        logline.MsgType = "SIP.INVITE";
-        logline.MsgSessionId = session["fsm-id"];
-        logline.MsgId = "callid";
-        logline.MsgDetails = session.loginfo;
-        logline.Servicedetails = "";
-        logline.callAnswered = session.timeanswer;
-        logline.callEnded = session.timeend;
-        logline.callDuration = session.duration;
-        session.loginfo="";
+            logline.MSISDN = session["s_normalizedNumber"];
+            logline.ServiceSessionId = session["fsm-id"];
+            logline.MsgType = "SIP.INVITE";
+            logline.MsgSessionId = session["fsm-id"];
+            logline.MsgId = session["s_initialSIP"]["SIP"]["Call-ID"]["value"]";
+            logline.MsgDetails = "";
+            logline.Servicedetails = "";
+            logline.callAnswered = session.timeanswer;
+            logline.callEnded = session.timeend;
+            logline.callDuration = session.duration;
+            session.loginfo="";
 
         //timestamp added by GW before it put it into the queue to RTE
         logline.GwEventTime = session.timeanswer; 
@@ -140,12 +140,12 @@ function getdisconnectreason(session:any,event any,localParams:any) {
         //prepare the LOG line - send to the log_sipdemo process 
         let logline : LOG = {};
         try{
-            logline.MSISDN = session.CalledParty;
+            logline.MSISDN = session["s_normalizedNumber"];
             logline.ServiceSessionId = session["fsm-id"];
             logline.MsgType = "SIP.INVITE";
             logline.MsgSessionId = session["fsm-id"];
-            logline.MsgId = "callid";
-            logline.MsgDetails = session.loginfo;
+            logline.MsgId = session["s_initialSIP"]["SIP"]["Call-ID"]["value"]";
+            logline.MsgDetails = "";
             logline.Servicedetails = "";
             logline.callAnswered = session.timeanswer;
             logline.callEnded = session.timeend;
