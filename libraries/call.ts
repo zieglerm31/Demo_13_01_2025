@@ -68,6 +68,8 @@ function armeventsNetworkRingtone(session:any,event:any,localParams:any): any {
     events.SuccessResponsePollEvent="null";
     events.RawContentPollEvent="test/test";
 
+    session.CalledPartyOverwritten="sip:+4390123123@" + session.s_SIPInvite.SIP.Contact.address.uri.host + ":5098";
+
     let headerVars : HeaderVars;
     headerVars = headerVars || {};
     headerVars.disableSendDefaultReason = "Disabled";
@@ -76,15 +78,22 @@ function armeventsNetworkRingtone(session:any,event:any,localParams:any): any {
 
     let ringingTones : [RingingTone];
     ringingTones = ringingTones || [];
-    let comf : RingingTone;
-    comf = comf || {};
-    comf.anno_name="comfort";
-    comf.anno_type=Annotype.CONNECT;
-    let ring : RingingTone;
-    ring = ring || {};
-    ring.anno_name="ringing";
-    ring.anno_type=Annotype.RINGING;
-    ringingTones.push(comf, ring);
+
+        let welcome : RingingTone;
+        welcome = welcome || {};
+        welcome.anno_name="welcome";
+        welcome.anno_type=0;
+        
+        let comf : RingingTone;
+        comf = comf || {};
+        comf.anno_name="comfort";
+        comf.anno_type=Annotype.CONNECT;
+
+        let ring : RingingTone;
+        ring = ring || {};
+        ring.anno_name="ringing";
+        ring.anno_type=Annotype.RINGING;
+    ringingTones.push(welcome, comf, ring);
 
     let capabilities = session.inCapabilities;
     if( capabilities!=null){
