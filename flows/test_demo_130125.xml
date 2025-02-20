@@ -1397,7 +1397,7 @@
          <mxGeometry x="-1760" y="-1270" width="230" height="60" as="geometry"/>
       </mxCell>
       <invoke-subflow action="io.qsrlabs.nexus.middleware.scxml.handlers.Subflow#combobox"
-                      label="MRF subflow"
+                      label="CallScenarios"
                       subflow="Demo_13_01_2025:RURI5000"
                       category="procedure"
                       id="193">
