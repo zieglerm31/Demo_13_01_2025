@@ -82,7 +82,7 @@ function armeventsNetworkRingtone(session:any,event:any,localParams:any): any {
         let welcome : RingingTone;
         welcome = welcome || {};
         welcome.anno_name="welcome";
-        welcome.anno_type=Annotype.WELCOME;
+        welcome.anno_type="WELCOME";
         
         let comf : RingingTone;
         comf = comf || {};

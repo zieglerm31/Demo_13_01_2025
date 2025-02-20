@@ -862,15 +862,6 @@
             <mxGeometry x="-2120" y="480" width="120" height="60" as="geometry"/>
          </mxCell>
       </undefined>
-      <event-generator-handler action="io.qsrlabs.nexus.middleware.scxml.handlers.EvaluateParamsAndGenerateEvent"
-                               label="MRF.action"
-                               evt.promptandcollect="spel:#session[&#34;mrf&#34;][&#34;action&#34;] eq &#34;promptandcollect&#34;"
-                               evt.playannouncement="spel:#session[&#34;mrf&#34;][&#34;action&#34;] eq &#34;playannouncement&#34;"
-                               id="112">
-         <mxCell style="image;html=1;image=clipart/check-list.png" parent="1" vertex="1">
-            <mxGeometry x="380" y="1050" width="120" height="60" as="geometry"/>
-         </mxCell>
-      </event-generator-handler>
       <mxCell id="115" value="dtmf.digit.1"
               style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;"
               parent="1"
@@ -1411,7 +1402,9 @@
               source="5"
               target="193"
               edge="1">
-         <mxGeometry relative="1" as="geometry"/>
+         <mxGeometry relative="1" as="geometry">
+            <Array as="points"/>
+         </mxGeometry>
       </mxCell>
       <stop action="com.eitg.quasar.nexus.middleware.scxml.handlers.StopHandler"
             label="Stop 5000uri"
@@ -1421,7 +1414,7 @@
             <mxGeometry x="-1840" y="-1009.111083984375" width="80" height="80" as="geometry"/>
          </mxCell>
       </stop>
-      <mxCell id="196"
+      <mxCell id="196" value="*"
               style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0;exitY=0.5;entryX=1;entryY=0.5;"
               parent="1"
               source="193"
