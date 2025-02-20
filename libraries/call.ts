@@ -136,8 +136,45 @@ function getdisconnectreason(session:any,event any,localParams:any) {
     let log = session.log;
 
     try {
-        callended();
-        
+
+        //prepare the LOG line - send to the log_sipdemo process 
+        let logline : LOG = {};
+        try{
+            logline.MSISDN = session.CalledParty;
+            logline.ServiceSessionId = session["fsm-id"];
+            logline.MsgType = "SIP.INVITE";
+            logline.MsgSessionId = session["fsm-id"];
+            logline.MsgId = "callid";
+            logline.MsgDetails = session.loginfo;
+            logline.Servicedetails = "";
+            logline.callAnswered = session.timeanswer;
+            logline.callEnded = session.timeend;
+            logline.callDuration = session.duration;
+            session.loginfo="";
+
+            //timestamp added by GW before it put it into the queue to RTE
+            logline.GwEventTime = session.timeanswer; 
+
+            let now : Date = new Date();
+            let logDate : string = formatDate(now);
+            let logTime : string = formatTime(now);
+            logline.LogLineTime = logDate+ "." + logTime + "."+("000" + now.getMilliseconds().toString()).slice(-3);        
+        } catch (e) {
+            logline.MSISDN = "";
+            logline.ServiceSessionId = "";
+            logline.MsgType = "";
+            logline.MsgSessionId = "";
+            logline.MsgId = "";
+            logline.MsgDetails = "";
+            logline.Servicedetails = "error at CCRContinue logline";
+            logline.callAnswered = "na";
+            logline.callEnded = "na";
+            logline.callDuration = "na";
+            logline.LogLineTime = "";
+        };
+        logline.TraceLevel = session["fsm-trace-level"];    
+        session.logline=logline;          
+
         let events=event["events-stack"].length;
         let index=events-1;
         if (event["events-stack"][index] === "leg.timeout") {
