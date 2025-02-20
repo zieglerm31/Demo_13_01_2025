@@ -71,7 +71,8 @@ interface HeaderVars {
 
 enum Annotype {
   CONNECT = "CONNECT",
-  RINGING = "RING"
+  RINGING = "RING",
+  WELCOME = "WELCOME"
 }
 
 interface RingingTone {
