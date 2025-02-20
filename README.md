@@ -6,6 +6,7 @@ ___
 ## Introduction
 This is the demo serviceto for SIP calls. The serviec can be triggered on the SNF endpoint (10.20.110.19:5060 UDP). The SIP INVITE is routed to the TAS VM (10.20.110.18:5060 UDP) with the AEP RTE processes. The AEP invokes via the Http-Client the external HTTP-Server (), the MRF (10.20.110.16:5060 UDP) or connects the call to B-parties via the TAS instance.
 
+
 ## Sequence diagram
 The sequence diagram is only a high level visualization of the sample application/service. The Service interacts with MRF and External HTTP-Server based on the SIP-Invite content (RUIR, PANI) and finally Terminates or Connects the Call. The MRF interaction is either a Prompt&Collect or Announcement. 
 
@@ -99,6 +100,17 @@ Similar as scenario4.\
   }
 
 ## Deployment Setup
+### Network Layout in Test-System
+
+Short-Name | Usage | IP-Address | SIP-Port
+--- | --- | --- | ---
+TMP | the SIP MRF | 10.20.110.16 | 5060 UDP
+Mgt | Management, GUI, Deployment, SIPP, Keycloak | 10.20.110.16 | 5060 UDP 
+TAS | Service, TAS, HttpClieht | 10.20.110.18 | 5060 UDP
+SNF | SIP Gateway | 10.20.110.19 | 5060 UDP
+
+### Diagram
+
 ```
 sequenceDiagram
     mgnt->>snf: Management Interface
@@ -126,6 +138,29 @@ Calls can be simulated using sipp from the management VM\
 on the MGNT VM go to directory '/appl/data/gitdata/namespace/stoiber/Demo_13_01_2025/sipp'\
 and run the UAC A sipp in one terminal\
 for connected calls run the UAC B sipp on another terminal.\
+
+```
+sequenceDiagram
+    participant sippA.10.20.110.17
+    participant sippB.10.20.110.17
+    participant snf.10.20.110.19
+    participant tas.10.20.110.18
+    participant tmp.10.20.110.16
+    participant httpserver.45.60.46.233
+        
+    sippA.10.20.110.17-->>snf.10.20.110.19: SIP[Aleg]
+    note over sippA.10.20.110.17,snf.10.20.110.19: 5060 to 5060
+    snf.10.20.110.19->>tas.10.20.110.18: SIP[Aleg]
+    note over snf.10.20.110.19,tas.10.20.110.18: 5060 to 5060
+    tas.10.20.110.18->>httpserver.45.60.46.233: HttpReq
+    note over tas.10.20.110.18,httpserver.45.60.46.233: to 443
+    tas.10.20.110.18->>tmp.10.20.110.16: SIP[MRF]
+    note over  tas.10.20.110.18,tmp.10.20.110.16: 5060 to 5060
+    sippA.10.20.110.17->>tmp.10.20.110.16: SIP[MRF-Media/digits]
+    note over   sippA.10.20.110.17,tmp.10.20.110.16: 5099 to ...
+    tas.10.20.110.18->>sippB.10.20.110.17: SIP[Bleg]
+    note over   tas.10.20.110.18,sippB.10.20.110.17: 5060 to 5098
+```
 
 ### scenario - no DTMF detected
 RUIR 4000 / Connect to MRF / no dtmf.digits received after announcement finishes (5-8s) seconds then relesae MRF leg and cancel to A with 603 declined\
