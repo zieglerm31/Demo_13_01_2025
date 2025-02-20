@@ -46,6 +46,7 @@
       <event-generator-handler action="io.qsrlabs.nexus.middleware.scxml.handlers.EvaluateParamsAndGenerateEvent"
                                label="RURI starts with 3000"
                                evt.3000uri="spel:#initial[&#34;SIP&#34;][&#34;R-URI&#34;][&#34;address&#34;][&#34;uri&#34;][&#34;user&#34;].startsWith(&#34;3000&#34;)"
+                               evt.5000uri="spel:#initial[&#34;SIP&#34;][&#34;R-URI&#34;][&#34;address&#34;][&#34;uri&#34;][&#34;user&#34;].startsWith(&#34;5000&#34;)"
                                id="5">
          <mxCell style="image;html=1;image=clipart/check-list.png" parent="1" vertex="1">
             <mxGeometry x="-1310" y="-1000" width="120" height="60" as="geometry"/>
@@ -159,11 +160,12 @@
             <Array as="points"/>
          </mxGeometry>
       </mxCell>
-      <mxCell id="23" value="Added transition for SIP Invite"
+      <mxCell id="23"
+              value="Only if this is a new SIP call (sip.callStart) go on with the logic.&#xA;If not (*) go into the stop handler (close the session without a response right away"
               style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;fillColor=#FFFFCC;"
               parent="1"
               vertex="1">
-         <mxGeometry x="-1150" y="-1250" width="180" height="70" as="geometry"/>
+         <mxGeometry x="-1151" y="-1240" width="230" height="60" as="geometry"/>
       </mxCell>
       <session-store action="io.qsrlabs.nexus.middleware.scxml.handlers.SessionVar"
                      label="Store intial event "
@@ -1362,7 +1364,7 @@
               style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;fillColor=#FFFFCC;"
               vertex="1"
               parent="1">
-         <mxGeometry x="-1194" y="-1005" width="180" height="70" as="geometry"/>
+         <mxGeometry x="-1194" y="-1005" width="214" height="70" as="geometry"/>
       </mxCell>
       <mxCell id="188"
               style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;"
@@ -1393,6 +1395,52 @@
               vertex="1"
               parent="1">
          <mxGeometry x="-1730" y="545" width="170" height="125" as="geometry"/>
+      </mxCell>
+      <mxCell id="192"
+              value="If any global error comes up in the flow it goes directly into the STOP handler. &#xA;any special exceptoin handling can be done here."
+              style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;fillColor=#FFFFCC;"
+              vertex="1"
+              parent="1">
+         <mxGeometry x="-1760" y="-1270" width="230" height="60" as="geometry"/>
+      </mxCell>
+      <invoke-subflow action="io.qsrlabs.nexus.middleware.scxml.handlers.Subflow#combobox"
+                      label="MRF subflow"
+                      subflow="Demo_13_01_2025:RURI5000"
+                      category="procedure"
+                      id="193">
+         <mxCell style="image;html=1;image=clipart/subflow-static.png" vertex="1" parent="1">
+            <mxGeometry x="-1690" y="-1000" width="120" height="60" as="geometry"/>
+         </mxCell>
+      </invoke-subflow>
+      <mxCell id="194" value="5000uri"
+              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0;exitY=0.5;entryX=1;entryY=0.5;"
+              edge="1"
+              parent="1"
+              source="5"
+              target="193">
+         <mxGeometry relative="1" as="geometry"/>
+      </mxCell>
+      <stop action="com.eitg.quasar.nexus.middleware.scxml.handlers.StopHandler"
+            label="Stop 5000uri"
+            isfinal="yes"
+            id="195">
+         <mxCell style="image;html=1;image=clipart/plain-stop.png" vertex="1" parent="1">
+            <mxGeometry x="-1840" y="-1009.111083984375" width="80" height="80" as="geometry"/>
+         </mxCell>
+      </stop>
+      <mxCell id="196"
+              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0;exitY=0.5;entryX=1;entryY=0.5;"
+              edge="1"
+              parent="1"
+              source="193"
+              target="195">
+         <mxGeometry relative="1" as="geometry"/>
+      </mxCell>
+      <mxCell id="197" value="if RUIR starts with 5000 - enter this subflow"
+              style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;fillColor=#FFFFCC;"
+              vertex="1"
+              parent="1">
+         <mxGeometry x="-1553" y="-1009" width="253" height="30" as="geometry"/>
       </mxCell>
    </root>
 </mxGraphModel>
