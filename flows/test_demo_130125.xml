@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<mxGraphModel dx="5125" dy="3354" grid="1" gridSize="10" guides="1" tooltips="1" connect="1"
+<mxGraphModel dx="4702" dy="3324" grid="1" gridSize="10" guides="1" tooltips="1" connect="1"
               fold="1"
               page="1"
               pageScale="1"
@@ -46,7 +46,7 @@
       <event-generator-handler action="io.qsrlabs.nexus.middleware.scxml.handlers.EvaluateParamsAndGenerateEvent"
                                label="RURI starts with 3000"
                                evt.3000uri="spel:#initial[&#34;SIP&#34;][&#34;R-URI&#34;][&#34;address&#34;][&#34;uri&#34;][&#34;user&#34;].startsWith(&#34;3000&#34;)"
-                               evt.5000uri="spel:#initial[&#34;SIP&#34;][&#34;R-URI&#34;][&#34;address&#34;][&#34;uri&#34;][&#34;user&#34;].startsWith(&#34;5000&#34;)"
+                               evt.5000uri="spel:#initial[&#34;SIP&#34;][&#34;R-URI&#34;][&#34;address&#34;][&#34;uri&#34;][&#34;user&#34;].startsWith(&#34;5&#34;)"
                                id="5">
          <mxCell style="image;html=1;image=clipart/check-list.png" parent="1" vertex="1">
             <mxGeometry x="-1310" y="-1000" width="120" height="60" as="geometry"/>
@@ -1440,24 +1440,24 @@
                    template="default"
                    ref="spel:#session[&#34;logline&#34;]"
                    id="200">
-         <mxCell style="image;html=1;image=clipart/cdr.png" vertex="1" parent="1">
+         <mxCell style="image;html=1;image=clipart/cdr.png" parent="1" vertex="1">
             <mxGeometry x="-807" y="488" width="120" height="60" as="geometry"/>
          </mxCell>
       </cdr-request>
       <mxCell id="201"
               style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;"
-              edge="1"
               parent="1"
               source="200"
-              target="179">
+              target="179"
+              edge="1">
          <mxGeometry relative="1" as="geometry"/>
       </mxCell>
       <mxCell id="202" value="*"
               style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;"
-              edge="1"
               parent="1"
               source="82"
-              target="83">
+              target="83"
+              edge="1">
          <mxGeometry relative="1" as="geometry"/>
       </mxCell>
    </root>
