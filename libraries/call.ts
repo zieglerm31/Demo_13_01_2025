@@ -90,7 +90,7 @@ function callended(session : any, eventData : any, localParams: any ){
             logline.ServiceSessionId = session["fsm-id"];
             logline.MsgType = "SIP.INVITE";
             logline.MsgSessionId = session["fsm-id"];
-            logline.MsgId = session["s_initialSIP"]["SIP"]["Call-ID"]["value"]";
+            logline.MsgId = session["s_initialSIP"]["SIP"]["Call-ID"]["value"];
             logline.MsgDetails = "";
             logline.Servicedetails = "";
             logline.callAnswered = session.timeanswer;
@@ -144,7 +144,7 @@ function getdisconnectreason(session:any,event any,localParams:any) {
             logline.ServiceSessionId = session["fsm-id"];
             logline.MsgType = "SIP.INVITE";
             logline.MsgSessionId = session["fsm-id"];
-            logline.MsgId = session["s_initialSIP"]["SIP"]["Call-ID"]["value"]";
+            logline.MsgId = session["s_initialSIP"]["SIP"]["Call-ID"]["value"];
             logline.MsgDetails = "";
             logline.Servicedetails = "";
             logline.callAnswered = session.timeanswer;
