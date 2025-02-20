@@ -58,6 +58,51 @@ function armevents(sessionData:any,eventData:any,localParams:any): any {
 }
 
 
+
+function armeventsNetworkRingtone(session:any,event:any,localParams:any): any {
+    let log = session.log;
+
+    let events : Events;
+    events = events || {};
+    events.InfoPollEvent="null";
+    events.SuccessResponsePollEvent="null";
+    events.RawContentPollEvent="test/test";
+
+    let headerVars : HeaderVars;
+    headerVars = headerVars || {};
+    headerVars.disableSendDefaultReason = "Disabled";
+    headerVars.disableSendNoAnswerReason = "Disabled";
+    headerVars.privateServiceMode = "b2bua";
+
+    let ringingTones : [RingingTone];
+    ringingTones = ringingTones || [];
+    let comf : RingingTone;
+    comf = comf || {};
+    comf.anno_name="comfort";
+    comf.anno_type=Annotype.CONNECT;
+    let ring : RingingTone;
+    ring = ring || {};
+    ring.anno_name="ringing";
+    ring.anno_type=Annotype.RINGING;
+    ringingTones.push(comf, ring);
+
+    let capabilities = sessionData.inCapabilities;
+    if( capabilities!=null){
+        capabilities.push(Capabilities.PEM);
+        capabilities.push(Capabilities.FORKING);
+        session.outCapabilities = JSON.stringify(capabilities);
+    }
+
+    session.events = JSON.stringify(events);
+    session.headerrulevar=JSON.stringify(headerVars);
+    session.headerrulesselect = "SipServiceSpecificRulesSet";
+    session.ringingtones = JSON.stringify(ringingTones);
+    session.upstreamCapabilities=JSON.stringify([]);
+
+    return "success";
+}
+
+
 function prepareCallPollAccept(session:any,event:OCCPSIP.OCCPEvent,localParams:any) {
     let log = session.log;
 
