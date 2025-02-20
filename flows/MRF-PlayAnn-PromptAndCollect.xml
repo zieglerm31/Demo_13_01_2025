@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<mxGraphModel dx="2962" dy="2686" grid="1" gridSize="10" guides="1" tooltips="1" connect="1"
+<mxGraphModel dx="2307" dy="2275" grid="1" gridSize="10" guides="1" tooltips="1" connect="1"
               fold="1"
               page="1"
               pageScale="1"
@@ -165,7 +165,7 @@
                           message="spel:#initial"
                           id="20">
          <mxCell style="image;html=1;image=clipart/script.png" parent="1" vertex="1">
-            <mxGeometry x="340" y="610" width="120" height="60" as="geometry"/>
+            <mxGeometry x="340" y="621" width="120" height="60" as="geometry"/>
          </mxCell>
       </typescript-library>
       <mxCell id="21" value="sip.callPoll.*"
@@ -177,8 +177,8 @@
          <mxGeometry relative="1" as="geometry">
             <mxPoint x="-20" y="620" as="sourcePoint"/>
             <Array as="points">
-               <mxPoint x="250" y="585"/>
-               <mxPoint x="400" y="585"/>
+               <mxPoint x="400" y="570"/>
+               <mxPoint x="400" y="570"/>
             </Array>
          </mxGeometry>
       </mxCell>
@@ -247,7 +247,7 @@
               edge="1">
          <mxGeometry relative="1" as="geometry">
             <Array as="points">
-               <mxPoint x="810" y="640"/>
+               <mxPoint x="810" y="651"/>
             </Array>
          </mxGeometry>
       </mxCell>
@@ -722,16 +722,14 @@
          </mxGeometry>
       </mxCell>
       <mxCell id="111" value="mrfdialog.closed"
-              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;"
+              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=1;exitY=0.5;entryX=0.25;entryY=0;"
               parent="1"
               source="101"
               target="115"
               edge="1">
          <mxGeometry relative="1" as="geometry">
             <Array as="points">
-               <mxPoint x="400" y="1570"/>
-               <mxPoint x="400" y="1620"/>
-               <mxPoint x="810" y="1620"/>
+               <mxPoint x="780" y="1550"/>
             </Array>
          </mxGeometry>
       </mxCell>
