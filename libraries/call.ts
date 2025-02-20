@@ -9,7 +9,7 @@ function armevents(sessionData:any,eventData:any,localParams:any): any {
     try {
         if (eventData["event-name"] = "sip.callAnswered.SipCallLegUaClient") {
             sessionData.callstate  ="ANSWERED";
-            sessionData.timeend= Math.floor(new Date()/1000);     
+            sessionData.timeanswer= Math.floor(new Date()/1000);     
             log.debug("armevents: Call Answered");  
         }
     } catch (e) {
