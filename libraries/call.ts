@@ -84,7 +84,7 @@ function callended(session : any, eventData : any, localParams: any ){
     session.loginfo = session.loginfo+session.callstate+";duration="+session.duration+";";   
 
     //prepare the LOG line - send to the log_sipdemo process 
-    let logline : LOG = {};
+    let logline = {};
     try{
             logline.MSISDN = session["s_normalizedNumber"];
             logline.ServiceSessionId = session["fsm-id"];
@@ -138,7 +138,7 @@ function getdisconnectreason(session:any,event any,localParams:any) {
     try {
 
         //prepare the LOG line - send to the log_sipdemo process 
-        let logline : LOG = {};
+        let logline = {};
         try{
             logline.MSISDN = session["s_normalizedNumber"];
             logline.ServiceSessionId = session["fsm-id"];
