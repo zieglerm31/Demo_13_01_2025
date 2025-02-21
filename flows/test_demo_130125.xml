@@ -341,9 +341,11 @@
               edge="1">
          <mxGeometry relative="1" as="geometry">
             <Array as="points">
-               <mxPoint x="-2060" y="445"/>
-               <mxPoint x="-2060" y="445"/>
+               <mxPoint x="-2060" y="300"/>
+               <mxPoint x="-2060" y="300"/>
             </Array>
+            <mxPoint x="-2140" y="95" as="sourcePoint"/>
+            <mxPoint x="-2140" y="460" as="targetPoint"/>
          </mxGeometry>
       </mxCell>
       <typescript-library action="io.qsrlabs.nexus.middleware.scxml.handlers.TypeScriptLibrary#fixed"
