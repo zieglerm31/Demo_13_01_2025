@@ -1,0 +1,85 @@
+{
+  "redis-dbs": {
+    "appdb": {
+      "config": {
+        "url":"redis-sentinel://10.20.110.17:26380,10.20.110.18:26380?sentinelMasterId=appdb"
+      }
+    },
+    "spreaddb": {
+      "config":{
+        "url":"redis-sentinel://10.20.110.17:26380,10.20.110.18:26380?sentinelMasterId=spreaddb"
+      }
+    },
+    "listsdb": {
+      "config":{
+        "url":"redis-sentinel://10.20.110.17:26380,10.20.110.18:26380?sentinelMasterId=listsdb"
+      }
+    },
+    "profilesdb": {
+      "config":{
+        "url":"redis-sentinel://10.20.110.17:26380,10.20.110.18:26380?sentinelMasterId=profilesdb"
+      }
+    },
+    "monitordb": {
+      "config":{
+        "url":"redis-sentinel://10.20.110.17:26380,10.20.110.18:26380?sentinelMasterId=monitordb"
+      }
+    },
+    "variablelistsdb": {
+      "config":{
+        "url":"redis-sentinel://10.20.110.17:26380,10.20.110.18:26380?sentinelMasterId=listsdb"
+      }
+    }
+               ,"tracedb":{
+        "config": {
+            "url": "redis-sentinel://10.20.110.17:26380,10.20.110.18:26380?sentinelMasterId=tracedb"
+        }
+    }
+                    ,"queuedb":{
+        "config": {
+            "url": "redis-sentinel://10.20.110.17:26380,10.20.110.18:26380?sentinelMasterId=queuedb",
+            "db-category": "queue-server"
+        }
+    }
+          },
+  "http-server":{
+        "port": 8080,
+            "ssl-port": 9007,
+    "keystore": "/appl/aep/bin/certs/keystore.jks",
+    "key-password": "changeit",
+        "host": "0.0.0.0"
+  },
+  "web-content":{
+    "web-app": "/appl/aep/bin/nexus-aep-gui-studio/dist",
+    "editor": "/appl/aep/bin/nexus-aep-flow-editor",
+    "script-editor": "/appl/aep/bin/nexus-aep-scripting-studio/dist",
+    "ui-editor": "/appl/aep/bin/nexus-aep-flow-editor",
+    "handlers": "/appl/aep/bin/nexus-gui-backend/handlers",
+    "help-docs": "/appl/aep/bin/nexus-aep-gui-studio/dist/help",
+    "testing-url-callback": "http://0.0.0.0:8080/nexus-api/simulator/decide-control",
+    "assistant": "https://wpijc7jgr1.execute-api.eu-central-1.amazonaws.com/default/getCompletion",
+    "test-descriptors": "/appl/aep/bin/nexus-gui-backend/test-descriptors"
+  },
+  "users":{
+    "bootstrap": "https://10.20.110.17:9001/realms/nexus-aep/.well-known/openid-configuration",
+    "permissions-profiles-base-urls": "/appl/aep/bin/nexus-gui-backend/permissions",
+    "tenant-profiles-base-urls": "/appl/aep/bin/nexus-gui-backend/tenants",
+    "git-base-folder": "/appl/data/gitdata/namespace",
+    "client": "aep-gui",
+    "swagger": "https://10.20.110.17:8081/swagger.json",
+    "insecure": true
+  },
+  "redis-resources":{
+    "io-threads": 1,
+    "worker-threads": 2,
+    "max-traces-lines-retrieved": 1000
+  }
+      ,"throttle":{
+    "params":{
+        "default": 20,
+        "label-index": "3"
+    },
+    "values":{
+            }
+  }
+}

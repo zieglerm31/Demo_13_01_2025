@@ -1,0 +1,140 @@
+{
+  "HttpClientGw": {
+    "queue": {
+      "spec": {
+        "sentinels": [
+          {
+            "host": "10.20.110.17",
+            "port": 26380
+          },
+          {
+            "host": "10.20.110.18",
+            "port": 26380
+          }
+        ],
+        "master-name": "queuedb",
+        "name": "queue",
+        "timeout-ms": 6000,
+        "nb-retries": 5
+      },
+      "pool": {
+        "time-between-eviction-runs-ms": -1,
+        "max-idle-per-key": 21,
+        "test-on-borrow?": false,
+        "min-evictable-idle-time-ms": 60000,
+        "lifo?": true,
+        "test-while-idle?": false,
+        "max-wait-ms": -1,
+        "max-total": 21,
+        "soft-min-evictable-idle-time-ms": -1,
+        "max-total-per-key": 21,
+        "min-idle-per-key": 21,
+        "block-when-exhausted?": true,
+        "test-on-return?": false,
+        "num-tests-per-eviction-run": -1
+      },
+      "ingress": "poc_HttpCl_ingress",
+      "egress": "poc_sip_events",
+      "brpop-timeout-sec": 5,
+      "description": "this is the db where we are getting messages from"
+    },
+    "allowed-workers-in-delay": 1,
+    "client": {
+      "remotehost": "new.019sms.co.il",
+      "remoteport": 443,
+      "keepalive": 2000,
+      "follow-redirects": true,
+      "max-redirects": 3,
+      "trace-redirects": true,
+      "allow-unsafe-redirect-methods": true,
+      "timeout-ms": 10000
+    },
+    "session-header": "x-session",
+    "force-default-queue": "false",
+    "allowed-worker-delay-ms": 23000,
+    "monitor": {
+      "spec": {
+        "sentinels": [
+          {
+            "host": "10.20.110.17",
+            "port": 26380
+          },
+          {
+            "host": "10.20.110.18",
+            "port": 26380
+          }
+        ],
+        "master-name": "monitordb",
+        "name": "monitor",
+        "timeout-ms": 6000,
+        "nb-retries": 5
+      },
+      "pool": {
+        "time-between-eviction-runs-ms": -1,
+        "max-idle-per-key": 2,
+        "test-on-borrow?": false,
+        "min-evictable-idle-time-ms": 60000,
+        "lifo?": true,
+        "test-while-idle?": false,
+        "max-wait-ms": -1,
+        "max-total": 2,
+        "soft-min-evictable-idle-time-ms": -1,
+        "max-total-per-key": 2,
+        "min-idle-per-key": 2,
+        "block-when-exhausted?": true,
+        "test-on-return?": false,
+        "num-tests-per-eviction-run": -1
+      },
+      "brpop-timeout-sec": 5,
+      "notifications-queue": "notification-events",
+      "description": "this is the db where the management keys of all instances are kept"
+    },
+    "nb-threads": 16,
+    "stats": {
+      "jmx-enabled": "true",
+      "prometheus-enabled": "true",
+      "prometheus-http-port": 502501,
+      "prometheus-export-hotspot-metrics": "true",
+      "prometheus-metrics-mapping": [
+        {
+          "match": "response.latency.*.*",
+          "metric": "http_latency",
+          "labels": [
+            {
+              "name": "url",
+              "value": "${0}"
+            },
+            {
+              "name": "status",
+              "value": "${1}"
+            }
+          ]
+        },
+        {
+          "match": "response.errors.gateway.*",
+          "metric": "http_gw_errors",
+          "labels": [
+            {
+              "name": "url",
+              "value": "${0}"
+            }
+          ]
+        },
+        {
+          "match": "worker.*.*",
+          "metric": "${0}_${1}",
+          "labels": []
+        },
+        {
+          "match": "management.*.*",
+          "metric": "${0}_${1}",
+          "labels": []
+        }
+      ]
+    }
+  },
+  "name": "POC_HttpCl_1",
+  "description": "Configuration for Http Client communication",
+  "last_author": "markus.ziegler@hcltech.com",
+  "last_change_date": 1736779408163
+}

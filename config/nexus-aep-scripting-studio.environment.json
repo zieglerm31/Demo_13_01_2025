@@ -1,0 +1,44 @@
+{
+  "BACKEND_SERVER": "https://10.20.110.17:9007",
+  "OAUTH2_SERVER": "https://10.20.110.17:9001/realms/nexus-aep/",
+  "OIDC_CUSTOM_SCOPES": "aep-gui",
+  "OAUTH2_CLIENT_ID": "aep-gui",
+  "HANDLER_TEMPLATE": {
+      "title":"fill in",
+      "help":[
+        "fill in"
+      ],
+      "attributes":{
+        "library":{
+          "type":"string",
+          "defaultVisible":false,
+          "mandatory":true,
+          "defaultValue":"fill in",
+          "help":""
+        },
+        "function":{
+          "type":"string",
+          "defaultVisible":false,
+          "defaultValue":"process",
+          "help":"",
+          "mandatory":true
+        }
+      },
+      "events":[
+        "event.1: include here the description",
+        "event.2: include here the description"
+      ],
+      "noextraevents":true,
+      "noextraprops": true,
+      "shapeStyle":"image;html=1;image=clipart/custom-typelib-handler.png",
+      "palette":"fill in",
+      "label":"fill in",
+      "explanation":"",
+      "searchtags":"",
+      "showExplanation":true,
+      "showLabel":true,
+      "width":120,
+      "height":60,
+      "xmltag":"typescript-library-specific"
+    }
+}

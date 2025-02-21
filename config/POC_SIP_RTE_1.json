@@ -1,0 +1,744 @@
+{
+  "description": "Configuration for SIP RTE",
+  "name": "POC_SIP_RTE_1",
+  "last_author": "Deployed via ansible",
+  "scxml": [
+    {
+      "id": "flows-location",
+      "value": "file:///appl/aep/var/flows/poc,http://10.20.110.17:8080/scxml",
+      "description": "a list of comma separated urls where we retrive the flows from; they will be tried in order"
+    },
+    {
+      "id": "refresh-dispatch-logic",
+      "value": "3600000",
+      "description": "how often we refresh/recompile the dispatch logic, in milliseconds"
+    },
+    {
+      "id": "flows-cache-time",
+      "value": "3600",
+      "description": "how often we refresh/recompile flows, in seconds"
+    },
+    {
+      "id": "start-events",
+      "value": "",
+      "description": "the basic event to create a new application session is if we don't find the session in the store; however, we can specify also a comma separated list of event names that will always create new sessions; this is helpful in case of flow design errors and someone forgets to close a session.For example, InitialDp may be specified as an event that always create a new session"
+    },
+    {
+      "id": "event-provider",
+      "value": "com.eitg.quasar.nexus.siphandlers.middleware.ScxmlSIPEventProvider",
+      "description": "this is a class (must be in classpath) that can analyze an event recevied and extract the event name (what you put on the arrows in studio)"
+    },
+    {
+      "id": "session-store-provider",
+      "value": "com.eitg.quasar.nexus.middleware.scxml.sessions.RedisSessionStore",
+      "description": "this is a class that implements the session store (must be in classpath); basically it manages session persistance and session lifecycle (i.e. create, delete, update, etc)"
+    },
+    {
+      "id": "session-id-provider",
+      "value": "com.eitg.quasar.nexus.siphandlers.middleware.ScxmlSIPSessionProvider",
+      "description": "this is a class (must be in classpath) that analyzes and incoming event and extracts the session id from it"
+    },
+    {
+      "id": "session-queue-provider",
+      "value": "com.eitg.quasar.nexus.siphandlers.middleware.SipSessionQueue",
+      "description": "session queue implementation, that buffers messages for same session to be processed one after another sequentially"
+    },
+    {
+      "id": "session-max-queue-size-messages",
+      "value": "5",
+      "description": "maximum number of messages in session queue allowed; in case there are too many messages the session will receive generic.error event; it is expected the designer of flow will terminate session"
+    },
+    {
+      "description": "configuration of session db pool",
+      "maxIdle": "13",
+      "sentinels": [
+        {
+          "host": "10.20.110.17",
+          "port": 26380
+        },
+        {
+          "host": "10.20.110.18",
+          "port": 26380
+        }
+      ],
+      "minTotal": "13",
+      "type": "pool-sentinel",
+      "maxTotal": "13",
+      "id": "session-store-db",
+      "mastername": "sessionsdb",
+      "readTimeout": 100,
+      "connectTimeout": 100,
+      "clientName": "sessions"
+    },
+    {
+      "description": "database where queues per individual sessions are maintained, if necessary",
+      "maxIdle": "13",
+      "sentinels": [
+        {
+          "host": "10.20.110.17",
+          "port": 26380
+        },
+        {
+          "host": "10.20.110.18",
+          "port": 26380
+        }
+      ],
+      "minTotal": "13",
+      "type": "pool-sentinel",
+      "maxTotal": "13",
+      "id": "sessions-queues-db",
+      "mastername": "sessionsdb",
+      "readTimeout": 100,
+      "connectTimeout": 100,
+      "clientName": "sessq"
+    },
+    {
+      "id": "session-max-lifetime",
+      "value": "14405",
+      "description": "maximum session validity, in seconds; after this timeout the session is expired and deleted"
+    },
+    {
+      "id": "session-prefix",
+      "value": "session",
+      "description": "a common prefix for redis keys holding sessions, so that it is easier to manage the database"
+    },
+    {
+      "id": "session-lock-max-duration",
+      "value": "10000",
+      "description": "maximum lock for a session in milliseconds; useful to prevent flow design error and create deadlocks"
+    },
+    {
+      "description": "pointer to event-config db, must be defined as id in event config section",
+      "id": "tracing-db",
+      "value": "tracing-db"
+    },
+    {
+      "id": "session-forbidden-keys",
+      "value": "uir,dataProfile,transientData,nb_template,ocs_profiles,newTransientData,logLine,profile,reportedUsages",
+      "description": "Remove session fields when handler has set clean-up flag"
+    },
+    {
+      "id": "session-tracer-provider",
+      "value": "io.qsrlabs.nexus.tracer.redis.RedisTracerProvider",
+      "description": "this is a class that implements the session store (must be in classpath); basically it manages session persistance and session lifecycle (i.e. create, delete, update, etc)"
+    },
+    {
+      "id": "max-nb-trace-sessions-stored-per-flow",
+      "value": "8000",
+      "description": "number of stored sessions traced per main flow - those are the last ones; this truncate the index list of sessions traced; it is a hint. "
+    },
+    {
+      "id": "working-directory",
+      "value": "/appl/aep/var/flows/poc",
+      "description": "working directory to store temporary the flows after pulling from redis"
+    },
+    {
+      "id": "max-nb-trace-entries-stored-per-session",
+      "value": "10000",
+      "description": "number of states stored per trace - those are the last ones - in quotes"
+    },
+    {
+      "id": "enable-fsm-path",
+      "value": "false",
+      "description": "if true, fsm-path is included in the session by redis-tracer; so this is used by redis tracer; it will increase size of session, but you will have the execution path in session."
+    },
+    {
+      "id": "enable-always-on-tracing",
+      "value": "false",
+      "description": "if set to true, we generate tracing at low level for every event regardless of tracing criteria"
+    },
+    {
+      "id": "aliases",
+      "value": "redis://10.20.110.17:26380,10.20.110.18:26380/appdb/meta.qp.POC_SIP_RTE_1?path=action-aliases&type=json",
+      "description": "map of action aliases, useful for migration between versions and work with legacy flows"
+    },
+    {
+      "id": "refresh-pools-spec",
+      "value": "* * * * *",
+      "description": "cron-like expression to configure the refresh attempts interval of internal pools (flows, libs, profiles)"
+    }
+  ],
+  "staging": {
+    "description": "staging section is used for the TracingMiddleware and used with the staging lib to search in the staging list as hint for dispatcher to move traffic to staging namespace",
+    "app-db-url": "redis-sentinel://10.20.110.17:26380,10.20.110.18:26380/appdb",
+    "lists-db-url": "redis-sentinel://10.20.110.17:26380,10.20.110.18:26380/listsdb",
+    "match-lists": [
+      "poc_staging",
+      "poc_staging_prefix"
+    ],
+    "refresh-interval-sec": 10,
+    "refresh-interval-sec_description": "for list and script refresh",
+    "script-name": ""
+  },
+  "event-config": [
+    {
+      "description": "database where users and flows are stored and main configuration for components and dispatch script",
+      "maxIdle": "13",
+      "sentinels": [
+        {
+          "host": "10.20.110.17",
+          "port": 26380
+        },
+        {
+          "host": "10.20.110.18",
+          "port": 26380
+        }
+      ],
+      "minTotal": "13",
+      "type": "pool-sentinel",
+      "maxTotal": "13",
+      "id": "app-db",
+      "mastername": "appdb",
+      "readTimeout": 100,
+      "connectTimeout": 100,
+      "clientName": "app"
+    },
+    {
+      "description": "sessiondb used for handler save/get context local",
+      "maxIdle": "13",
+      "sentinels": [
+        {
+          "host": "10.20.110.17",
+          "port": 26380
+        },
+        {
+          "host": "10.20.110.18",
+          "port": 26380
+        }
+      ],
+      "minTotal": "13",
+      "type": "pool-sentinel",
+      "maxTotal": "13",
+      "id": "context-sessions-db",
+      "mastername": "sessionsdb",
+      "readTimeout": 100,
+      "connectTimeout": 100,
+      "clientName": "sessions_own"
+    },
+    {
+      "description": "sessiondb used by other service for handler get context local",
+      "maxIdle": "13",
+      "sentinels": [
+        {
+          "host": "10.20.110.17",
+          "port": 26380
+        },
+        {
+          "host": "10.20.110.18",
+          "port": 26380
+        }
+      ],
+      "minTotal": "13",
+      "type": "pool-sentinel",
+      "maxTotal": "13",
+      "id": "context-sessions-db-other",
+      "mastername": "sessionsdb",
+      "readTimeout": 100,
+      "connectTimeout": 100,
+      "clientName": "sessions_other"
+    },
+    {
+      "description": "database where queues per individual sessions are maintained, if necessary",
+      "maxIdle": "13",
+      "sentinels": [
+        {
+          "host": "10.20.110.17",
+          "port": 26380
+        },
+        {
+          "host": "10.20.110.18",
+          "port": 26380
+        }
+      ],
+      "minTotal": "13",
+      "type": "pool-sentinel",
+      "maxTotal": "13",
+      "id": "sessions-queues-db",
+      "mastername": "sessionsdb",
+      "readTimeout": 100,
+      "connectTimeout": 100,
+      "clientName": "sessq"
+    },
+    {
+      "description": "database where counters are stored for spread calculation",
+      "maxIdle": "13",
+      "sentinels": [
+        {
+          "host": "10.20.110.17",
+          "port": 26380
+        },
+        {
+          "host": "10.20.110.18",
+          "port": 26380
+        }
+      ],
+      "minTotal": "13",
+      "type": "pool-sentinel",
+      "maxTotal": "13",
+      "id": "spread-db",
+      "mastername": "spreaddb",
+      "readTimeout": 100,
+      "connectTimeout": 100,
+      "clientName": "spread"
+    },
+    {
+      "description": "database where traces are stored",
+      "maxIdle": "13",
+      "sentinels": [
+        {
+          "host": "10.20.110.17",
+          "port": 26380
+        },
+        {
+          "host": "10.20.110.18",
+          "port": 26380
+        }
+      ],
+      "minTotal": "13",
+      "type": "pool-sentinel",
+      "maxTotal": "13",
+      "id": "tracing-db",
+      "mastername": "tracedb",
+      "readTimeout": 100,
+      "connectTimeout": 100,
+      "clientName": "tracedb"
+    },
+    {
+      "description": "database where profiles per user or per flow are stored",
+      "maxIdle": "13",
+      "sentinels": [
+        {
+          "host": "10.20.110.17",
+          "port": 26380
+        },
+        {
+          "host": "10.20.110.18",
+          "port": 26380
+        }
+      ],
+      "minTotal": "13",
+      "type": "pool-sentinel",
+      "maxTotal": "13",
+      "id": "profiles-db",
+      "mastername": "profilesdb",
+      "readTimeout": 100,
+      "connectTimeout": 100,
+      "clientName": "profiles"
+    },
+    {
+      "description": "database where fixed and variable lists are stored",
+      "maxIdle": "13",
+      "sentinels": [
+        {
+          "host": "10.20.110.17",
+          "port": 26380
+        },
+        {
+          "host": "10.20.110.18",
+          "port": 26380
+        }
+      ],
+      "minTotal": "13",
+      "type": "pool-sentinel",
+      "maxTotal": "13",
+      "id": "lists-db",
+      "mastername": "listsdb",
+      "readTimeout": 100,
+      "connectTimeout": 100,
+      "clientName": "lists"
+    },
+    {
+      "description": "database where cdr queue is",
+      "maxIdle": "13",
+      "sentinels": [
+        {
+          "host": "10.20.110.17",
+          "port": 26380
+        },
+        {
+          "host": "10.20.110.18",
+          "port": 26380
+        }
+      ],
+      "minTotal": "13",
+      "type": "pool-sentinel",
+      "maxTotal": "13",
+      "id": "cdr-db",
+      "mastername": "queuedb",
+      "readTimeout": 100,
+      "connectTimeout": 100,
+      "clientName": "cdr"
+    },
+    {
+      "description": "database where queues for text analysis are maintained; this would be also the ingress queue of text classifier",
+      "maxIdle": "13",
+      "sentinels": [
+        {
+          "host": "10.20.110.17",
+          "port": 26380
+        },
+        {
+          "host": "10.20.110.18",
+          "port": 26380
+        }
+      ],
+      "minTotal": "13",
+      "type": "pool-sentinel",
+      "maxTotal": "13",
+      "id": "text-analysis-db",
+      "mastername": "appdb",
+      "readTimeout": 100,
+      "connectTimeout": 100,
+      "clientName": "classifier"
+    },
+    {
+      "id": "cdr-queue",
+      "value": "cdrQueue",
+      "description": "the queue where CDRs (automatic CDRs) are inserted, if they are configured via flow profile"
+    },
+    {
+      "id": "flow-profile-cache-time-ms",
+      "value": 60000,
+      "description": "each flow profile is kept in memory for a number of milliseconds and only refreshed once every milliseconds"
+    }
+  ],
+  "RTENGINE": {
+    "queue": {
+      "description": "this is the db where we are getting messages from",
+      "ingress": "poc_sip_events",
+      "maxIdle": "13",
+      "sentinels": [
+        {
+          "host": "10.20.110.17",
+          "port": 26380
+        },
+        {
+          "host": "10.20.110.18",
+          "port": 26380
+        }
+      ],
+      "minTotal": "13",
+      "maxTotal": "13",
+      "mastername": "queuedb",
+      "egress": "poc_sip_app_events",
+      "clientName": "queue"
+    },
+    "queue-ingress-max-length": 100,
+    "max-allowed-worker-delay-millis": 23000,
+    "show-jvm-metrics": false,
+    "middlewares": [
+      {
+        "description": "tracinglib with reload timer in ms",
+        "class": "io.qsrlabs.nexus.tracing.NexusTracingMiddleware",
+        "init": "redis://10.20.110.17:26380,10.20.110.18:26380/appdb/meta.qp.POC_SIP_RTE_1?path=staging&type=json"
+      },
+      {
+        "class": "com.eitg.quasar.nexus.middleware.scxml.ScxmlMiddleware",
+        "init": "redis://10.20.110.17:26380,10.20.110.18:26380/appdb/meta.qp.POC_SIP_RTE_1?path=scxml&type=json"
+      }
+    ],
+    "remove-outgoing-header": true,
+    "nb-worker-threads": "8",
+    "alarm-consumption-frequency": 100,
+    "preprocessor": "",
+    "max-allowed-nb-workers-delayed": 1,
+    "monitor": {
+      "description": "this is the db where the management keys of all instances are kept",
+      "maxIdle": "10",
+      "sentinels": [
+        {
+          "host": "10.20.110.17",
+          "port": 26380
+        },
+        {
+          "host": "10.20.110.18",
+          "port": 26380
+        }
+      ],
+      "minTotal": "10",
+      "maxTotal": "10",
+      "mastername": "monitordb",
+      "readTimeout": 5000,
+      "connectTimeout": 5000,
+      "clientName": "monitor"
+    },
+    "http-metrics-port": 9000,
+    "alarm-centralized-queue": "notification-events",
+    "state-provider": "",
+    "environment-name": "POC",
+    "metrics": [
+      {
+        "match": "io.qsrlabs.nexus.adaptors.redis.Adaptor.workers.active",
+        "metric": "workersActive",
+        "labels": {
+          "category": "management"
+        }
+      },
+      {
+        "match": "io.qsrlabs.nexus.adaptors.redis.Adaptor.workers.configured",
+        "metric": "workersConfigured",
+        "labels": {
+          "category": "management"
+        }
+      },
+      {
+        "match": "io.qsrlabs.nexus.adaptors.redis.Adaptor.loop.iterations",
+        "metric": "healthCheck",
+        "labels": {
+          "category": "management"
+        }
+      },
+      {
+        "match": "io.qsrlabs.nexus.adaptors.redis.Adaptor.loop.executions.*",
+        "metric": "commands",
+        "labels": {
+          "category": "management",
+          "command": "${0}"
+        }
+      },
+      {
+        "match": "io.qsrlabs.nexus.adaptors.redis.Adaptor.loop.executions.errors",
+        "metric": "errors",
+        "labels": {
+          "category": "management"
+        }
+      },
+      {
+        "match": "io.qsrlabs.nexus.adaptors.redis.WorkerWithoutExpiration.overall",
+        "metric": "ingress",
+        "labels": {
+          "category": "traffic"
+        }
+      },
+      {
+        "match": "io.qsrlabs.nexus.adaptors.redis.WorkerWithoutExpiration.parse.*.error",
+        "metric": "parseErrors",
+        "labels": {
+          "category": "traffic",
+          "direction": "${0}"
+        }
+      },
+      {
+        "match": "io.qsrlabs.nexus.adaptors.redis.WorkerWithoutExpiration.process.urgency.*",
+        "metric": "urgencyTreatment",
+        "labels": {
+          "category": "traffic",
+          "middleware": "${0}"
+        }
+      },
+      {
+        "match": "io.qsrlabs.nexus.adaptors.redis.WorkerWithoutExpiration.*.error.*",
+        "metric": "writeError",
+        "labels": {
+          "category": "traffic",
+          "direction": "${0}",
+          "target": "${1}"
+        }
+      },
+      {
+        "match": "io.qsrlabs.nexus.adaptors.redis.WorkerWithoutExpiration.generic.error",
+        "metric": "genericError",
+        "labels": {
+          "category": "traffic"
+        }
+      },
+      {
+        "match": "io.qsrlabs.nexus.adaptors.redis.WorkerWithoutExpiration.write.event.top",
+        "metric": "highPriorityEvents",
+        "labels": {
+          "category": "traffic"
+        }
+      },
+      {
+        "match": "io.qsrlabs.nexus.adaptors.redis.WorkerWithoutExpiration.write.event.bottom",
+        "metric": "lowPriorityEvents",
+        "labels": {
+          "category": "traffic"
+        }
+      },
+      {
+        "match": "io.qsrlabs.nexus.adaptors.redis.WorkerWithoutExpiration.write.event.error.redis",
+        "metric": "eventNotSent",
+        "labels": {
+          "category": "traffic"
+        }
+      },
+      {
+        "match": "io.qsrlabs.nexus.adaptors.redis.WorkerWithoutExpiration.overload.*",
+        "metric": "overload",
+        "labels": {
+          "category": "traffic",
+          "level": "${0}"
+        }
+      },
+      {
+        "match": "io.qsrlabs.nexus.adaptors.redis.WorkerWithoutExpiration.overload.*.discard",
+        "metric": "overloadDiscards",
+        "labels": {
+          "category": "traffic",
+          "level": "${0}"
+        }
+      },
+      {
+        "match": "io.qsrlabs.nexus.adaptors.redis.WorkerWithoutExpiration.overload.*.discard.countmsg",
+        "metric": "overloadDiscardMessages",
+        "labels": {
+          "category": "traffic",
+          "level": "${0}"
+        }
+      },
+      {
+        "match": "io.qsrlabs.nexus.adaptors.redis.WorkerWithoutExpiration.overload.delete.error",
+        "metric": "overloadDeleteErrors",
+        "labels": {
+          "category": "traffic"
+        }
+      },
+      {
+        "match": "com.eitg.quasar.nexus.middleware.scxml.framework.GenericMonitoredAction.write.event.top",
+        "metric": "highPriorityEventsFlow",
+        "labels": {
+          "category": "traffic"
+        }
+      },
+      {
+        "match": "com.eitg.quasar.nexus.middleware.scxml.framework.GenericMonitoredAction.write.event.bottom",
+        "metric": "lowPriorityEventsFlow",
+        "labels": {
+          "category": "traffic"
+        }
+      },
+      {
+        "match": "com.eitg.quasar.nexus.middleware.scxml.framework.GenericMonitoredAction.write.*.error",
+        "metric": "directWritesFormatError",
+        "labels": {
+          "category": "traffic",
+          "type": "${0}"
+        }
+      },
+      {
+        "match": "com.eitg.quasar.nexus.middleware.scxml.framework.GenericMonitoredAction.cache.*.*.*.*.*",
+        "metric": "rteCacheOps",
+        "labels": {
+          "category": "traffic",
+          "action": "${0}",
+          "flow": "${1}",
+          "state": "${2}",
+          "result": "${3}",
+          "reason": "${4}"
+        }
+      },
+      {
+        "match": "com.eitg.quasar.nexus.middleware.scxml.framework.GenericMonitoredAction.max-transitions.*.*",
+        "metric": "maxTransitions",
+        "labels": {
+          "category": "traffic",
+          "service": "${0}",
+          "flow": "${1}"
+        }
+      },
+      {
+        "match": "com.eitg.quasar.nexus.middleware.scxml.framework.GenericMonitoredAction.statelatencies.*.*",
+        "metric": "statelatencies",
+        "labels": {
+          "category": "traffic",
+          "flow": "${0}",
+          "stateName": "${1}"
+        }
+      },
+      {
+        "match": "com.eitg.quasar.nexus.middleware.scxml.handlers.CustomCounterHandler.*.*.*.*.*",
+        "metric": "userCounter",
+        "labels": {
+          "sname": "${4}",
+          "category": "traffic",
+          "sgroup": "${2}",
+          "service": "${0}",
+          "flow": "${1}",
+          "stype": "${3}"
+        }
+      },
+      {
+        "match": "io.qsrlabs.nexus.tracing.NexusTracingMiddleware.*.*.*",
+        "metric": "Staging",
+        "labels": {
+          "category": "staging",
+          "stype": "${0}",
+          "sgroup": "${1}",
+          "sname": "${2}"
+        }
+      },
+      {
+        "match": "com.eitg.quasar.nexus.middleware.scxml.ScxmlMiddleware.latency",
+        "metric": "scxmlLatency",
+        "labels": {
+          "category": "traffic"
+        }
+      },
+      {
+        "match": "com.eitg.quasar.nexus.middleware.scxml.ScxmlMiddleware.interaction-manager-exception",
+        "metric": "scxmlInteractionManagerExceptions",
+        "labels": {
+          "category": "traffic"
+        }
+      },
+      {
+        "match": "com.eitg.quasar.nexus.middleware.scxml.ScxmlMiddleware.session-locked.*",
+        "metric": "scxmlSessionLocked",
+        "labels": {
+          "category": "traffic",
+          "event": "${0}"
+        }
+      },
+      {
+        "match": "com.eitg.quasar.nexus.middleware.scxml.ScxmlMiddleware.generic-exception",
+        "metric": "scxmlGenericExceptions",
+        "labels": {
+          "category": "traffic",
+          "event": "${0}"
+        }
+      },
+      {
+        "match": "com.eitg.quasar.nexus.middleware.scxml.ScxmlMiddleware.skip-message",
+        "metric": "scxmlSkippedMessages",
+        "labels": {
+          "category": "traffic"
+        }
+      },
+      {
+        "match": "com.eitg.quasar.nexus.middleware.scxml.ScxmlMiddleware.lateEvent",
+        "metric": "scxmlLateEvents",
+        "labels": {
+          "category": "traffic"
+        }
+      },
+      {
+        "match": "com.eitg.quasar.nexus.middleware.scxml.ScxmlMiddleware.roundtrips.*.*",
+        "metric": "scxmlRequestsLatency",
+        "labels": {
+          "category": "traffic",
+          "flow": "${0}",
+          "state": "${1}"
+        }
+      },
+      {
+        "match": "com.eitg.quasar.nexus.interactionmanager.flowexecutors.scxml.StateMachineCacheEntry.flowcache.*.*",
+        "metric": "flowLoad",
+        "labels": {
+          "status": "${1}",
+          "flow": "${0}"
+        }
+      }
+    ],
+    "cleanup-structures-before-json-conversion": false,
+    "poll-ingress-timeout": 20
+  },
+  "last_change_date": 1727084616000,
+  "action-aliases": [
+    {
+      "id": "com.eitg.quasar.nexus.rta.RTAScxmlJexlEvaluator",
+      "value": "io.qsrlabs.nexus.middleware.scxml.handlers.EvaluateParamsAndGenerateEvent",
+      "description": "old state evaluator handler from RTA package is discontinued in favour of new one"
+    }
+  ]
+}

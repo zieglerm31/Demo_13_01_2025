@@ -1,0 +1,174 @@
+{
+  "CdrGw": {
+    "queue": {
+      "spec": {
+        "sentinels": [
+          {
+            "host": "10.20.110.17",
+            "port": 26380
+          },
+          {
+            "host": "10.20.110.18",
+            "port": 26380
+          }
+        ],
+        "master-name": "queuedb",
+        "name": "poc_cdrGW_ingress",
+        "timeout-ms": 6000,
+        "nb-retries": 5
+      },
+      "pool": {
+        "time-between-eviction-runs-ms": -1,
+        "max-idle-per-key": 21,
+        "test-on-borrow?": false,
+        "min-evictable-idle-time-ms": 60000,
+        "lifo?": true,
+        "test-while-idle?": false,
+        "max-wait-ms": -1,
+        "max-total": 21,
+        "soft-min-evictable-idle-time-ms": -1,
+        "max-total-per-key": 21,
+        "min-idle-per-key": 21,
+        "block-when-exhausted?": true,
+        "test-on-return?": false,
+        "num-tests-per-eviction-run": -1
+      },
+      "ingress": "poc_cdrGW_ingress",
+      "egress": "poc_sip_events",
+      "brpop-timeout-sec": 5,
+      "description": "this is the db where we are getting messages from"
+    },
+    "monitor": {
+      "spec": {
+        "sentinels": [
+          {
+            "host": "10.20.110.17",
+            "port": 26380
+          },
+          {
+            "host": "10.20.110.18",
+            "port": 26380
+          }
+        ],
+        "master-name": "monitordb",
+        "name": "monitor",
+        "timeout-ms": 6000,
+        "nb-retries": 5
+      },
+      "pool": {
+        "time-between-eviction-runs-ms": -1,
+        "max-idle-per-key": 2,
+        "test-on-borrow?": false,
+        "min-evictable-idle-time-ms": 60000,
+        "lifo?": true,
+        "test-while-idle?": false,
+        "max-wait-ms": -1,
+        "max-total": 2,
+        "soft-min-evictable-idle-time-ms": -1,
+        "max-total-per-key": 2,
+        "min-idle-per-key": 2,
+        "block-when-exhausted?": true,
+        "test-on-return?": false,
+        "num-tests-per-eviction-run": -1
+      },
+      "notifications-queue": "notification-events",
+      "brpop-timeout-sec": 5,
+      "description": "this is the db where the management keys of all instances are kept"
+    },
+    "file": {
+      "cdrFieldsPatterns": {
+        "default": [
+          "MSISDN",
+          "ServiceSessionId",
+          "MsgType",
+          "MsgSessionId",
+          "MsgId",
+          "MsgDetails",
+          "Servicedetails",
+          "LogLineTime",
+          "callAnswered",
+          "callEnded",
+          "callDuration"
+        ]
+      },
+      "cdrFileOptions": {
+        "default": {
+          "path": "/appl/aep/var/cdr/poc/",
+          "maxAgeInMinutes": 840,
+          "useFooter": true,
+          "estimatedCdrLineLength": 20,
+          "maxNbOfLines": 10000,
+          "closeSuffix": ".done",
+          "useJsonFormat": false,
+          "footer": [
+            "T",
+            "GENDATE",
+            "GENTIME",
+            "current:MSISDN"
+          ],
+          "header": [
+            "H1",
+            "GENDATE",
+            "GENTIME",
+            "1",
+            "\n",
+            "H2",
+            "MSISDN",
+            "ServiceSessionId",
+            "MsgType",
+            "MsgSessionId",
+            "MsgId",
+            "MsgDetails",
+            "Servicedetails",
+            "LogLineTime",
+            "callAnswered",
+            "callEnded",
+            "callDuration"
+          ],
+          "prefix": "cdr",
+          "useHeader": true,
+          "maxSizeInBytes": 1024000,
+          "openSuffix": ".open",
+          "separatorEscapeSequenceInFieldContent": "’",
+          "useLinesCount": false,
+          "fieldSeparator": ","
+        }
+      }
+    },
+    "stats": {
+      "jmx-enabled": "true",
+      "prometheus-enabled": "true",
+      "prometheus-http-port": 50711,
+      "prometheus-export-hotspot-metrics": "true",
+      "prometheus-metrics-mapping": [
+        {
+          "match": "charging.local-application.*.*",
+          "metric": "${1}",
+          "labels": [
+            {
+              "name": "type",
+              "value": "${0}"
+            }
+          ]
+        },
+        {
+          "match": "requests.local-application.*",
+          "metric": "${0}",
+          "labels": []
+        },
+        {
+          "match": "worker.*.*",
+          "metric": "${0}_${1}",
+          "labels": []
+        }
+      ]
+    },
+    "nb-threads": 16,
+    "allowed-worker-delay-ms": 23000,
+    "allowed-workers-in-delay": 1
+  },
+  "name": "POC_cdrGW",
+  "description": "This component receives CDR write events and writes it into a logfile",
+  "last_author": "robert.stoiber@hcltech.com",
+  "last_change_date": 1740057345585
+}

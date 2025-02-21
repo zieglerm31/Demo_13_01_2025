@@ -1,0 +1,61 @@
+{
+  "TASGw": {
+    "queue": {
+      "description": "this is the db where we are getting messages from",
+      "ingress": "poc_notUsed",
+      "maxIdle": 32,
+      "name": "queue",
+      "frequency-read-queue-ms": 5000,
+      "sentinels": [
+        {
+          "host": "10.20.110.17",
+          "port": 26380
+        },
+        {
+          "host": "10.20.110.18",
+          "port": 26380
+        }
+      ],
+      "minTotal": 32,
+      "maxTotal": 32,
+      "mastername": "queuedb",
+      "egress": "poc_sip_events",
+      "nb-retries": 5,
+      "timeout-ms": 10000
+    },
+    "monitor": {
+      "description": "this is the db where the management keys of all instances are kept",
+      "maxIdle": 13,
+      "name": "monitor",
+      "frequency-read-queue-ms": 5000,
+      "sentinels": [
+        {
+          "host": "10.20.110.17",
+          "port": 26380
+        },
+        {
+          "host": "10.20.110.18",
+          "port": 26380
+        }
+      ],
+      "minTotal": 13,
+      "maxTotal": 13,
+      "mastername": "monitordb",
+      "nb-retries": 5,
+      "timeout-ms": 10000
+    },
+    "overload": {
+      "queue-max-length": 250,
+      "max-execution-time": 2750,
+      "sleep-time": 1000
+    },
+    "sip-session-nack": "(.*)OPTIONS(.*)",
+    "nb-threads": 8
+  },
+  "name": "POC_tasGW_sip_1",
+  "description": "Redis TASgw for poc",
+  "bitbucketDescription": "",
+  "bitbucketEnabled": false,
+  "last_author": "markus.ziegler@hpe.com",
+  "last_change_date": 1726740079016
+}

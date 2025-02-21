@@ -1,0 +1,29 @@
+{
+  "BACKEND_SERVER": "https://10.20.110.17:9007",
+  "FLOW_EDITOR_SERVER": "https://10.20.110.17:9007",
+  "SCRIPT_EDITOR_SERVER": "https://10.20.110.17:9007",
+  "UI_COMPONENTS_EDITOR": "https://10.20.110.17:9007",
+  "UI_SERVER_BACKEND": "test",
+  "OAUTH2_SERVER": "https://10.20.110.17:9001/realms/nexus-aep/",
+  "OAUTH2_CLIENT_ID": "aep-gui",
+  "PROJECT_PERIODIC_CHECK_SEC": 60,
+  "CUSTOM_OIDC_SCOPES": "aep-gui",
+  "ENVIRONMENT": "POC_dc02_lab"
+    ,"EXTERNAL_APPS":[
+                    {
+            "label": "Confluence",
+            "url": "https://test.telzar.com",
+            "icon": "pi pi-confluence"
+		    },
+                    {
+            "label": "Keycloak (UserAdmin - masteradmin/admin)",
+            "url": "https://10.20.110.17:9001/admin/master/console/#/nexus-aep",
+            "icon": "pi pi-confluence"
+                    },
+                    {
+            "label": "TMP (MRF - ocroot/ocroot)",
+            "url": "https://10.20.110.16:6443/OCMPEM",
+            "icon": "pi pi-confluence"
+                    }
+      ]
+  }
