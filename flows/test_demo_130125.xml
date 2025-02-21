@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<mxGraphModel dx="4938" dy="3464" grid="1" gridSize="10" guides="1" tooltips="1" connect="1"
+<mxGraphModel dx="4886" dy="3315" grid="1" gridSize="10" guides="1" tooltips="1" connect="1"
               fold="1"
               page="1"
               pageScale="1"
@@ -786,7 +786,7 @@
          <mxGeometry relative="1" as="geometry"/>
       </mxCell>
       <mxCell id="103"
-              value="add event-stack processing. the last or one before last is &#xA;&#xA;&#xA;events-stack&#x9;&#x9;[5]&#xA;0&#x9;:&#x9;sip.callStart.NONE&#xA;1&#x9;:&#x9;sip.callPoll.SIPSuccessResponsePollEvent&#xA;2&#x9;:&#x9;sip.callAnswered.SipCallLegUaClient&#xA;3&#x9;:&#x9;leg.max_call_duration&#xA;4&#x9;:&#x9;sip.callStart.DISCONNECTED&#xA;&#xA;normal disconnect&#xA;0&#x9;:&#x9;sip.callStart.NONE&#xA;1&#x9;:&#x9;sip.callPoll.SIPSuccessResponsePollEvent&#xA;2&#x9;:&#x9;sip.callAnswered.SipCallLegUaClient&#xA;3&#x9;:&#x9;sip.callStart.DISCONNECTED"
+              value="add event-stack processing. the last or one before last is &#xA;&#xA;&#xA;events-stack  [5]&#xA;0 : sip.callStart.NONE&#xA;1 : sip.callPoll.SIPSuccessResponsePollEvent&#xA;2 : sip.callAnswered.SipCallLegUaClient&#xA;3 : leg.max_call_duration&#xA;4 : sip.callStart.DISCONNECTED&#xA;&#xA;normal disconnect&#xA;0 : sip.callStart.NONE&#xA;1 : sip.callPoll.SIPSuccessResponsePollEvent&#xA;2 : sip.callAnswered.SipCallLegUaClient&#xA;3 : sip.callStart.DISCONNECTED"
               style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;fillColor=#FFFFCC;"
               parent="1"
               vertex="1">
@@ -864,24 +864,6 @@
             <mxGeometry x="-2120" y="480" width="120" height="60" as="geometry"/>
          </mxCell>
       </undefined>
-      <mxCell id="115" value="dtmf.digit.1"
-              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;"
-              parent="1"
-              edge="1">
-         <mxGeometry relative="1" as="geometry"/>
-      </mxCell>
-      <mxCell id="116" value="dtmf.digit.1"
-              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;"
-              parent="1"
-              edge="1">
-         <mxGeometry relative="1" as="geometry"/>
-      </mxCell>
-      <mxCell id="117" value="dtmf.digit.1"
-              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;"
-              parent="1"
-              edge="1">
-         <mxGeometry relative="1" as="geometry"/>
-      </mxCell>
       <mxCell id="119" value="dtmf.digit.2"
               style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.75;exitY=1;entryX=0.5;entryY=0;"
               parent="1"
@@ -1029,25 +1011,11 @@
             <mxGeometry x="-2280" y="615" width="120" height="60" as="geometry"/>
          </mxCell>
       </counter>
-      <mxCell id="131" value="sip.callEnd"
-              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;"
-              parent="1"
-              target="130"
-              edge="1">
-         <mxGeometry relative="1" as="geometry"/>
-      </mxCell>
       <mxCell id="132"
               style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;"
               parent="1"
               source="130"
               target="129"
-              edge="1">
-         <mxGeometry relative="1" as="geometry"/>
-      </mxCell>
-      <mxCell id="133"
-              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;"
-              parent="1"
-              source="129"
               edge="1">
          <mxGeometry relative="1" as="geometry"/>
       </mxCell>
@@ -1072,25 +1040,11 @@
             <mxGeometry x="-2120" y="605" width="120" height="60" as="geometry"/>
          </mxCell>
       </counter>
-      <mxCell id="136" value="sip.callEnd"
-              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;"
-              parent="1"
-              target="135"
-              edge="1">
-         <mxGeometry relative="1" as="geometry"/>
-      </mxCell>
       <mxCell id="137"
               style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;"
               parent="1"
               source="135"
               target="134"
-              edge="1">
-         <mxGeometry relative="1" as="geometry"/>
-      </mxCell>
-      <mxCell id="138"
-              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;"
-              parent="1"
-              source="134"
               edge="1">
          <mxGeometry relative="1" as="geometry"/>
       </mxCell>
@@ -1102,21 +1056,18 @@
               edge="1">
          <mxGeometry relative="1" as="geometry"/>
       </mxCell>
-      <mxCell id="141"
-              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;"
+      <mxCell id="141" value=""
+              style="rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;edgeStyle=orthogonalEdgeStyle;"
               parent="1"
               source="134"
               target="47"
               edge="1">
-         <mxGeometry relative="1" as="geometry"/>
-      </mxCell>
-      <mxCell id="142"
-              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;"
-              parent="1"
-              source="129"
-              target="47"
-              edge="1">
-         <mxGeometry relative="1" as="geometry"/>
+         <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+               <mxPoint x="-2060" y="830"/>
+               <mxPoint x="-2220" y="830"/>
+            </Array>
+         </mxGeometry>
       </mxCell>
       <mxCell id="151" value="sip.callEnd"
               style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;"
@@ -1127,7 +1078,7 @@
          <mxGeometry relative="1" as="geometry"/>
       </mxCell>
       <mxCell id="152"
-              value="The call is in establishment phase. In this case a Terminate of the call will send a 4xx response. &#xA;If case any DTMF (but not 1 or 2) is received a 603 (Declined) with q850 and SIP cause+text as in the handler.&#xA;&#xA;If DTMF digit 1 is received a 402 (Payment Required) with q850 and txt is sent back.&#xA;&#xA;for other scenarios a TAS default reject is sent back.&#xA;&#xA;Handler Parameter&#xA;cause:&#x9;if set to REJECTED the errorCode is used to set the SIP status &#xA;errorCode:&#x9;486&#xA;&#xA;to set the cause and text in the upstream leg (in this case only upstream leg exists). Only if the text is added the cause is set together with the text. &#xA;reason.up.q850.cause:&#x9; 17&#xA;reason.up.q850.text:&#x9; anytext&#xA;reason.up.sip.cause:&#x9; 486&#xA;reason.up.sip.text:&#x9; siptext&#xA;&#xA;message: The message object is used to derive the queue, callid, timestamp. This is used by the TAS to find the correct call. It shall be the last received message, regardless of the leg of the call. In this case is must be the MRF msg as the Initial-Invite is too far back in time and the TAS would drop the message. If not other event was receive but the MRF disconnect the spel:#initial can be used&#xA;&#xA; "
+              value="The call is in establishment phase. In this case a Terminate of the call will send a 4xx response. &#xA;If case any DTMF (but not 1 or 2) is received a 603 (Declined) with q850 and SIP cause+text as in the handler.&#xA;&#xA;If DTMF digit 1 is received a 402 (Payment Required) with q850 and txt is sent back.&#xA;&#xA;for other scenarios a TAS default reject is sent back.&#xA;&#xA;Handler Parameter&#xA;cause: if set to REJECTED the errorCode is used to set the SIP status &#xA;errorCode: 486&#xA;&#xA;to set the cause and text in the upstream leg (in this case only upstream leg exists). Only if the text is added the cause is set together with the text. &#xA;reason.up.q850.cause:  17&#xA;reason.up.q850.text:  anytext&#xA;reason.up.sip.cause:  486&#xA;reason.up.sip.text:  siptext&#xA;&#xA;message: The message object is used to derive the queue, callid, timestamp. This is used by the TAS to find the correct call. It shall be the last received message, regardless of the leg of the call. In this case is must be the MRF msg as the Initial-Invite is too far back in time and the TAS would drop the message. If not other event was receive but the MRF disconnect the spel:#initial can be used&#xA;&#xA; "
               style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;fillColor=#FFFFCC;"
               parent="1"
               vertex="1">
@@ -1145,12 +1096,6 @@
             <mxGeometry x="-1990" y="205" width="120" height="60" as="geometry"/>
          </mxCell>
       </structured-object-builder>
-      <mxCell id="158" value="*"
-              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;"
-              parent="1"
-              edge="1">
-         <mxGeometry relative="1" as="geometry"/>
-      </mxCell>
       <invoke-subflow action="io.qsrlabs.nexus.middleware.scxml.handlers.Subflow#combobox"
                       label="MRF subflow 2"
                       subflow="Demo_13_01_2025:MRF-PlayAnn-PromptAndCollect"
@@ -1458,9 +1403,30 @@
       <mxCell id="203"
               value="Fro noansewr test&#xA;&#xA;sipp -sf sipp_uas_basic_b2bua_180NOsdp_lateanswer.xml  -i 10.20.110.17 -p 5098&#xA;sipp 10.20.110.19:5060 -i 10.20.110.17 -p 5099 -sf telzar_scenario_dtmf2-2sbreak-1-busyhere.xml -m 1 -r 1 -nr -default_behaviors abortunexp -key urinamevar 300079999700 -mp 39000 -rtp_echo&#xA;"
               style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;fillColor=#FFFFCC;"
-              vertex="1"
-              parent="1">
+              parent="1"
+              vertex="1">
          <mxGeometry x="-840" y="-15" width="280" height="140" as="geometry"/>
+      </mxCell>
+      <mxCell id="204"
+              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;"
+              parent="1"
+              source="164"
+              target="47"
+              edge="1">
+         <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+               <mxPoint x="-1930" y="820"/>
+               <mxPoint x="-2220" y="820"/>
+            </Array>
+         </mxGeometry>
+      </mxCell>
+      <mxCell id="205"
+              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;"
+              parent="1"
+              source="129"
+              target="47"
+              edge="1">
+         <mxGeometry relative="1" as="geometry"/>
       </mxCell>
    </root>
 </mxGraphModel>
