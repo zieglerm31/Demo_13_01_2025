@@ -209,7 +209,7 @@
       <undefined action="com.eitg.quasar.nexus.siphandlers.ScxmlForwardCall"
                  label="Connect to B"
                  name=""
-                 destination="spel:#session[&#34;CalledPartyOverwritten&#34;]"
+                 destination="sip:+4390123126@10.20.110.17:5098"
                  message="spel:#session[&#34;s_SIPInvite&#34;]"
                  no-answer-timer="2"
                  max-call-duration="10"
@@ -662,6 +662,13 @@
               vertex="1"
               parent="1">
          <mxGeometry x="2223" y="345" width="697" height="295" as="geometry"/>
+      </mxCell>
+      <mxCell id="136"
+              value="sipp 10.20.110.19:5060 -i 10.20.110.17 -p 5099 -sf telzar_scenario_b2bua_MRF.xml  -m 1 -r 1 -nr -default_behaviors abortunexp -key urinamevar 510079999700 -mp 39000 -rtp_echo&#xA;"
+              style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;fillColor=#FFFFCC;"
+              vertex="1"
+              parent="1">
+         <mxGeometry x="1780" y="355" width="220" height="125" as="geometry"/>
       </mxCell>
    </root>
 </mxGraphModel>
