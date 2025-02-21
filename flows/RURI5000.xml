@@ -682,16 +682,16 @@
          </mxCell>
       </undefined>
       <mxCell id="138" value="sip.callEarlyMediaAnswered.*"
-              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0;exitY=0.75;elbow=vertical;entryX=0;entryY=0.25;"
+              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0;exitY=0.75;elbow=vertical;entryX=0.5;entryY=1;"
               edge="1"
               parent="1"
               source="82"
-              target="82">
+              target="142">
          <mxGeometry relative="1" as="geometry">
             <mxPoint x="1020" y="590" as="targetPoint"/>
             <Array as="points">
                <mxPoint x="982" y="630"/>
-               <mxPoint x="790" y="630"/>
+               <mxPoint x="625" y="630"/>
             </Array>
          </mxGeometry>
       </mxCell>
@@ -708,7 +708,7 @@
             </Array>
          </mxGeometry>
       </mxCell>
-      <mxCell id="140" value="180 with SDP"
+      <mxCell id="140" value="1) 180 with SDP"
               style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;fillColor=#FFFFCC;"
               vertex="1"
               parent="1">
@@ -738,6 +738,25 @@
               source="142"
               target="137">
          <mxGeometry relative="1" as="geometry"/>
+      </mxCell>
+      <mxCell id="144" value="2) 200ok invite"
+              style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;fillColor=#FFFFCC;"
+              vertex="1"
+              parent="1">
+         <mxGeometry x="750" y="535" width="160" height="30" as="geometry"/>
+      </mxCell>
+      <mxCell id="145" value="3) ACK for 200ok?"
+              style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;fillColor=#FFFFCC;"
+              vertex="1"
+              parent="1">
+         <mxGeometry x="1180" y="645" width="160" height="30" as="geometry"/>
+      </mxCell>
+      <mxCell id="146"
+              value="This shall show a no-answer timeout and reconnect to C&#xA;OK in case 180 without SDP &#xA;sipp -sf  sipp_uas_basic_b2bua_180NOsdp_lateanswer.xml  -i 10.20.110.17 -p 5098&#xA;&#xA;NOK in case 180 with SDP (get sip.callEarlyMediaAnswered.* and noanswer timer is not triggered)&#xA;sipp -sf  sipp_uas_basic_b2bua_180sdp_lateanswer.xml  -i 10.20.110.17 -p 5098&#xA;&#xA;&#xA;sipp 10.20.110.19:5060 -i 10.20.110.17 -p 5099 -sf telzar_scenario_b2bua_MRF.xml  -m 1 -r 1 -nr -default_behaviors abortunexp -key urinamevar 520079999700 -mp 39000 -rtp_echo&#xA;"
+              style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;fillColor=#FFFFCC;"
+              vertex="1"
+              parent="1">
+         <mxGeometry x="540" y="230" width="460" height="170" as="geometry"/>
       </mxCell>
    </root>
 </mxGraphModel>
