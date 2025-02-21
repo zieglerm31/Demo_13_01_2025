@@ -380,10 +380,9 @@ function modifydisposition(session:any,event:any,localParams:any) {
         }
     }
 
-    if (initialMsg["SIP"]["R-URI"]["value"] == "sip:972000019@172.31.11.142:5062") {
-        session.destlist = ["sip:9900004@172.31.11.142:5062", "sip:9900099@172.31.11.142:5062"];
-    }
-    
+    //if (initialMsg["SIP"]["R-URI"]["value"] == "sip:972000019@172.31.11.142:5062") {
+    session.destlist = ["sip:+4390123126@10.20.110.17:5096", "sip:+4390123127@10.20.110.17:5097"];
+    //}
 
     return true;
 }
@@ -392,7 +391,9 @@ function modifydisposition(session:any,event:any,localParams:any) {
 function setdestinationlist(session:any,event:any,localParams:any) {
     //let initialMsg = localParams.message;
 
-    session.destlist = ["sip:9900011@172.31.11.142:5062", "sip:9900022@172.31.11.142:5064", "sip:9900033@172.31.11.142:5065"];
+    //sip:+4390123123@10.20.110.17:5098
+    //session.CalledPartyOverwritten="sip:+4390123123@" + session.s_SIPInvite.SIP.Contact.address.uri.host + ":5098";
+    session.destlist = ["sip:+4390123126@10.20.110.17:5096", "sip:+4390123127@10.20.110.17:5097", "sip:+4390123123@10.20.110.17:5098"];
 
     return true;
 }
