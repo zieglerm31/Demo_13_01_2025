@@ -381,7 +381,7 @@ function modifydisposition(session:any,event:any,localParams:any) {
     }
 
     //if (initialMsg["SIP"]["R-URI"]["value"] == "sip:972000019@172.31.11.142:5062") {
-    session.destlist = ["sip:+4390123126@10.20.110.17:5096", "sip:+4390123127@10.20.110.17:5097"];
+    session.destlist = ["sip:+4390123126@10.20.110.17:5098", "sip:+4390123127@10.20.110.17:5097"];
     //}
 
     return true;
