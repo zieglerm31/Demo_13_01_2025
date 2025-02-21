@@ -268,9 +268,9 @@
       <undefined action="com.eitg.quasar.nexus.siphandlers.ScxmlForwardCall"
                  label="Connect to C"
                  name=""
-                 destination="spel:#session[&#34;CalledPartyOverwritten&#34;]"
+                 destination="sip:+4390123126@10.20.110.17:5098"
                  message="spel:#session[&#34;s_SIPInvite&#34;]"
-                 no-answer-timer="2"
+                 no-answer-timer="7"
                  max-call-duration="10"
                  continue="true"
                  id="85">
@@ -323,7 +323,7 @@
                  reason.down.q850.text=""
                  reason.down.sip.cause=""
                  reason.down.sip.text=""
-                 message=""
+                 message="spel:#session[&#34;s_SIPInvite&#34;]"
                  id="90">
          <mxCell style="rectangle;shape=ext;rounded=1;html=1;whiteSpace=wrap;double=1;"
                  parent="1"
@@ -669,6 +669,55 @@
               vertex="1"
               parent="1">
          <mxGeometry x="1780" y="355" width="220" height="125" as="geometry"/>
+      </mxCell>
+      <undefined action="com.eitg.quasar.nexus.siphandlers.ScxmlSendAction" label="SendAction"
+                 name=""
+                 message="spel:#initial"
+                 continue="true"
+                 id="137">
+         <mxCell style="rectangle;shape=ext;rounded=1;html=1;whiteSpace=wrap;double=1;"
+                 vertex="1"
+                 parent="1">
+            <mxGeometry x="730" y="550" width="120" height="60" as="geometry"/>
+         </mxCell>
+      </undefined>
+      <mxCell id="138" value="sip.callEarlyMediaAnswered.*"
+              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0;exitY=0.75;entryX=0;entryY=0.25;elbow=vertical;"
+              edge="1"
+              parent="1"
+              source="82"
+              target="82">
+         <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+               <mxPoint x="850" y="630"/>
+            </Array>
+         </mxGeometry>
+      </mxCell>
+      <mxCell id="139" value="sip.callPoll.*"
+              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0;exitY=0.75;entryX=1;entryY=0.5;"
+              edge="1"
+              parent="1"
+              source="82"
+              target="137">
+         <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+               <mxPoint x="982" y="580"/>
+            </Array>
+         </mxGeometry>
+      </mxCell>
+      <mxCell id="140" value="180 with SDP"
+              style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;fillColor=#FFFFCC;"
+              vertex="1"
+              parent="1">
+         <mxGeometry x="720" y="640" width="160" height="30" as="geometry"/>
+      </mxCell>
+      <mxCell id="141" value="*"
+              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=0;entryX=0.25;entryY=0;"
+              edge="1"
+              parent="1"
+              source="137"
+              target="82">
+         <mxGeometry relative="1" as="geometry"/>
       </mxCell>
    </root>
 </mxGraphModel>
