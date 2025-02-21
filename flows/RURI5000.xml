@@ -678,16 +678,17 @@
          <mxCell style="rectangle;shape=ext;rounded=1;html=1;whiteSpace=wrap;double=1;"
                  vertex="1"
                  parent="1">
-            <mxGeometry x="730" y="550" width="120" height="60" as="geometry"/>
+            <mxGeometry x="560" y="435" width="120" height="60" as="geometry"/>
          </mxCell>
       </undefined>
       <mxCell id="138" value="sip.callEarlyMediaAnswered.*"
-              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0;exitY=0.75;entryX=0.5;entryY=1;elbow=vertical;"
+              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0;exitY=0.75;elbow=vertical;entryX=0;entryY=0.25;"
               edge="1"
               parent="1"
               source="82"
-              target="137">
+              target="82">
          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1020" y="590" as="targetPoint"/>
             <Array as="points">
                <mxPoint x="982" y="630"/>
                <mxPoint x="790" y="630"/>
@@ -699,10 +700,11 @@
               edge="1"
               parent="1"
               source="82"
-              target="137">
+              target="142">
          <mxGeometry relative="1" as="geometry">
             <Array as="points">
                <mxPoint x="982" y="580"/>
+               <mxPoint x="685" y="580"/>
             </Array>
          </mxGeometry>
       </mxCell>
@@ -718,6 +720,23 @@
               parent="1"
               source="137"
               target="82">
+         <mxGeometry relative="1" as="geometry"/>
+      </mxCell>
+      <typescript-library action="io.qsrlabs.nexus.middleware.scxml.handlers.TypeScriptLibrary#fixed"
+                          label="prepareCallPollAccept"
+                          library="Demo_13_01_2025:call"
+                          function="prepareCallPollAccept"
+                          id="142">
+         <mxCell style="image;html=1;image=clipart/script.png" vertex="1" parent="1">
+            <mxGeometry x="565" y="520" width="120" height="60" as="geometry"/>
+         </mxCell>
+      </typescript-library>
+      <mxCell id="143" value="*"
+              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=0;entryX=0.5;entryY=1;"
+              edge="1"
+              parent="1"
+              source="142"
+              target="137">
          <mxGeometry relative="1" as="geometry"/>
       </mxCell>
    </root>
