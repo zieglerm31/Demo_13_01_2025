@@ -682,14 +682,15 @@
          </mxCell>
       </undefined>
       <mxCell id="138" value="sip.callEarlyMediaAnswered.*"
-              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0;exitY=0.75;entryX=0;entryY=0.25;elbow=vertical;"
+              style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0;exitY=0.75;entryX=0.5;entryY=1;elbow=vertical;"
               edge="1"
               parent="1"
               source="82"
-              target="82">
+              target="137">
          <mxGeometry relative="1" as="geometry">
             <Array as="points">
-               <mxPoint x="850" y="630"/>
+               <mxPoint x="982" y="630"/>
+               <mxPoint x="790" y="630"/>
             </Array>
          </mxGeometry>
       </mxCell>
